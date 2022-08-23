@@ -7,36 +7,36 @@ import {apolloClient} from "../index";
 import {gql} from "@apollo/client";
 import {useParams} from "react-router-dom";
 
-const GET_CARD = gql`
-    query Product($productId: String!) {
-        product(id: $productId) {
-            id
-            name
-            inStock
-            gallery
-            description
-            category
-            prices {
-                amount
-                currency {
-                    symbol
-                    label
-                }
-            }
-            brand
-            attributes {
-                id
-                name
-                type
-                items {
-                    id
-                    value
-                    displayValue
-                }
-            }
-        }
-    }
-`;
+// const GET_CARD = gql`
+//     query Product($productId: String!) {
+//         product(id: $productId) {
+//             id
+//             name
+//             inStock
+//             gallery
+//             description
+//             category
+//             prices {
+//                 amount
+//                 currency {
+//                     symbol
+//                     label
+//                 }
+//             }
+//             brand
+//             attributes {
+//                 id
+//                 name
+//                 type
+//                 items {
+//                     id
+//                     value
+//                     displayValue
+//                 }
+//             }
+//         }
+//     }
+// `;
 
 export function withRouter(Children) {
     return (props) => {
@@ -96,7 +96,6 @@ class PDP extends React.Component {
             this.setState({
                 product: product,
                 attributes: attributes
-                // productId: this.props.match.params['cardId']
             });
 
         } catch (err) {
@@ -121,8 +120,6 @@ class PDP extends React.Component {
 
     render() {
 
-        // console.log(this.props.match.params['cardId'])
-
         // const card = ({productId}) => {
         //     apolloClient
         //         .query({query: GET_CARD, variables: {productId}})
@@ -132,10 +129,7 @@ class PDP extends React.Component {
         // }
         console.log(this.state)
         // console.log(this.state.product.id)
-        // console.log(this.state.product.name)
-        // const {attributes} = this.state.attributes
-        // console.log(id, name)
-
+        console.log(this.state.product.attributes)
         // console.log(this.state.attributes)
         let attributes = this.state.attributes
         // const sizes = attributes[0]
@@ -153,14 +147,15 @@ class PDP extends React.Component {
                         <div><GroupTitle/></div>
                         <div className={styles.choiceSize}>
                             <ul>
-                                {attributes &&
-                                    attributes.map((size, id) => (
-                                            <li key={id} className={styles.sizeItem}>{size.value}</li>
-                                        )
-                                    )
-                                }
+                                {/*{attributes &&*/}
+                                {/*    attributes.map((size, id) => (*/}
+                                {/*            <li key={id} className={styles.sizeItem}>{size.value}</li>*/}
+                                {/*        )*/}
+                                {/*    )*/}
+                                {/*}*/}
                             </ul>
-                            <ChoiceSize product={this.state.product}/>
+                            <ChoiceSize product={this.state.product}
+                                        attributes={attributes}/>
                         </div>
                         <div className={styles.choiceColor}><ChoiceColor/></div>
                         <div className={styles.groupChoicePrice}>

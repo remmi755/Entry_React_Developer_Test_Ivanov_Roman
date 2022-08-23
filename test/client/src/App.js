@@ -13,9 +13,6 @@ class App extends React.Component {
             productCards: [this.renderCards],
             activeItem: 0,
             products: [this.renderCards],
-            // press: [this.renderCards],
-            // // prices: [this.renderPrices]
-            // prices: this.renderPrices
         }
     }
 
@@ -56,11 +53,10 @@ class App extends React.Component {
                     }
                 `
             });
-            // const press = result.data.categories[0].products[0].prices[1].amount
             const categories = result.data.categories;
+
             this.setState({
                 productCards: categories,
-                // press: press
             });
 
         } catch (err) {
@@ -69,46 +65,8 @@ class App extends React.Component {
         ;
     }
 
-    // renderPrices = async () => {
-    //     try {
-    //         const result = await apolloClient
-    //         .query({
-    //             query: gql`
-    //                 query Product {
-    //                     category {
-    //                         name
-    //                         products {
-    //                             id
-    //                             name
-    //                             prices {
-    //                                 amount
-    //                                 currency {
-    //                                     label
-    //                                     symbol
-    //                                 }
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //             `
-    //         });
-    //
-    //         const prices = result.data.category.products[0].prices[0].amount;
-    //
-    //         this.setState({
-    //             prices: prices
-    //
-    //         });
-    //
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    //     ;
-    // }
-
     componentDidMount() {
         this.renderCards();
-        // this.renderPrices()
     }
 
 
@@ -118,7 +76,6 @@ class App extends React.Component {
             // this.setState({
             //     productCards: this.categories[2]
             // });
-            // this.onSelectCategories()
         }
     }
 
@@ -136,11 +93,7 @@ class App extends React.Component {
         // console.log(this.state)
         // console.log(this.state.productCards[0].products)
         // console.log(this.state.productCards)
-        // console.log(this.state.categories)
-        // console.log(this.state.prices)
-        // console.log(this.state.press)
-        // console.log(this.state.activeItem)
-        // console.log(this.state.categories[0].products)
+
         return (
             <div>
                 <h2>My first Apollo app 🚀</h2>
@@ -148,7 +101,6 @@ class App extends React.Component {
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
                 />
-                {/*<PDP/>*/}
                 <Routes>
                     <Route path="/" element={<Category
                         productCards={this.state.productCards}
@@ -160,10 +112,8 @@ class App extends React.Component {
                         activeItem={this.state.activeItem}/>}
                     />
                     <Route path="/:cardId" element={<PDP
-                        /*<Route path={`/card/ ${this.id}`} element={<PDP*/
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
-                        // cardId={this.state.cardId}
                     />}
                     />
                 </Routes>

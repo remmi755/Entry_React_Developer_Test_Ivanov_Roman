@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="481f2bac-4e30-4221-889f-a49b8840366d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/junior-react-endpoint/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/ChoiseSize.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/ChoiseSize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Pdp.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Pdp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint/src/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint/src/schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2C7ZsOhLEVzu5qGGvOo7Wvbw3II" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GrapgQl-Apollo-collection/Astro-Kitty/odyssey-lift-off-part3/client/src/components/modules-navigation.js" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="D:\Downloads\Computer-science\MyProject\NNN" />
+    <property name="settings.editor.selected.configurable" value="actions.on.save" />
+    <property name="ts.external.directory.path" value="D:\Downloads\Computer-science\MyProject\NNN\test\junior-react-endpoint\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Downloads\Computer-science\MyProject\NNN\test\client\src\pages" />
+      <recent name="D:\Downloads\Computer-science\MyProject\NNN\test\client\src" />
+      <recent name="D:\Downloads\Computer-science\MyProject\NNN\test\client" />
+      <recent name="D:\Downloads\Computer-science\MyProject\NNN\test\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="481f2bac-4e30-4221-889f-a49b8840366d" name="Changes" comment="" />
+      <created>1658155791879</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658155791879</updated>
+      <workItem from="1658155793032" duration="2017000" />
+      <workItem from="1658213629460" duration="10715000" />
+      <workItem from="1658230827002" duration="13961000" />
+      <workItem from="1658297030880" duration="2096000" />
+      <workItem from="1658310252421" duration="17279000" />
+      <workItem from="1658388789614" duration="5610000" />
+      <workItem from="1658402963696" duration="226000" />
+      <workItem from="1658409409721" duration="9032000" />
+      <workItem from="1658472948189" duration="6027000" />
+      <workItem from="1658496322809" duration="9307000" />
+      <workItem from="1658570654733" duration="10619000" />
+      <workItem from="1658730110049" duration="3106000" />
+      <workItem from="1658747722513" duration="16566000" />
+      <workItem from="1658819409838" duration="4702000" />
+      <workItem from="1658837745628" duration="12995000" />
+      <workItem from="1658904879496" duration="1511000" />
+      <workItem from="1658906429756" duration="208000" />
+      <workItem from="1658919392024" duration="17079000" />
+      <workItem from="1658989336042" duration="12494000" />
+      <workItem from="1659009724493" duration="7154000" />
+      <workItem from="1659078446599" duration="5669000" />
+      <workItem from="1659093314944" duration="9316000" />
+      <workItem from="1659177073787" duration="15837000" />
+      <workItem from="1659269403307" duration="10633000" />
+      <workItem from="1659347550692" duration="9778000" />
+      <workItem from="1659422772021" duration="4157000" />
+      <workItem from="1659442560034" duration="10759000" />
+      <workItem from="1659505672456" duration="4650000" />
+      <workItem from="1659510386269" duration="3000" />
+      <workItem from="1659617153402" duration="11161000" />
+      <workItem from="1659685823157" duration="4876000" />
+      <workItem from="1659703911681" duration="9102000" />
+      <workItem from="1659790902655" duration="5386000" />
+      <workItem from="1659939001972" duration="2416000" />
+      <workItem from="1660028029703" duration="12482000" />
+      <workItem from="1660048029442" duration="11223000" />
+      <workItem from="1660139878077" duration="4883000" />
+      <workItem from="1660198678687" duration="6175000" />
+      <workItem from="1660216008238" duration="3893000" />
+      <workItem from="1660224413548" duration="4012000" />
+      <workItem from="1660286411362" duration="5051000" />
+      <workItem from="1660293168488" duration="4285000" />
+      <workItem from="1660300323963" duration="10856000" />
+      <workItem from="1660391451021" duration="7503000" />
+      <workItem from="1660545871969" duration="8770000" />
+      <workItem from="1660569483063" duration="8657000" />
+      <workItem from="1660635875476" duration="6402000" />
+      <workItem from="1660642805919" duration="3000" />
+      <workItem from="1660650934749" duration="10754000" />
+      <workItem from="1660717116465" duration="4669000" />
+      <workItem from="1660736812234" duration="12761000" />
+      <workItem from="1660804586119" duration="1475000" />
+      <workItem from="1660823497868" duration="77000" />
+      <workItem from="1660827691153" duration="6717000" />
+      <workItem from="1660886575660" duration="10315000" />
+      <workItem from="1660907927339" duration="14094000" />
+      <workItem from="1660981680335" duration="2277000" />
+      <workItem from="1661004117828" duration="4325000" />
+      <workItem from="1661179586144" duration="4160000" />
+      <workItem from="1661236956026" duration="3098000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

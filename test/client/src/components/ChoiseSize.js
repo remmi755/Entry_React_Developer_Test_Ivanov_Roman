@@ -38,6 +38,7 @@ class ChoiceSize extends React.Component {
 
         // console.log(this.state)
         console.log(this.props)
+        console.log(this.props.attributes)
         // console.log(this.props.product.attributes[1].items)
 
         // console.log(this.props.product.attributes[0].items)
@@ -48,18 +49,18 @@ class ChoiceSize extends React.Component {
         // console.log(attribut.items)
         return (
             <main className={styles.container}>
-                <h5 className={styles.h5}>SIZE:</h5>
+                <h5 className={styles.h5}>Size:</h5>
                 <ul className={styles.sizes}>
-                    {/*{attributes &&*/}
-                    {/*    attributes?.map((size, id) => (*/}
-                    {/*            <li key={id} className={styles.sizeItem}>{size.value}</li>*/}
-                    {/*        )*/}
-                    {/*    )*/}
-                    {/*}*/}
-                    <div className={styles.sizeItem}>XS</div>
-                    <div className={`${styles.sizeItem} ${styles.active}`}>S</div>
-                    <div className={styles.sizeItem}>M</div>
-                    <div className={styles.sizeItem}>L</div>
+                    {this.props.attributes &&
+                        this.props.attributes?.map((size, id) => (
+                                <li key={id} className={styles.sizeItem}>{size.value}</li>
+                            )
+                        )
+                    }
+                    {/*<div className={styles.sizeItem}>XS</div>*/}
+                    {/*<div className={`${styles.sizeItem} ${styles.active}`}>S</div>*/}
+                    {/*<div className={styles.sizeItem}>M</div>*/}
+                    {/*<div className={styles.sizeItem}>L</div>*/}
                 </ul>
             </main>
         )
