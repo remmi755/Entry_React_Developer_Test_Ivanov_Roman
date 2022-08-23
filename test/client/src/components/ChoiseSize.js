@@ -52,8 +52,12 @@ class ChoiceSize extends React.Component {
                 <h5 className={styles.h5}>Size:</h5>
                 <ul className={styles.sizes}>
                     {this.props.attributes &&
-                        this.props.attributes?.map((size, id) => (
-                                <li key={id} className={styles.sizeItem}>{size.value}</li>
+                        this.props.attributes?.map((attribute, id) => (
+                                <li key={id} className={styles.sizeItem}
+                                    style={{backgroundColor: attribute.value}}
+                                >
+                                    {attribute.value}
+                                </li>
                             )
                         )
                     }

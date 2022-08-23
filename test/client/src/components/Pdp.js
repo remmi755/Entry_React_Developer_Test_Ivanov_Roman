@@ -127,7 +127,8 @@ class PDP extends React.Component {
         //             console.log(res)
         //         })
         // }
-        console.log(this.state)
+        console.log(this.state.product.description)
+        let description = this.state.product.description
         // console.log(this.state.product.id)
         console.log(this.state.product.attributes)
         // console.log(this.state.attributes)
@@ -163,7 +164,9 @@ class PDP extends React.Component {
                             <div className={styles.price}>$50.00</div>
                         </div>
                         <button className={styles.button}>ADD TO CART</button>
-                        <p className={styles.description}>Description</p>
+                        <p className={styles.description}>
+                            {description}
+                        </p>
                     </div>
                 </section>
             </main>

@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="481f2bac-4e30-4221-889f-a49b8840366d" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/test/junior-react-endpoint/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/ChoiceSize.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/ChoiceSize.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/components/ChoiseSize.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/ChoiseSize.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/components/Pdp.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Pdp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint" afterDir="false" />
@@ -132,7 +133,7 @@
       <workItem from="1660981680335" duration="2277000" />
       <workItem from="1661004117828" duration="4325000" />
       <workItem from="1661179586144" duration="4160000" />
-      <workItem from="1661236956026" duration="3098000" />
+      <workItem from="1661236956026" duration="6568000" />
     </task>
     <servers />
   </component>
