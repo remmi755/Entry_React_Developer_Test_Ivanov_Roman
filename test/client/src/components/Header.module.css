@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    max-height: 80px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 24px 100px 0 100px;
+    border: 2px solid yellow;
+}
+
+.navigation {
+    display: flex;
+    width: 234px;
+    height: 56px;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.navigationItem {
+    padding: 0 16px;
+}
+.logo {
+    justify-content: center;
+}
+
+.actions {
+    display: flex;
+    width: 200px;
+    justify-content: end;
+    border: 1px solid red;
+}
+
+.actionsItem {
+    width: 38px;
+    padding: 0 15px;
+    margin-right: 20px;
+}
+

@@ -1,0 +1,81 @@
+.container {
+    width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    padding: 80px 220px 180px 100px;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+.blockImg {
+    display: flex;
+    flex-direction: column;
+}
+
+.blockImgItem {
+    width: 79px;
+    margin-bottom: 40px;
+    border: 1px solid yellowgreen;
+}
+
+.blockGroup {
+    display: flex;
+    margin-left: 40px;
+}
+
+.groupImg {
+    width: 610px;
+    border: 1px solid yellowgreen;
+}
+
+.groupChoice {
+    width: 292px;
+    margin-left: 100px;
+    border: 1px solid yellowgreen;
+}
+
+.choiceSize {
+    margin-top: 40px;
+}
+
+.choiceColor {
+    margin-top: 24px;
+}
+
+.h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.groupChoicePrice {
+    margin-top: 36px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.button {
+    width: 100%;
+    padding: 16px 0;
+    color: white;
+    background-color: rgba(94, 206, 123, 1);
+    text-align: center;
+    border: none;
+    margin-top: 20px;
+}
+
+.description {
+    margin-top: 40px;
+}
+
+.sizeItem {
+    width: 65px;
+    height: 45px;
+    border: 1px solid rgba(29, 31, 34, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

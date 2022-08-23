@@ -1,0 +1,16 @@
+.actions {
+    display: flex;
+    width: 200px;
+    justify-content: end;
+    border: 1px solid red;
+}
+
+.actionsItem {
+    width: 38px;
+    padding: 0 15px;
+    margin-right: 20px;
+}
+
+.actionsOutline {
+    background-color: #5ECE7B;
+}

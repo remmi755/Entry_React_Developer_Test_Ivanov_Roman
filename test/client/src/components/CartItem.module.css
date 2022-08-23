@@ -1,0 +1,55 @@
+.container {
+    width: 1440px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 100px 30px 100px;
+    border: 1px solid red;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0 0 0;
+}
+
+.choiceSize {
+    margin-top: 20px;
+}
+
+.choiceColor {
+    margin-top: 16px;
+}
+
+.sum {
+    width: 45px;
+    display: flex;
+    margin-right: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sumItem {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(29, 31, 34, 1);
+}
+
+.borderNone {
+    border: none;
+}
+
+.groupImg{
+   display: flex;
+}
+
+.img {
+    width: 200px;
+    height: 100%px;
+    border: 1px solid grey;
+}

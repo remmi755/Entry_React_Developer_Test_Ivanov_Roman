@@ -1,0 +1,21 @@
+.container {
+    width: 1440px;
+    box-sizing: border-box;
+    padding: 80px 100px 274px 100px;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 55px 0;
+}
+
+.content {
+    border: 1px solid red;
+}
+
+.groupOrder {
+    margin-top: 32px;
+}

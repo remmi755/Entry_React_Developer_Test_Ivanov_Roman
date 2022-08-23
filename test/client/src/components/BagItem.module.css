@@ -1,0 +1,106 @@
+.container {
+    width: 293px;
+    /*height: 190px;*/
+    display: flex;
+    box-sizing: border-box;
+}
+
+.content {
+    width: 164px;
+    box-sizing: border-box;
+}
+
+.title {
+    margin: 0;
+}
+
+.label {
+    margin: 0;
+}
+
+.price {
+    font-weight: 500;
+    margin: 8px 0 0 0;
+}
+
+.h5 {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 8px 0 0 0;
+}
+
+.groupChoiceSize {
+    margin-top: 8px;
+}
+
+.choiceSize {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+.choiceSizeItem {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(29, 31, 34, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activeSize {
+    color: white;
+    background-color: rgba(29, 31, 34, 1);
+}
+
+.groupChoiceColor {
+    margin-top: 8px;
+}
+
+.choiceColor {
+    display: flex;
+    margin-top: 8px;
+}
+.choiceColorItem {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    border: 1px solid grey;
+}
+
+.colorItem1 {
+    background-color: rgba(211, 210, 213, 1);
+}
+
+.colorItem2 {
+    background-color: rgba(43, 43, 43, 1);
+}
+
+.colorItem3 {
+    background-color: rgba(15, 100, 80, 1);
+}
+
+.sum {
+    width: 24px;
+    display: flex;
+    margin: 0 8px 0 4px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sumItem {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(29, 31, 34, 1);
+}
+
+.borderNone {
+    border: none;
+}
+
+.img {
+width: 121px;
+}
