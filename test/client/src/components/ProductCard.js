@@ -54,30 +54,14 @@ import {apolloClient} from "./../index"
 //     }
 // `;
 
-
-// const client = new ApolloClient({
-//     uri: 'http://localhost:4000',
-//     cache: new InMemoryCache(),
-// });
-// client.query({variables:{input:{title: "ALL"}},query:CARDS})
-//     .then((res) => console.log(res))
-// ApolloClient
-//     .query({ variables: {input: {name: "ALL"}}, query:CARDS})
-//     .then((res) => console.log(res))
-
 class ProductCard extends React.Component {
-
     render() {
-        // console.log(this.props.product.id)
-        // ApolloClient
-        //     .query({ variables: {input: {title: "ALL"}}, query:CARDS})
-        //     .then((res) => console.log(res))
 //
 //         const { products} = this.props.categories;
 //         console.log(this.props.product)
-        const {name, category, gallery, id} = this.props.product;
+        const {name, category, gallery, id, prices} = this.props.product;
 
-        // console.log(id)
+        // console.log(prices)
         return (
             <div className={styles.container}>
                 <div className={styles.blockImg}>
@@ -85,7 +69,7 @@ class ProductCard extends React.Component {
                 </div>
                 <div className={styles.content}>
                     <div className={styles.title}>{name}</div>
-                    <div className={styles.price}>Price: {category}</div>
+                    <div className={styles.price}>Price: {prices[0].currency.symbol}{prices[0].amount}</div>
                 </div>
             </div>
         )

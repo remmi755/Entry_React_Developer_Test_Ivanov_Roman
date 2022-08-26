@@ -54,15 +54,16 @@ class App extends React.Component {
                 `
             });
             const categories = result.data.categories;
+            // const prices = result.data.product.prices[0].amount
 
             this.setState({
                 productCards: categories,
+                // prices: prices
             });
 
         } catch (err) {
             console.log(err);
         }
-        ;
     }
 
     componentDidMount() {
@@ -83,6 +84,12 @@ class App extends React.Component {
         alert(123)
     }
 
+    updateData = (value) => {
+        this.setState({
+            prices: value
+        })
+    }
+
     onSelectCategories = index => {
         this.setState({
             activeItem: index,
@@ -90,14 +97,12 @@ class App extends React.Component {
     }
 
     render() {
-        // console.log(this.state)
-        // console.log(this.state.productCards[0].products)
-        // console.log(this.state.productCards)
-
+        // console.log(this.state.productCards[0].products[0])
         return (
             <div>
-                <h2>My first Apollo app 🚀</h2>
+                {/*<h2>My first Apollo app 🚀</h2>*/}
                 <Header onClick={this.onSelectCategories}
+                        clickOnButton={this.clickOnButton}
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
                 />
@@ -114,6 +119,8 @@ class App extends React.Component {
                     <Route path="/:cardId" element={<PDP
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
+                        updateData={this.updateData}
+                        // prices={this.state.prices}
                     />}
                     />
                 </Routes>

@@ -3,11 +3,12 @@ import styles from "./GroupTitle.module.css"
 
 class GroupTitle extends React.Component {
     render() {
+        const {name, brand} = this.props.product
         return (
-          <main >
-              <p className={styles.title}>Apollo</p>
-              <p className={styles.label}>Running Short</p>
-          </main>
+            <main>
+                <p className={styles.title}>{name}</p>
+                <p className={styles.label}>{brand}</p>
+            </main>
         )
     }
 };

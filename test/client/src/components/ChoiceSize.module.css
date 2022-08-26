@@ -4,8 +4,9 @@
 
 .sizes {
     margin-top: 8px;
+    padding: 0;
     display: flex;
-    justify-content: start;
+    justify-content:space-evenly;
 }
 
 .sizeItem {

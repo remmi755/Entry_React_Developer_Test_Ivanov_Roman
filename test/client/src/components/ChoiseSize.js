@@ -35,37 +35,69 @@ class ChoiceSize extends React.Component {
     // }
 
     render() {
-
         // console.log(this.state)
-        console.log(this.props)
-        console.log(this.props.attributes)
-        // console.log(this.props.product.attributes[1].items)
-
-        // console.log(this.props.product.attributes[0].items)
+        // console.log(this.props)
+        // console.log(this.props.attributes)
         // let attributes = this.props.product.attributes[this.state.activeAttributes]
         // let attributes = this.props.product.attributes[0].items
         // console.log(attributes)
-        // let [attribut] = attributes
-        // console.log(attribut.items)
+        let value ;
+
         return (
             <main className={styles.container}>
-                <h5 className={styles.h5}>Size:</h5>
-                <ul className={styles.sizes}>
-                    {this.props.attributes &&
-                        this.props.attributes?.map((attribute, id) => (
-                                <li key={id} className={styles.sizeItem}
-                                    style={{backgroundColor: attribute.value}}
-                                >
-                                    {attribute.value}
-                                </li>
-                            )
-                        )
-                    }
-                    {/*<div className={styles.sizeItem}>XS</div>*/}
-                    {/*<div className={`${styles.sizeItem} ${styles.active}`}>S</div>*/}
-                    {/*<div className={styles.sizeItem}>M</div>*/}
-                    {/*<div className={styles.sizeItem}>L</div>*/}
-                </ul>
+                {
+                    this.props.attributes &&
+                    this.props.attributes.map((attribute, id) => (
+                        <>
+                            <h5 className={styles.h5} id={id}>{attribute.name}</h5>
+                            <ul className={styles.sizes}>
+                                {
+                                    attribute.items &&
+                                    attribute.items.map((el, id) => (
+                                        <li key={id} className={styles.sizeItem}
+                                            style={{backgroundColor: el.value}}
+                                        >{attribute.name === 'Color' ? '': el.value}</li>
+                                    ))
+                                }
+                            </ul>
+                        </>
+
+
+
+
+                //     <ul className={styles.sizes}>
+                //
+                // //     attribute.items &&
+                // //     attribute.items.map((el, id) => (
+                // //     <li key={id} className={styles.sizeItem}
+                // //     style={{backgroundColor: el.value}}
+                // //     >
+                // // {el.value}
+                // //     </li>
+                // //     ))
+                //
+                //
+                //     </ul>
+
+                    ))
+                }
+                {/*<h5 className={styles.h5}>Size:</h5>*/}
+                {/*<ul className={styles.sizes}>*/}
+                {/*    /!*{this.props.attributes &&*!/*/}
+                {/*    /!*    this.props.attributes?.map((attribute, id) => (*!/*/}
+                {/*    /!*            <li key={id} className={styles.sizeItem}*!/*/}
+                {/*    /!*                style={{backgroundColor: attribute.value}}*!/*/}
+                {/*    /!*            >*!/*/}
+                {/*    /!*                {attribute.value}*!/*/}
+                {/*    /!*            </li>*!/*/}
+                {/*    /!*        )*!/*/}
+                {/*    /!*    )*!/*/}
+                {/*    /!*}*!/*/}
+                {/*    /!*<div className={styles.sizeItem}>XS</div>*!/*/}
+                {/*    /!*<div className={`${styles.sizeItem} ${styles.active}`}>S</div>*!/*/}
+                {/*    /!*<div className={styles.sizeItem}>M</div>*!/*/}
+                {/*    /!*<div className={styles.sizeItem}>L</div>*!/*/}
+                {/*</ul>*/}
             </main>
         )
     }

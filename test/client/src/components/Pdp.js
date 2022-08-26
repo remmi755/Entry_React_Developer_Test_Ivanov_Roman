@@ -4,7 +4,7 @@ import GroupTitle from "./GroupTitle";
 import ChoiceSize from "./ChoiseSize";
 import ChoiceColor from "./ChoiceColor";
 import {apolloClient} from "../index";
-import {gql} from "@apollo/client";
+import {gql} from "@apollo/client"
 import {useParams} from "react-router-dom";
 
 // const GET_CARD = gql`
@@ -91,11 +91,16 @@ class PDP extends React.Component {
                 `, variables: {productId: this.props.match.params['cardId'].substring(1)}
             });
             const product = result.data.product;
-            const attributes = result.data.product.attributes[0].items
-
+            // const attributes = result.data.product.attributes[0].items
+            const attributes = result.data.product.attributes
+            const allAttributes = result.data.product.attributes
+            const prices = result.data.product.prices[0].amount
             this.setState({
                 product: product,
-                attributes: attributes
+                attributes: attributes,
+                allAttributes: allAttributes,
+                prices: prices
+
             });
 
         } catch (err) {
@@ -119,33 +124,28 @@ class PDP extends React.Component {
     }
 
     render() {
-
-        // const card = ({productId}) => {
-        //     apolloClient
-        //         .query({query: GET_CARD, variables: {productId}})
-        //         .then((res) => {
-        //             console.log(res)
-        //         })
-        // }
-        console.log(this.state.product.description)
-        let description = this.state.product.description
-        // console.log(this.state.product.id)
-        console.log(this.state.product.attributes)
-        // console.log(this.state.attributes)
+        // console.log(this.props.updateData(this.state.prices))
+        // console.log(this.state.prices)
+        let description = `${this.state.product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
         let attributes = this.state.attributes
-        // const sizes = attributes[0]
-        // console.log(sizes)
+        // console.log(this.state.product.gallery)
+
         return (
             <main className={styles.container}>
                 <section className={styles.blockImg}>
-                    <img className={styles.blockImgItem} src="" alt="img1"/>
-                    <img className={styles.blockImgItem} src="" alt="img2"/>
-                    <img className={styles.blockImgItem} src="" alt="img3"/>
+                    {this.state.product.gallery &&
+                        this.state.product.gallery.map((img, id) => (
+                            <img id={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
+                        ))
+
+                    }
                 </section>
                 <section className={styles.blockGroup}>
-                    <img className={styles.groupImg} src="" alt="img main"/>
+                    <img className={styles.groupImg} src={this.state.product.gallery} alt="imgMain"/>
                     <div className={styles.groupChoice}>
-                        <div><GroupTitle/></div>
+                        <div><GroupTitle
+                            product={this.state.product}
+                        /></div>
                         <div className={styles.choiceSize}>
                             <ul>
                                 {/*{attributes &&*/}
@@ -158,10 +158,12 @@ class PDP extends React.Component {
                             <ChoiceSize product={this.state.product}
                                         attributes={attributes}/>
                         </div>
-                        <div className={styles.choiceColor}><ChoiceColor/></div>
+                        {/*<div className={styles.choiceColor}><ChoiceColor/></div>*/}
                         <div className={styles.groupChoicePrice}>
                             <h5 className={styles.h5}>PRICE:</h5>
-                            <div className={styles.price}>$50.00</div>
+                            <div className={styles.price}>
+                                {this.state.prices}
+                            </div>
                         </div>
                         <button className={styles.button}>ADD TO CART</button>
                         <p className={styles.description}>

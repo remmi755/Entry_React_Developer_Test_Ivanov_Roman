@@ -8,10 +8,10 @@ class Actions extends React.Component {
         // console.log(this.props)
         return (
             <div className={styles.actions}>
-                <div onClick={this.props.onClick}
+                <div onClick={this.props.clickOnButton}
                      className={`${styles.actionsItem} ${this.props.outline ? styles.actionsOutline : ''}`}>
                     $
-                    {this.props.children}
+                    {/*{this.props.children}*/}
                 </div>
                 <div>< HeaderBasket/></div>
             </div>
