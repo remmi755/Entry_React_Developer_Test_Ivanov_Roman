@@ -1,10 +1,18 @@
 import React from "react";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useParams} from "react-router-dom";
 import {Category, Header} from "./components"
 import Cart from "./components/Cart";
 import {apolloClient} from "./index";
 import {gql} from "@apollo/client";
 import PDP from "./components/Pdp";
+// import {useParams} from "react-router-dom";
+
+// export function withRouter(Children) {
+//     return (props) => {
+//         const match = {params: useParams()};
+//         return <Children {...props} match={match}/>
+//     }
+// }
 
 class App extends React.Component {
     constructor(props) {
@@ -13,6 +21,9 @@ class App extends React.Component {
             productCards: [this.renderCards],
             activeItem: 0,
             products: [this.renderCards],
+
+            // product: [this.renderPDP],
+
         }
     }
 
@@ -66,8 +77,61 @@ class App extends React.Component {
         }
     }
 
+    // renderPDP = async () => {
+    //     try {
+    //         const result = await apolloClient
+    //         .query({
+    //             query: gql`
+    //                 query Product($productId: String!) {
+    //                     product(id: $productId) {
+    //                         id
+    //                         name
+    //                         inStock
+    //                         gallery
+    //                         description
+    //                         category
+    //                         prices {
+    //                             amount
+    //                             currency {
+    //                                 symbol
+    //                                 label
+    //                             }
+    //                         }
+    //                         brand
+    //                         attributes {
+    //                             id
+    //                             name
+    //                             type
+    //                             items {
+    //                                 id
+    //                                 value
+    //                                 displayValue
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //             `, variables: {productId: this.props.match.params['cardId'].substring(1)}
+    //         });
+    //         const product = result.data.product
+    //         const attributes = result.data.product.attributes
+    //         const allAttributes = result.data.product.attributes
+    //         const prices = result.data.product.prices[0].amount
+    //
+    //         this.setState({
+    //             product: product,
+    //             attributes: attributes,
+    //             allAttributes: allAttributes,
+    //             prices: prices,
+    //         });
+    //
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
+
     componentDidMount() {
         this.renderCards();
+        // this.renderPDP();
     }
 
 
@@ -84,11 +148,11 @@ class App extends React.Component {
         alert(123)
     }
 
-    updateData = (value) => {
-        this.setState({
-            prices: value
-        })
-    }
+    // updateData = (value) => {
+    //     this.setState({
+    //         prices: value
+    //     })
+    // }
 
     onSelectCategories = index => {
         this.setState({
@@ -97,6 +161,8 @@ class App extends React.Component {
     }
 
     render() {
+        console.log(this.state.product)
+        // console.log(this.props.match.params['cardId'].substring(1))
         // console.log(this.state.productCards[0].products[0])
         return (
             <div>
@@ -105,11 +171,13 @@ class App extends React.Component {
                         clickOnButton={this.clickOnButton}
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
+                        update={this.state.updateData}
                 />
                 <Routes>
                     <Route path="/" element={<Category
                         productCards={this.state.productCards}
-                        activeItem={this.state.activeItem}/>}
+                        activeItem={this.state.activeItem}
+                    />}
                     />
                     <Route path="/cart" element={<Cart
                         onClick={this.clickOnButton}
@@ -119,7 +187,12 @@ class App extends React.Component {
                     <Route path="/:cardId" element={<PDP
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
-                        updateData={this.updateData}
+
+                        update={this.updateData}
+
+                        // product={this.state.product}
+                        // attributes={this.state.attributes}
+                        // prices={this.state.prices}
                         // prices={this.state.prices}
                     />}
                     />

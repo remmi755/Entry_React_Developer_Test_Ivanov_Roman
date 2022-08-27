@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Pdp.module.css"
 import GroupTitle from "./GroupTitle";
 import ChoiceSize from "./ChoiseSize";
-import ChoiceColor from "./ChoiceColor";
 import {apolloClient} from "../index";
 import {gql} from "@apollo/client"
 import {useParams} from "react-router-dom";
@@ -51,7 +50,6 @@ class PDP extends React.Component {
         super(props);
         this.state = {
             product: [this.renderPDP],
-            // product: []
         }
     }
 
@@ -91,10 +89,10 @@ class PDP extends React.Component {
                 `, variables: {productId: this.props.match.params['cardId'].substring(1)}
             });
             const product = result.data.product;
-            // const attributes = result.data.product.attributes[0].items
             const attributes = result.data.product.attributes
             const allAttributes = result.data.product.attributes
             const prices = result.data.product.prices[0].amount
+
             this.setState({
                 product: product,
                 attributes: attributes,
@@ -108,7 +106,7 @@ class PDP extends React.Component {
         }
     };
 
-    //
+
     componentDidMount() {
         this.renderPDP();
     }
@@ -124,45 +122,37 @@ class PDP extends React.Component {
     }
 
     render() {
+
         // console.log(this.props.updateData(this.state.prices))
         // console.log(this.state.prices)
-        let description = `${this.state.product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
-        let attributes = this.state.attributes
-        // console.log(this.state.product.gallery)
+        // console.log(this.props)
+        const{product, attributes, prices}= this.state
+        let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
 
         return (
             <main className={styles.container}>
                 <section className={styles.blockImg}>
-                    {this.state.product.gallery &&
-                        this.state.product.gallery.map((img, id) => (
+                    {product.gallery &&
+                        product.gallery.map((img, id) => (
                             <img id={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
                         ))
 
                     }
                 </section>
                 <section className={styles.blockGroup}>
-                    <img className={styles.groupImg} src={this.state.product.gallery} alt="imgMain"/>
+                    <img className={styles.groupImg} src={product.gallery} alt="imgMain"/>
                     <div className={styles.groupChoice}>
                         <div><GroupTitle
-                            product={this.state.product}
+                            product={product}
                         /></div>
                         <div className={styles.choiceSize}>
-                            <ul>
-                                {/*{attributes &&*/}
-                                {/*    attributes.map((size, id) => (*/}
-                                {/*            <li key={id} className={styles.sizeItem}>{size.value}</li>*/}
-                                {/*        )*/}
-                                {/*    )*/}
-                                {/*}*/}
-                            </ul>
-                            <ChoiceSize product={this.state.product}
+                            <ChoiceSize product={product}
                                         attributes={attributes}/>
                         </div>
-                        {/*<div className={styles.choiceColor}><ChoiceColor/></div>*/}
                         <div className={styles.groupChoicePrice}>
                             <h5 className={styles.h5}>PRICE:</h5>
                             <div className={styles.price}>
-                                {this.state.prices}
+                                {prices}
                             </div>
                         </div>
                         <button className={styles.button}>ADD TO CART</button>
