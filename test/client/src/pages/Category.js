@@ -4,8 +4,6 @@ import ProductCard from "../components/ProductCard";
 import {Link} from "react-router-dom";
 
 class Category extends React.Component {
-
-
     render() {
         // console.log(this.props)
         const {productCards, activeItem} = this.props
@@ -21,13 +19,9 @@ class Category extends React.Component {
             <main className={styles.container}>
                 <h1 className={styles.title}>{productCards[activeItem].name}</h1>
                 <section className={styles.productCards}>
-                    {/*<Link to="/card/:cardId">*/}
-
-
                     <div className={styles.grid}>
                         {cards}
                     </div>
-                    {/*</Link>*/}
                 </section>
             </main>
         )

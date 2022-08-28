@@ -34,6 +34,7 @@ class Header extends React.Component {
                 <Link to="/cart">
                     <Actions outline onClick={this.props.onClick}
                              clickOnButton = {this.props.clickOnButton}
+                             productCards={this.props.productCards}
                     />
                     {/*<div className={styles.actions}>*/}
                     {/*    <div className={styles.actionsItem}>$</div>*/}

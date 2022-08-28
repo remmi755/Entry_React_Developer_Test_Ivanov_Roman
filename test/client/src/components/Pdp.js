@@ -134,7 +134,7 @@ class PDP extends React.Component {
                 <section className={styles.blockImg}>
                     {product.gallery &&
                         product.gallery.map((img, id) => (
-                            <img id={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
+                            <img key={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
                         ))
 
                     }

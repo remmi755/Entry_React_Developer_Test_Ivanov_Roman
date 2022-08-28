@@ -49,8 +49,8 @@ class ChoiceSize extends React.Component {
                     this.props.attributes &&
                     this.props.attributes.map((attribute, id) => (
                         <>
-                            <h5 className={styles.h5} id={id}>{attribute.name}</h5>
-                            <ul className={styles.sizes}>
+                            <h5 className={styles.h5} key={`${id}_${attribute.name}`}>{attribute.name}</h5>
+                            <ul className={styles.sizes}  key={id}>
                                 {
                                     attribute.items &&
                                     attribute.items.map((el, id) => (
