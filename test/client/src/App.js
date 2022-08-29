@@ -65,11 +65,11 @@ class App extends React.Component {
                 `
             });
             const categories = result.data.categories;
-            // const prices = result.data.product.prices[0].amount
+            const currencies = result.data.categories[this.state.activeItem].products[0].prices
 
             this.setState({
                 productCards: categories,
-                // prices: prices
+                currencies: currencies
             });
 
         } catch (err) {
@@ -161,7 +161,10 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(this.state.product)
+        // let {activeItem}= this.state
+        // console.log(this.state.productCards[activeItem].products)
+        // console.log(this.state.priceses)
+        console.log(this.state.currencies)
         // console.log(this.props.match.params['cardId'].substring(1))
         // console.log(this.state.productCards[0].products[0])
         return (
@@ -171,6 +174,7 @@ class App extends React.Component {
                         clickOnButton={this.clickOnButton}
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
+                        currencies={this.state.currencies}
                         update={this.state.updateData}
                 />
                 <Routes>

@@ -35,6 +35,8 @@ class Header extends React.Component {
                     <Actions outline onClick={this.props.onClick}
                              clickOnButton = {this.props.clickOnButton}
                              productCards={this.props.productCards}
+                             activeItem={this.props.activeItem}
+                             currencies={this.props.currencies}
                     />
                     {/*<div className={styles.actions}>*/}
                     {/*    <div className={styles.actionsItem}>$</div>*/}

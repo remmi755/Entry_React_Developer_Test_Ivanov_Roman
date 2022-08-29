@@ -13,11 +13,8 @@ class Actions extends React.Component {
         })
     }
     render() {
-        // console.log(this.props.productCards[0].products[0].prices)
-        // let prices = this.props.productCards[0].products[0].prices
-        // const currency = prices.map((price, id) => (
-        //     <li key={id}>{price.currency.symbol}</li>
-        // ))
+        let{currencies} = this.props
+        console.log(currencies)
 
         return (
             <div className={styles.actions}>
@@ -26,25 +23,21 @@ class Actions extends React.Component {
                     //  className={`${styles.actionsItem} ${this.props.outline ? styles.actionsOutline : ''}`}
                 >
                     {/*{prices}*/}
-                    $
-                    <VectorCurrency />
+                    $ <VectorCurrency/>
                 </ul>
                 {
                     this.state.openPopup && (
                         <div>
                             <ul>
-                                {/*{*/}
-                                {/*    prices.map((price, index) =>(*/}
-                                {/*     <li*/}
-                                {/*         className={styles.actionsItem}*/}
-                                {/*         key={index}>{price.currency.symbol}</li>*/}
-                                {/*    ))*/}
-                                {/*}*/}
-                                {/*<li>$</li>*/}
-                                {/*<li></li>*/}
-                                {/*<li></li>*/}
-                                {/*<li></li>*/}
-                                {/*<li></li>*/}
+                                {
+                                    currencies?.map((item, index) => (
+                                        <li
+                                            className={styles.actionsItem}
+                                            key={index}>
+                                            {item.currency.symbol}
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </div>
                     )
