@@ -8,11 +8,12 @@ class Actions extends React.Component {
     constructor(props) {
         super(props);
         this.state = ({
-            openPopup: false
+            // openPopup: false,
+            openPopup: true
         })
     }
     render() {
-        console.log(this.props.productCards[0].products)
+        // console.log(this.props.productCards[0].products[0].prices)
         // let prices = this.props.productCards[0].products[0].prices
         // const currency = prices.map((price, id) => (
         //     <li key={id}>{price.currency.symbol}</li>
@@ -32,11 +33,18 @@ class Actions extends React.Component {
                     this.state.openPopup && (
                         <div>
                             <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
+                                {/*{*/}
+                                {/*    prices.map((price, index) =>(*/}
+                                {/*     <li*/}
+                                {/*         className={styles.actionsItem}*/}
+                                {/*         key={index}>{price.currency.symbol}</li>*/}
+                                {/*    ))*/}
+                                {/*}*/}
+                                {/*<li>$</li>*/}
+                                {/*<li></li>*/}
+                                {/*<li></li>*/}
+                                {/*<li></li>*/}
+                                {/*<li></li>*/}
                             </ul>
                         </div>
                     )

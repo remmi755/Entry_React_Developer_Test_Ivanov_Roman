@@ -13,9 +13,14 @@
     padding: 0 16px;
     list-style-type: none;
     text-transform: uppercase;
+    /*text-decoration: none;*/
 }
 
 .active {
     color: rgba(29, 207, 101, 1);
     border-bottom: 2px solid rgba(29, 207, 101, 1);
+}
+
+a{
+    text-decoration: none ;
 }
