@@ -31,9 +31,8 @@ class Header extends React.Component {
                 <div className={styles.logo}>
                     <HeaderLogo/>
                 </div>
-                <Link to="/cart">
+
                     <Actions outline onClick={this.props.onClick}
-                             clickOnButton = {this.props.clickOnButton}
                              productCards={this.props.productCards}
                              activeItem={this.props.activeItem}
                              currencies={this.props.currencies}
@@ -42,7 +41,7 @@ class Header extends React.Component {
                     {/*    <div className={styles.actionsItem}>$</div>*/}
                     {/*    <div>< HeaderBasket/></div>*/}
                     {/*</div>*/}
-                </Link>
+
             </div>
         )
     }

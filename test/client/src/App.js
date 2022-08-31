@@ -171,7 +171,6 @@ class App extends React.Component {
             <div>
                 {/*<h2>My first Apollo app 🚀</h2>*/}
                 <Header onClick={this.onSelectCategories}
-                        clickOnButton={this.clickOnButton}
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
                         currencies={this.state.currencies}

@@ -1,5 +1,6 @@
 import React from "react";
 import {ReactComponent as VectorCurrency} from '../SVG/VectorCurrency.svg';
+import {Link} from "react-router-dom";
 
 import styles from "./Actions.module.css"
 import {ReactComponent as HeaderBasket} from "../SVG/headerBasket.svg";
@@ -8,42 +9,58 @@ class Actions extends React.Component {
     constructor(props) {
         super(props);
         this.state = ({
-            // openPopup: false,
-            openPopup: true
+            openPopup: false,
+            activeCurrency: 0,
+            selectedCurrency: '$'
         })
     }
+
+    onSelectCurrencies = (index, e) => {
+        this.setState({
+            activeCurrency: index,
+            selectedCurrency: e.target.innerText,
+            openPopup: false,
+        })
+    }
+
     render() {
-        let{currencies} = this.props
-        console.log(currencies)
+        let {currencies} = this.props
+        let {activeCurrency, openPopup, selectedCurrency} = this.state
+
+        console.log(selectedCurrency)
 
         return (
             <div className={styles.actions}>
-                <ul
-                    // onClick={this.props.clickOnButton}
-                    //  className={`${styles.actionsItem} ${this.props.outline ? styles.actionsOutline : ''}`}
-                >
-                    {/*{prices}*/}
-                    $ <VectorCurrency/>
-                </ul>
+                <span className={styles.popupClosed}
+                      onClick={() => this.setState({openPopup: !openPopup})}>
+                    {this.state.selectedCurrency}
+                    <VectorCurrency/>
+                </span>
                 {
-                    this.state.openPopup && (
+                    openPopup && (
                         <div>
-                            <ul>
+                            <ul className={styles.blockCurrencies}>
                                 {
                                     currencies?.map((item, index) => (
-                                        <li
-                                            className={styles.actionsItem}
-                                            key={index}>
-                                            {item.currency.symbol}
-                                        </li>
+                                        <label key={index}>
+                                            <li key={index}
+                                                onClick={(e) => this.onSelectCurrencies(index, e)}
+                                                className={`${styles.actionsItem}  
+                                            ${activeCurrency === index ? styles.active : ''}`}
+                                                key={index}>
+                                                {item.currency.symbol}
+                                            </li>
+                                        </label>
                                     ))
                                 }
                             </ul>
                         </div>
                     )
-
                 }
-                <div>< HeaderBasket/></div>
+                <Link to="/cart">
+                    <div>< HeaderBasket/></div>
+                </Link>
+
             </div>
         )
     }

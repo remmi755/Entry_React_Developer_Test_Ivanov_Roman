@@ -1,18 +1,39 @@
 .actions {
+    position: relative;
     display: flex;
-    width: 200px;
-    justify-content: end;
+    width: 100px;
+    height: 25px;
+    justify-content: space-between;
     border: 1px solid red;
 }
 
-.actionsItem {
-    width: 38px;
-    padding: 0 15px;
-    margin-right: 20px;
-    list-style-type: none;
-    text-decoration: none;
+.blockCurrencies{
+    position:absolute;
+    top: 15px;
+    left: -41px;
+    text-align: center;
 }
 
-.actionsOutline {
-    background-color: #5ECE7B;
+.actionsItem {
+    width: 33px;
+    padding: 2px 15px;
+    list-style-type: none;
+    text-decoration: none;
+    cursor: pointer;
+    /*transition: 0.5s all;*/
+}
+
+.popupClosed {
+    width: 60px;
+    text-align: center;
+    background-color: lightgray;
+}
+
+/*.actionsOutline {*/
+/*    background-color: #5ECE7B;*/
+/*}*/
+
+.active {
+    color: rgba(29, 207, 101, 1);
+    background-color: lightgray;
 }

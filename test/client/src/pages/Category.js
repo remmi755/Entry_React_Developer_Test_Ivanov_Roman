@@ -9,7 +9,7 @@ class Category extends React.Component {
         const {productCards, activeItem} = this.props
         // console.log(productCards[0].products[0].id)
 
-        let cards = productCards[activeItem].products?.map(product => (
+        let cards = productCards[activeItem].products?.map((product) => (
             <Link to={`/ ${product.id}`}>
                 <ProductCard key={product.id} product={product}/>
             </Link>
