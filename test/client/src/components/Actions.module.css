@@ -1,10 +1,10 @@
 .actions {
     position: relative;
     display: flex;
-    width: 100px;
+    width: 60px;
     height: 25px;
     justify-content: space-between;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .blockCurrencies{
@@ -20,20 +20,19 @@
     list-style-type: none;
     text-decoration: none;
     cursor: pointer;
-    /*transition: 0.5s all;*/
 }
 
 .popupClosed {
+    font-size: 18px;
     width: 60px;
     text-align: center;
-    background-color: lightgray;
 }
-
-/*.actionsOutline {*/
-/*    background-color: #5ECE7B;*/
-/*}*/
 
 .active {
     color: rgba(29, 207, 101, 1);
-    background-color: lightgray;
+    background-color: #EEEEEE;
+}
+
+.cart {
+    padding-top: 3px;
 }

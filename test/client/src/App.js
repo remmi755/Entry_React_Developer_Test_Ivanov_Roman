@@ -21,6 +21,9 @@ class App extends React.Component {
             productCards: [this.renderCards],
             activeItem: 0,
             products: [this.renderCards],
+            openPopup: false,
+            activeCurrency: 0,
+            selectedCurrency: '$',
 
             // product: [this.renderPDP],
 
@@ -148,16 +151,23 @@ class App extends React.Component {
         alert(123)
     }
 
-    // updateData = (value) => {
-    //     this.setState({
-    //         prices: value
-    //     })
-    // }
-
     onSelectCategories = index => {
         this.setState({
             activeItem: index,
         })
+    }
+
+    onSelectCurrencies = (index, e) => {
+        this.setState({
+            activeCurrency: index,
+            selectedCurrency: e.target.innerText,
+            // selectedCurrency: this.props.currencies[this.state.activeCurrency].currency.symbol,
+            openPopup: false,
+        })
+    }
+
+    onOpenPopup = () => {
+        this.setState({openPopup: !this.state.openPopup})
     }
 
     render() {
@@ -171,15 +181,21 @@ class App extends React.Component {
             <div>
                 {/*<h2>My first Apollo app 🚀</h2>*/}
                 <Header onClick={this.onSelectCategories}
+                        onOpenPopup={this.onOpenPopup}
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
                         currencies={this.state.currencies}
-                        update={this.state.updateData}
+                        // update={this.state.updateData}
+                        openPopup={this.state.openPopup}
+                        activeCurrency={this.state.activeCurrency}
+                        selectedCurrency={this.state.selectedCurrency}
+                        onSelectCurrencies={this.onSelectCurrencies}
                 />
                 <Routes>
                     <Route path="/" element={<Category
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
+                        activeCurrency={this.state.activeCurrency}
                     />}
                     />
                     <Route path="/cart" element={<Cart

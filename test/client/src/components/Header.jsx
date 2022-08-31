@@ -32,10 +32,17 @@ class Header extends React.Component {
                     <HeaderLogo/>
                 </div>
 
-                    <Actions outline onClick={this.props.onClick}
+                    <Actions
+                        // outline onClick={this.props.onClick}
+                             onSelectCurrencies={this.props.onSelectCurrencies}
+                             onOpenPopup={this.props.onOpenPopup}
                              productCards={this.props.productCards}
                              activeItem={this.props.activeItem}
                              currencies={this.props.currencies}
+
+                             openPopup={this.props.openPopup}
+                             activeCurrency={this.props.activeCurrency}
+                             selectedCurrency={this.props.selectedCurrency}
                     />
                     {/*<div className={styles.actions}>*/}
                     {/*    <div className={styles.actionsItem}>$</div>*/}

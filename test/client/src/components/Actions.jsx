@@ -6,34 +6,41 @@ import styles from "./Actions.module.css"
 import {ReactComponent as HeaderBasket} from "../SVG/headerBasket.svg";
 
 class Actions extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = ({
-            openPopup: false,
-            activeCurrency: 0,
-            selectedCurrency: '$'
-        })
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = ({
+    //         openPopup: false,
+    //         activeCurrency: 0,
+    //         selectedCurrency: '$',
+    //         // selectedCurrency: this.props.currencies[this.state.activeCurrency].currency.symbol
+    //
+    //     })
+    // }
 
-    onSelectCurrencies = (index, e) => {
-        this.setState({
-            activeCurrency: index,
-            selectedCurrency: e.target.innerText,
-            openPopup: false,
-        })
-    }
+    // onSelectCurrencies = (index, e) => {
+    //     this.setState({
+    //         activeCurrency: index,
+    //         selectedCurrency: e.target.innerText,
+    //         // selectedCurrency: this.props.currencies[this.state.activeCurrency].currency.symbol,
+    //         openPopup: false,
+    //     })
+    // }
 
     render() {
-        let {currencies} = this.props
-        let {activeCurrency, openPopup, selectedCurrency} = this.state
-
-        console.log(selectedCurrency)
+       console.log(this.props)
+       const {currencies, activeCurrency, openPopup, selectedCurrency, onSelectCurrencies, onOpenPopup } = this.props
+        // const {activeCurrency, openPopup, selectedCurrency} = this.state
+        // const selectedName = currencies[activeCurrency].currency.symbol
+        // console.log(currencies[activeCurrency].currency.symbol)
+        // console.log(selectedCurrency)
+        // console.log(selectedName)
 
         return (
             <div className={styles.actions}>
                 <span className={styles.popupClosed}
-                      onClick={() => this.setState({openPopup: !openPopup})}>
-                    {this.state.selectedCurrency}
+                      onClick={onOpenPopup}>
+                    {selectedCurrency}
+                    {/*{selectedName}*/}
                     <VectorCurrency/>
                 </span>
                 {
@@ -44,7 +51,8 @@ class Actions extends React.Component {
                                     currencies?.map((item, index) => (
                                         <label key={index}>
                                             <li key={index}
-                                                onClick={(e) => this.onSelectCurrencies(index, e)}
+                                                onClick={(e) => onSelectCurrencies(index, e)}
+                                                // onClick={() => onSelectCurrencies}
                                                 className={`${styles.actionsItem}  
                                             ${activeCurrency === index ? styles.active : ''}`}
                                                 key={index}>
@@ -58,7 +66,7 @@ class Actions extends React.Component {
                     )
                 }
                 <Link to="/cart">
-                    <div>< HeaderBasket/></div>
+                    <div className={styles.cart}>< HeaderBasket/></div>
                 </Link>
 
             </div>

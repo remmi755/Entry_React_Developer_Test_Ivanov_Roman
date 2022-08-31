@@ -58,8 +58,9 @@ class ProductCard extends React.Component {
     render() {
 //
 //         const { products} = this.props.categories;
-//         console.log(this.props.product)
+//         console.log(this.props)
         const {name, category, gallery, id, prices} = this.props.product;
+        const {activeCurrency} = this.props
 
         // console.log(prices)
         return (
@@ -69,7 +70,7 @@ class ProductCard extends React.Component {
                 </div>
                 <div className={styles.content}>
                     <div className={styles.title}>{name}</div>
-                    <div className={styles.price}>Price: {prices[0].currency.symbol}{prices[0].amount}</div>
+                    <div className={styles.price}>Price: {prices[activeCurrency].currency.symbol} {prices[activeCurrency].amount}</div>
                 </div>
             </div>
         )
