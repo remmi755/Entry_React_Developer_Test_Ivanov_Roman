@@ -45,7 +45,6 @@ export function withRouter(Children) {
 }
 
 class PDP extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -88,17 +87,19 @@ class PDP extends React.Component {
                     }
                 `, variables: {productId: this.props.match.params['cardId'].substring(1)}
             });
+
             const product = result.data.product;
             const attributes = result.data.product.attributes
             const allAttributes = result.data.product.attributes
-            const prices = result.data.product.prices[0].amount
+            let prices = result.data.product.prices[this.props.activeCurrency].amount
+            let symbol = result.data.product.prices[this.props.activeCurrency].currency.symbol
 
             this.setState({
                 product: product,
                 attributes: attributes,
                 allAttributes: allAttributes,
-                prices: prices
-
+                prices: prices,
+                symbol: symbol
             });
 
         } catch (err) {
@@ -122,12 +123,10 @@ class PDP extends React.Component {
     }
 
     render() {
-
-        // console.log(this.props.updateData(this.state.prices))
-        // console.log(this.state.prices)
         // console.log(this.props)
-        const{product, attributes, prices}= this.state
+        const{product, attributes, prices, symbol}= this.state
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
+        console.log(symbol)
 
         return (
             <main className={styles.container}>
@@ -152,7 +151,7 @@ class PDP extends React.Component {
                         <div className={styles.groupChoicePrice}>
                             <h5 className={styles.h5}>PRICE:</h5>
                             <div className={styles.price}>
-                                {prices}
+                                {symbol}{prices}
                             </div>
                         </div>
                         <button className={styles.button}>ADD TO CART</button>

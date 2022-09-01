@@ -68,11 +68,11 @@ class App extends React.Component {
                 `
             });
             const categories = result.data.categories;
-            const currencies = result.data.categories[this.state.activeItem].products[0].prices
+            const currenciesList = result.data.categories[this.state.activeItem].products[0].prices
 
             this.setState({
                 productCards: categories,
-                currencies: currencies
+                currencies: currenciesList
             });
 
         } catch (err) {
@@ -135,6 +135,7 @@ class App extends React.Component {
     componentDidMount() {
         this.renderCards();
         // this.renderPDP();
+        window.scrollTo(0, 0);
     }
 
 
@@ -174,7 +175,7 @@ class App extends React.Component {
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
         // console.log(this.state.priceses)
-        console.log(this.state.currencies)
+        console.log(this.state.currenciesList)
         // console.log(this.props.match.params['cardId'].substring(1))
         // console.log(this.state.productCards[0].products[0])
         return (
@@ -206,7 +207,7 @@ class App extends React.Component {
                     <Route path="/:cardId" element={<PDP
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
-
+                        activeCurrency={this.state.activeCurrency}
                         update={this.updateData}
 
                         // product={this.state.product}
