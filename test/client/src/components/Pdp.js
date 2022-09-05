@@ -91,7 +91,8 @@ class PDP extends React.Component {
             const product = result.data.product;
             const attributes = result.data.product.attributes
             const allAttributes = result.data.product.attributes
-            let prices = result.data.product.prices[this.props.activeCurrency].amount
+            let prices = result.data.product.prices[this.props?.activeCurrency].amount
+            // let prices = result.data.product?.prices
             let symbol = result.data.product.prices[this.props.activeCurrency].currency.symbol
 
             this.setState({
@@ -122,11 +123,23 @@ class PDP extends React.Component {
         }
     }
 
+    onAddToCart = (product) => {
+this.setState({
+    orders : this.props.orders.push(product)
+})
+    }
+
     render() {
-        // console.log(this.props)
+        // console.log(this.onAddToCart(this.props.cart))
+        console.log(this.props)
+
+const{activeCurrency} = this.props
+
         const{product, attributes, prices, symbol}= this.state
+        // const price =  prices[activeCurrency].amount
+        // console.log(product.prices)
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
-        console.log(symbol)
+        // console.log(product)
 
         return (
             <main className={styles.container}>
@@ -154,7 +167,7 @@ class PDP extends React.Component {
                                 {symbol}{prices}
                             </div>
                         </div>
-                        <button className={styles.button}>ADD TO CART</button>
+                        <button className={styles.button} onClick={() => this.onAddToCart(product)}>ADD TO CART</button>
                         <p className={styles.description}>
                             {description}
                         </p>

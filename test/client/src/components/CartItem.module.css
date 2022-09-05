@@ -1,9 +1,9 @@
 .container {
-    width: 1440px;
+    width: 1240px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    padding: 24px 100px 30px 100px;
+    padding: 24px 0 30px;
     border: 1px solid red;
 }
 

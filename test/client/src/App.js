@@ -14,6 +14,9 @@ import PDP from "./components/Pdp";
 //     }
 // }
 
+export const MyContext = React.createContext("");
+console.log(MyContext)
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -24,9 +27,8 @@ class App extends React.Component {
             openPopup: false,
             activeCurrency: 0,
             selectedCurrency: '$',
-
-            // product: [this.renderPDP],
-
+            orders: [],
+            // count: 1,
         }
     }
 
@@ -158,6 +160,12 @@ class App extends React.Component {
         })
     }
 
+    // onSelectCurrenciesPDP = (index) => {
+    //     this.setState({
+    //         activeCurrency: index,
+    //     })
+    // }
+
     onSelectCurrencies = (index, e) => {
         this.setState({
             activeCurrency: index,
@@ -170,6 +178,55 @@ class App extends React.Component {
     onOpenPopup = () => {
         this.setState({openPopup: !this.state.openPopup})
     }
+
+    // countIncrease = (id) => {
+    //
+    //     console.log(id)
+    //
+    //     // this.setState((orders) => {
+    //     //
+    //     //     return (
+    //     //
+    //     //         orders.map((product) => {
+    //     //             if (product.id === id) {
+    //     //                 return {
+    //     //                     ...product,
+    //     //                     count: this.state.count + 1
+    //     //                 }
+    //     //             }
+    //     //         })
+    //     //     )
+    //     //
+    //     // })
+    //
+    //
+    //
+    //     // this.setState((orders) => {
+    //     //
+    //     //     return orders.map((product) => {
+    //     //
+    //     //         if(product.id === id) {
+    //     //             return {
+    //     //                 ...product,
+    //     //                 count: ++product.count
+    //     //             }
+    //     //         }
+    //     //
+    //     //         return product
+    //     //     })
+    //     //
+    //     // })
+    //
+    // }
+
+
+
+    countDecrease =(id) => {
+        this.setState({
+            count: this.state.count - 1
+        })
+    }
+
 
     render() {
         // let {activeItem}= this.state
@@ -186,6 +243,7 @@ class App extends React.Component {
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
                         currencies={this.state.currencies}
+
                         // update={this.state.updateData}
                         openPopup={this.state.openPopup}
                         activeCurrency={this.state.activeCurrency}
@@ -202,13 +260,22 @@ class App extends React.Component {
                     <Route path="/cart" element={<Cart
                         onClick={this.clickOnButton}
                         productCards={this.state.productCards}
-                        activeItem={this.state.activeItem}/>}
+                        activeCurrency={this.state.activeCurrency}
+                        orders={this.state.orders}
+                        count={this.state.count}
+                        countIncrease={this.countIncrease}
+                        countDecrease={this.countDecrease}
+                        activeItem={this.state.activeItem}
+
+                    />}
                     />
                     <Route path="/:cardId" element={<PDP
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
                         activeCurrency={this.state.activeCurrency}
-                        update={this.updateData}
+                        // update={this.updateData}
+                        orders={this.state.orders}
+                        // onSelectCurrenciesPDP ={this.onSelectCurrenciesPDP}
 
                         // product={this.state.product}
                         // attributes={this.state.attributes}
