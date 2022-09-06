@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Pdp.module.css"
 import GroupTitle from "./GroupTitle";
-import ChoiceSize from "./ChoiseSize";
+import Attributes from "./Attributes";
 import {apolloClient} from "../index";
 import {gql} from "@apollo/client"
 import {useParams} from "react-router-dom";
@@ -123,17 +123,18 @@ class PDP extends React.Component {
         }
     }
 
-    onAddToCart = (product) => {
-this.setState({
-    orders : this.props.orders.push(product)
-})
-    }
+//     onAddToCart = (product) => {
+// this.setState({
+//     orders : [...this.props.orders, product]
+// })
+//     }
 
     render() {
         // console.log(this.onAddToCart(this.props.cart))
         console.log(this.props)
+        console.log(this.props.orders)
 
-const{activeCurrency} = this.props
+const{activeCurrency, onAddToCart} = this.props
 
         const{product, attributes, prices, symbol}= this.state
         // const price =  prices[activeCurrency].amount
@@ -158,8 +159,11 @@ const{activeCurrency} = this.props
                             product={product}
                         /></div>
                         <div className={styles.choiceSize}>
-                            <ChoiceSize product={product}
-                                        attributes={attributes}/>
+                            <Attributes product={product}
+                                        attributes={attributes}
+                                        activeAttribute={this.props.activeAttribute}
+                                        onSelectAttributes={this.props.onSelectAttributes}
+                            />
                         </div>
                         <div className={styles.groupChoicePrice}>
                             <h5 className={styles.h5}>PRICE:</h5>
@@ -167,7 +171,7 @@ const{activeCurrency} = this.props
                                 {symbol}{prices}
                             </div>
                         </div>
-                        <button className={styles.button} onClick={() => this.onAddToCart(product)}>ADD TO CART</button>
+                        <button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</button>
                         <p className={styles.description}>
                             {description}
                         </p>

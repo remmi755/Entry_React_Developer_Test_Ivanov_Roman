@@ -5,20 +5,58 @@ import Header from "./Header";
 import CartItem from "./CartItem"
 
 class Cart extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = ({
-    //         cart : [],
-    //     })
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 1,
+            cart : [],
+            total:{
+                totalPrice: this.props.orders.reduce((prev, curr) => {
+                    return prev + curr.prices[this.props.activeCurrency].amount
+                }, 0),
+                totalCount: 0
+            }
+        }
+    }
+
+    countIncrease = ( id) => {
+        console.log(id)
+        // console.log(product.id)
+        console.log(this.state.count)
+       const {orders} = this.props
+
+        // this.setState((orders) => {
+        //
+        //      orders.map((product) => {
+        //
+        //         if(product.id === id) {
+        //             return {
+        //                 ...product,
+        //                 count: this.state.count + 1,
+        //             }
+        //         }
+        //
+        //         return product
+        //     })
+        //
+        // })
+
+        // if (product.id === id) {
+        //     this.setState({
+        //         count: this.state.count + 1,
+        //     })
+        // }
+    }
 
     render() {
         console.log(this.props.orders)
-        const {orders, count} = this.props
+        const {orders} = this.props
+        const {count} = this.state
+
+console.log(count)
 
         return (
             <main className={styles.container}>
-                {/*<Header productCard={this.props.productCards} onClick={this.props.onClick} />*/}
                 <h1 className={styles.title}>Cart</h1>
                 {orders &&
                     orders.map((orderItem, id) => (
@@ -26,8 +64,8 @@ class Cart extends React.Component {
                             <CartItem
                                 orderItem={orderItem}
                                 count={count}
-                                id={id}
-                                countIncrease={this.props.countIncrease}
+                                id={orderItem.id}
+                                countIncrease={this.countIncrease}
                                 countDecrease={this.props.countDecrease}
                                 activeCurrency={this.props.activeCurrency}
                             />
@@ -35,7 +73,7 @@ class Cart extends React.Component {
                     ))
                 }
                 <div className={styles.groupOrder}>
-                    <GroupOrder/>
+                    <GroupOrder total={this.state.total}/>
                 </div>
             </main>
         )

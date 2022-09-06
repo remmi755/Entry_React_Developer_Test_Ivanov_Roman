@@ -14,6 +14,7 @@ class GroupOrder extends React.Component {
     // }
 
     render() {
+        const{totalCount, totalPrice}= this.props.total
         return (
             <main className={styles.order}>
                 <div>
@@ -22,11 +23,11 @@ class GroupOrder extends React.Component {
                 </div>
                 <div>
                     <span className={styles.quantity}>Quantity:</span>
-                    <span className={styles.quantityValue}>3</span>
+                    <span className={styles.quantityValue}>{totalCount}</span>
                 </div>
                 <div>
                     <span className={styles.total}>Total:</span>
-                    <span className={styles.totalValue}>$200.00</span>
+                    <span className={styles.totalValue}>${totalPrice}</span>
                     {/*<span>{this.state.count}</span>*/}
                 </div>
                 {/*<button onClick={this.increaseCount} className={styles.button}>ORDER</button>*/}

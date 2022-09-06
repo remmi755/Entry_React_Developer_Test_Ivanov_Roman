@@ -29,3 +29,8 @@
     font-weight: 700;
     margin: 0;
 }
+
+.activeAttribute {
+    background-color: black;
+    color: white;
+}

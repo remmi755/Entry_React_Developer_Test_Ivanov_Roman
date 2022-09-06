@@ -28,6 +28,7 @@ class App extends React.Component {
             activeCurrency: 0,
             selectedCurrency: '$',
             orders: [],
+            activeAttribute: 0,
             // count: 1,
         }
     }
@@ -175,6 +176,13 @@ class App extends React.Component {
         })
     }
 
+    onSelectAttributes = (index) => {
+        alert(index)
+        // this.setState({
+        //     activeAttribute: index,
+        // })
+    }
+
     onOpenPopup = () => {
         this.setState({openPopup: !this.state.openPopup})
     }
@@ -227,6 +235,11 @@ class App extends React.Component {
         })
     }
 
+    onAddToCart = (product) => {
+        this.setState({
+            orders : [...this.state.orders, product]
+        })
+    }
 
     render() {
         // let {activeItem}= this.state
@@ -267,14 +280,18 @@ class App extends React.Component {
                         countDecrease={this.countDecrease}
                         activeItem={this.state.activeItem}
 
+
                     />}
                     />
                     <Route path="/:cardId" element={<PDP
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
                         activeCurrency={this.state.activeCurrency}
+                        activeAttribute={this.state.activeAttribute}
                         // update={this.updateData}
                         orders={this.state.orders}
+                        onAddToCart={this.onAddToCart}
+                        onSelectAttributes={this.onSelectAttributes}
                         // onSelectCurrenciesPDP ={this.onSelectCurrenciesPDP}
 
                         // product={this.state.product}
