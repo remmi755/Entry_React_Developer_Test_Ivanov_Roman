@@ -144,15 +144,7 @@ class App extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.productCards !== this.state.productCards) {
-            // console.log(this.state)
-            // this.setState({
-            //     productCards: this.categories[2]
-            // });
         }
-    }
-
-    clickOnButton = () => {
-        alert(123)
     }
 
     onSelectCategories = index => {
@@ -160,12 +152,6 @@ class App extends React.Component {
             activeItem: index,
         })
     }
-
-    // onSelectCurrenciesPDP = (index) => {
-    //     this.setState({
-    //         activeCurrency: index,
-    //     })
-    // }
 
     onSelectCurrencies = (index, e) => {
         this.setState({
@@ -245,7 +231,7 @@ class App extends React.Component {
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
         // console.log(this.state.priceses)
-        console.log(this.state.currenciesList)
+        // console.log(this.state.currenciesList)
         // console.log(this.props.match.params['cardId'].substring(1))
         // console.log(this.state.productCards[0].products[0])
         return (
@@ -257,7 +243,6 @@ class App extends React.Component {
                         activeItem={this.state.activeItem}
                         currencies={this.state.currencies}
 
-                        // update={this.state.updateData}
                         openPopup={this.state.openPopup}
                         activeCurrency={this.state.activeCurrency}
                         selectedCurrency={this.state.selectedCurrency}
@@ -271,7 +256,6 @@ class App extends React.Component {
                     />}
                     />
                     <Route path="/cart" element={<Cart
-                        onClick={this.clickOnButton}
                         productCards={this.state.productCards}
                         activeCurrency={this.state.activeCurrency}
                         orders={this.state.orders}
@@ -288,16 +272,11 @@ class App extends React.Component {
                         activeItem={this.state.activeItem}
                         activeCurrency={this.state.activeCurrency}
                         activeAttribute={this.state.activeAttribute}
-                        // update={this.updateData}
+
                         orders={this.state.orders}
                         onAddToCart={this.onAddToCart}
                         onSelectAttributes={this.onSelectAttributes}
-                        // onSelectCurrenciesPDP ={this.onSelectCurrenciesPDP}
 
-                        // product={this.state.product}
-                        // attributes={this.state.attributes}
-                        // prices={this.state.prices}
-                        // prices={this.state.prices}
                     />}
                     />
                 </Routes>

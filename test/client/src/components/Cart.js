@@ -19,11 +19,20 @@ class Cart extends React.Component {
         }
     }
 
-    countIncrease = ( id) => {
+    countIncrease = (id) => {
         console.log(id)
-        // console.log(product.id)
+        const {orders} = this.props
         console.log(this.state.count)
-       const {orders} = this.props
+
+        orders.map((product) => {
+            console.log(product)
+            console.log(product.id)
+            if (product.id === id) {
+                this.setState({
+                    count: this.state.count + 1
+                })
+            }
+        })
 
         // this.setState((orders) => {
         //

@@ -131,8 +131,8 @@ class PDP extends React.Component {
 
     render() {
         // console.log(this.onAddToCart(this.props.cart))
-        console.log(this.props)
-        console.log(this.props.orders)
+        // console.log(this.props)
+        // console.log(this.props.orders)
 
 const{activeCurrency, onAddToCart} = this.props
 
@@ -156,6 +156,8 @@ const{activeCurrency, onAddToCart} = this.props
                     <img className={styles.groupImg} src={product.gallery} alt="imgMain"/>
                     <div className={styles.groupChoice}>
                         <div><GroupTitle
+                            brand={product.brand}
+                            name={product.name}
                             product={product}
                         /></div>
                         <div className={styles.choiceSize}>

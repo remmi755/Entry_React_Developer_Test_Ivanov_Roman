@@ -27,7 +27,7 @@ class Actions extends React.Component {
     // }
 
     render() {
-       console.log(this.props)
+       // console.log(this.props)
        const {currencies, activeCurrency, openPopup, selectedCurrency, onSelectCurrencies, onOpenPopup } = this.props
         // const {activeCurrency, openPopup, selectedCurrency} = this.state
         // const selectedName = currencies[activeCurrency].currency.symbol
