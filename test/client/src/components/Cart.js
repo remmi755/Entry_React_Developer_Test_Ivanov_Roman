@@ -11,7 +11,7 @@ class Cart extends React.Component {
             count: 1,
             cart : [],
             total:{
-                totalPrice: this.props.orders.reduce((prev, curr) => {
+                totalPrice: this.props.cartList.reduce((prev, curr) => {
                     return prev + curr.prices[this.props.activeCurrency].amount
                 }, 0),
                 totalCount: 0
@@ -19,20 +19,28 @@ class Cart extends React.Component {
         }
     }
 
-    countIncrease = (id) => {
+    countIncrease = (orderItem, id) => {
         console.log(id)
-        const {orders} = this.props
+        console.log(orderItem.id)
+
+        // const {orders} = this.props
         console.log(this.state.count)
 
-        orders.map((product) => {
-            console.log(product)
-            console.log(product.id)
-            if (product.id === id) {
-                this.setState({
-                    count: this.state.count + 1
-                })
-            }
-        })
+        if(orderItem.id === id) {
+            this.setState({
+                count: this.state.count + 1
+            })
+        }
+
+        // orders.map((product) => {
+        //     console.log(product)
+        //     console.log(product.id)
+        //     if (product.id === orderItem.id) {
+        //         this.setState({
+        //             count: this.state.count + 1
+        //         })
+        //     }
+        // })
 
         // this.setState((orders) => {
         //
@@ -58,8 +66,8 @@ class Cart extends React.Component {
     }
 
     render() {
-        console.log(this.props.orders)
-        const {orders} = this.props
+        console.log(this.props.cartList)
+        const {cartList} = this.props
         const {count} = this.state
 
 console.log(count)
@@ -67,8 +75,8 @@ console.log(count)
         return (
             <main className={styles.container}>
                 <h1 className={styles.title}>Cart</h1>
-                {orders &&
-                    orders.map((orderItem, id) => (
+                {cartList &&
+                    cartList.map((orderItem, id) => (
                         <section className={styles.content} key={id}>
                             <CartItem
                                 orderItem={orderItem}

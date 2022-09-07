@@ -27,7 +27,7 @@ class App extends React.Component {
             openPopup: false,
             activeCurrency: 0,
             selectedCurrency: '$',
-            orders: [],
+            cartList: [],
             activeAttribute: 0,
             // count: 1,
         }
@@ -213,17 +213,67 @@ class App extends React.Component {
     //
     // }
 
+    updateCartList = (cartList, newProduct, index) => {
+        if (newProduct.count === 0) {
+            return [...cartList.slice(0, index), ...cartList.slice(index + 1)];
+        }
+
+        if (index === -1) {
+            return [...cartList, newProduct];
+        }
+
+        return [...cartList.slice(0, index), newProduct, ...cartList.slice(index + 1)];
+    };
+
+    updateProduct = (getProduct, productInCart, quantity) => {
+        if (productInCart) {
+            return {
+                ...productInCart,
+                totalPrice: productInCart.totalPrice + quantity * getProduct.price,
+                count: productInCart.count + quantity
+            };
+        }
+
+        return {
+            id: getProduct.id,
+            name: getProduct.name,
+            url: getProduct.url,
+            totalPrice: getProduct.price,
+            count: 1
+        };
+    };
+
+    addPhoneInCart = (id) => {
+        const { cartList, productCards} = this.state;
+
+        this.setState(() => {
+            const getProduct = productCards.find((product) => product.id === id);
+            const getProductIndex = cartList.findIndex((product) => product.id === id);
+            const phoneInCart = cartList[getProductIndex];
+
+            const newPhone = this.updateProduct(getProduct, phoneInCart, 1);
+            const newArray = this.updateCartList(cartList, newPhone, getProductIndex);
+
+            return {
+                cartList: newArray
+            };
+        });
+    };
 
 
-    countDecrease =(id) => {
-        this.setState({
-            count: this.state.count - 1
-        })
+    countDecrease = (product, id) => {
+        if (product.id === id) {
+            this.setState({
+                count: this.state.count - 1
+            })
+        }
+
+
     }
 
     onAddToCart = (product) => {
         this.setState({
-            orders : [...this.state.orders, product]
+            cartList: [...this.state.cartList, product]
         })
     }
 
@@ -258,9 +308,9 @@ class App extends React.Component {
                     <Route path="/cart" element={<Cart
                         productCards={this.state.productCards}
                         activeCurrency={this.state.activeCurrency}
-                        orders={this.state.orders}
+                        cartList={this.state.cartList}
                         count={this.state.count}
-                        countIncrease={this.countIncrease}
+                        // countIncrease={this.countIncrease}
                         countDecrease={this.countDecrease}
                         activeItem={this.state.activeItem}
 
@@ -273,7 +323,6 @@ class App extends React.Component {
                         activeCurrency={this.state.activeCurrency}
                         activeAttribute={this.state.activeAttribute}
 
-                        orders={this.state.orders}
                         onAddToCart={this.onAddToCart}
                         onSelectAttributes={this.onSelectAttributes}
 
