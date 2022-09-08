@@ -11,66 +11,59 @@ class Cart extends React.Component {
             count: 1,
             cart : [],
             total:{
-                totalPrice: this.props.cartList.reduce((prev, curr) => {
-                    return prev + curr.prices[this.props.activeCurrency].amount
-                }, 0),
-                totalCount: 0
+                totalPrice: (this.props.cartList.reduce((prev, curr) => {
+                    return prev + curr.prices[this.props.activeCurrency].amount * curr.count
+                }, 0)).toFixed(2),
+                totalCount: this.props.cartList.reduce((prev, curr) => {
+                    return prev + curr.count
+                }, 0)
             }
         }
     }
 
-    countIncrease = (orderItem, id) => {
-        console.log(id)
-        console.log(orderItem.id)
-
-        // const {orders} = this.props
-        console.log(this.state.count)
-
-        if(orderItem.id === id) {
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.count !== this.state.count ||
+        prevProps.activeCurrency !== this.props.activeCurrency) {
+            // console.log(this.props.cartList)
             this.setState({
-                count: this.state.count + 1
+                total:{
+                    totalPrice: (this.props.cartList.reduce((prev, curr) => {
+                        return prev + curr.prices[this.props.activeCurrency].amount * curr.count
+                    }, 0)).toFixed(2),
+                    totalCount: this.props.cartList.reduce((prev, curr) => {
+                        return prev + curr.count
+                    }, 0)
+                }
             })
         }
+    }
 
-        // orders.map((product) => {
-        //     console.log(product)
-        //     console.log(product.id)
-        //     if (product.id === orderItem.id) {
-        //         this.setState({
-        //             count: this.state.count + 1
-        //         })
-        //     }
-        // })
 
-        // this.setState((orders) => {
-        //
-        //      orders.map((product) => {
-        //
-        //         if(product.id === id) {
-        //             return {
-        //                 ...product,
-        //                 count: this.state.count + 1,
-        //             }
-        //         }
-        //
-        //         return product
-        //     })
-        //
-        // })
+    countIncrease = (product, id) => {
+        if(product.id === id) {
+            this.setState({
+                count: ++product.count
+            })
+        }
+    }
 
-        // if (product.id === id) {
-        //     this.setState({
-        //         count: this.state.count + 1,
-        //     })
-        // }
+    countDecrease = (product, id) => {
+        const {deleteCartItem} = this.props;
+
+        if (product.id === id) {
+            this.setState({
+                count: product.count - 1 > 0 ? --product.count : deleteCartItem(id),
+            })
+        }
     }
 
     render() {
-        console.log(this.props.cartList)
-        const {cartList} = this.props
+        // console.log(this.props.cartList)
+        const {cartList,productCards, activeCurrency} = this.props
+       // const symbol = productCards[0].products[0].prices[activeCurrency].currency.symbol
         const {count} = this.state
 
-console.log(count)
+// console.log(count)
 
         return (
             <main className={styles.container}>
@@ -83,14 +76,20 @@ console.log(count)
                                 count={count}
                                 id={orderItem.id}
                                 countIncrease={this.countIncrease}
-                                countDecrease={this.props.countDecrease}
+                                countDecrease={this.countDecrease}
                                 activeCurrency={this.props.activeCurrency}
+
                             />
                         </section>
                     ))
                 }
                 <div className={styles.groupOrder}>
-                    <GroupOrder total={this.state.total}/>
+                    <GroupOrder total={this.state.total}
+                                activeCurrency={this.props.activeCurrency}
+                                selectedCurrency={this.props.selectedCurrency}
+                                total={this.state.total}
+
+                    />
                 </div>
             </main>
         )

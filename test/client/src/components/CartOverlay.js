@@ -3,11 +3,19 @@ import styles from "./CartOverlay.module.css"
 import BagItem from "./BagItem";
 
 class CartOverlay extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //
+    //     }
+    // }
+
     render() {
+        const {totalCount} = this.props
         return(
             <main className={styles.container}>
                 <span className={styles.title}>My Bag,</span>
-                <span>3 items</span>
+                <span>{totalCount} items</span>
                 <div className={styles.content}>
                         <BagItem />
                 </div>

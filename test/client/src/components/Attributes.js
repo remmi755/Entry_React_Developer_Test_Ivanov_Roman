@@ -14,8 +14,8 @@ class Attributes extends React.Component {
 
     onSelectAttributes = (index, id) => {
         // alert(index)
-        console.log(index)
-        console.log(id)
+        // console.log(index)
+        // console.log(id)
 
         this.setState({
             activeAttributes: index,
@@ -25,8 +25,8 @@ class Attributes extends React.Component {
     }
 
     render() {
-        console.log(this.state.activeAttributes)
-        console.log(this.state.activeAttributeId)
+        // console.log(this.state.activeAttributes)
+        // console.log(this.state.activeAttributeId)
         // console.log(this.props)
         // console.log(this.props.attributes[this.state.activeAttributes].items[1])
         // let attributes = this.props.product.attributes[this.state.activeAttributes]

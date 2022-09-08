@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./BagItem.module.css"
-import Size from "./ChoiseSize";
 import GroupTitle from "./GroupTitle";
 
 class BagItem extends React.Component {

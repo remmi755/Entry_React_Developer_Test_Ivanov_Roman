@@ -30,6 +30,14 @@ class App extends React.Component {
             cartList: [],
             activeAttribute: 0,
             // count: 1,
+            // total:{
+            //     totalPrice: (this.state.cartList.reduce((prev, curr) => {
+            //         return prev + curr.prices[this.props.activeCurrency].amount * curr.count
+            //     }, 0)).toFixed(2),
+            //     totalCount: this.state.cartList.reduce((prev, curr) => {
+            //         return prev + curr.count
+            //     }, 0)
+            // }
         }
     }
 
@@ -138,14 +146,30 @@ class App extends React.Component {
     componentDidMount() {
         this.renderCards();
         // this.renderPDP();
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
     }
 
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.productCards !== this.state.productCards) {
+    //     }
+    // }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.productCards !== this.state.productCards) {
-        }
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.count !== this.state.count ||
+    //         prevState.activeCurrency !== this.state.activeCurrency) {
+    //         console.log(this.state.cartList)
+    //         this.setState({
+    //             total:{
+    //                 totalPrice: (this.state.cartList.reduce((prev, curr) => {
+    //                     return prev + curr.prices[this.state.activeCurrency].amount * curr.count
+    //                 }, 0)).toFixed(2),
+    //                 totalCount: this.state.cartList.reduce((prev, curr) => {
+    //                     return prev + curr.count
+    //                 }, 0)
+    //             }
+    //         })
+    //     }
+    // }
 
     onSelectCategories = index => {
         this.setState({
@@ -173,115 +197,53 @@ class App extends React.Component {
         this.setState({openPopup: !this.state.openPopup})
     }
 
-    // countIncrease = (id) => {
-    //
-    //     console.log(id)
-    //
-    //     // this.setState((orders) => {
-    //     //
-    //     //     return (
-    //     //
-    //     //         orders.map((product) => {
-    //     //             if (product.id === id) {
-    //     //                 return {
-    //     //                     ...product,
-    //     //                     count: this.state.count + 1
-    //     //                 }
-    //     //             }
-    //     //         })
-    //     //     )
-    //     //
-    //     // })
-    //
-    //
-    //
-    //     // this.setState((orders) => {
-    //     //
-    //     //     return orders.map((product) => {
-    //     //
-    //     //         if(product.id === id) {
-    //     //             return {
-    //     //                 ...product,
-    //     //                 count: ++product.count
-    //     //             }
-    //     //         }
-    //     //
-    //     //         return product
-    //     //     })
-    //     //
-    //     // })
-    //
-    // }
+    onAddToCart = (product) => {
+        const {cartList} = this.state
+        const newProduct = {...product, count: 1};
+        let isInCart = false;
 
-    updateCartList = (cartList, newProduct, index) => {
-        if (newProduct.count === 0) {
-            return [...cartList.slice(0, index), ...cartList.slice(index + 1)];
-        }
+        cartList.forEach((el) => {
+            if (el.id === newProduct.id) {
+                isInCart = true;
 
-        if (index === -1) {
-            return [...cartList, newProduct];
-        }
-
-        return [...cartList.slice(0, index), newProduct, ...cartList.slice(index + 1)];
-    };
-
-    updateProduct = (getProduct, productInCart, quantity) => {
-        if (productInCart) {
-            return {
-                ...productInCart,
-                totalPrice: productInCart.totalPrice + quantity * getProduct.price,
-                count: productInCart.count + quantity
-            };
-        }
-
-        return {
-            id: getProduct.id,
-            name: getProduct.name,
-            url: getProduct.url,
-            totalPrice: getProduct.price,
-            count: 1
-        };
-    };
-
-    addPhoneInCart = (id) => {
-        const { cartList, productCards} = this.state;
-
-        this.setState(() => {
-            const getProduct = productCards.find((product) => product.id === id);
-            const getProductIndex = cartList.findIndex((product) => product.id === id);
-            const phoneInCart = cartList[getProductIndex];
-
-            const newPhone = this.updateProduct(getProduct, phoneInCart, 1);
-            const newArray = this.updateCartList(cartList, newPhone, getProductIndex);
-
-            return {
-                cartList: newArray
-            };
-        });
-    };
-
-
-    countDecrease = (product, id) => {
-        if (product.id === id) {
+                this.setState({
+                    count: ++el.count
+                })
+            }
+        })
+        if (!isInCart)
             this.setState({
-                count: this.state.count - 1
+                cartList: [...cartList, newProduct]
             })
-        }
 
-
+        // const newProduct = {...product, count : 1}
+        // this.setState({
+        //     cartList: [...cartList, newProduct]
+        // })
     }
 
-    onAddToCart = (product) => {
+    deleteCartItem = (id) => {
+        const {cartList} = this.state
+
         this.setState({
-            cartList: [...this.state.cartList, product]
+            cartList: cartList.filter(el => el.id !== id)
         })
     }
 
     render() {
+        console.log(this.state.cartList)
+        let totalPrice = (this.state.cartList.reduce((prev, curr) => {
+                    return prev + curr.prices[this.state.activeCurrency].amount * curr.count
+                }, 0)).toFixed(2)
+
+            let totalCount = this.state.cartList.reduce((prev, curr) => {
+                return prev + curr.count
+            }, 0)
+
+        console.log(totalCount)
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
-        // console.log(this.state.priceses)
-        // console.log(this.state.currenciesList)
+        // console.log(this.state.selectedCurrency)
         // console.log(this.props.match.params['cardId'].substring(1))
         // console.log(this.state.productCards[0].products[0])
         return (
@@ -303,6 +265,7 @@ class App extends React.Component {
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
                         activeCurrency={this.state.activeCurrency}
+                        totalCount={totalCount}
                     />}
                     />
                     <Route path="/cart" element={<Cart
@@ -313,6 +276,9 @@ class App extends React.Component {
                         // countIncrease={this.countIncrease}
                         countDecrease={this.countDecrease}
                         activeItem={this.state.activeItem}
+                        deleteCartItem={this.deleteCartItem}
+                        selectedCurrency={this.state.selectedCurrency}
+                        total={this.state.total}
 
 
                     />}

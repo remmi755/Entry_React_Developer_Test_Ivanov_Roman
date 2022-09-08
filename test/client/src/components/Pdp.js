@@ -137,6 +137,9 @@ class PDP extends React.Component {
 const{activeCurrency, onAddToCart} = this.props
 
         const{product, attributes, prices, symbol}= this.state
+console.log(product)
+        const newProduct = {...product, count : 1}
+        // console.log(newProduct)
         // const price =  prices[activeCurrency].amount
         // console.log(product.prices)
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')

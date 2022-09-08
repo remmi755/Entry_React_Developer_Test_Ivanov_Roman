@@ -75,7 +75,7 @@ class CartItem extends React.Component {
                 <section className={styles.groupImg}>
                     <div className={styles.sum}>
                         <button className={styles.sumItem} onClick={() => countIncrease(orderItem, id)}>+</button>
-                        <div className={`${styles.sumItem} ${styles.borderNone}`}>{count}</div>
+                        <div className={`${styles.sumItem} ${styles.borderNone}`}>{orderItem.count}</div>
                         <button className={styles.sumItem} onClick={() => countDecrease(orderItem, id)}>-</button>
                     </div>
                     <img className={styles.img} src={orderItem.gallery[0]} alt="photo item"/>
