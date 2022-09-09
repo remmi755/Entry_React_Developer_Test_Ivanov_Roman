@@ -3,7 +3,9 @@ import styles from "./GroupTitle.module.css"
 
 class GroupTitle extends React.Component {
     render() {
+        console.log(this.props)
         const {name, brand} = this.props
+        // console.log(cartItem.name)
 
         return (
             <main>

@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 class Category extends React.Component {
     render() {
         // console.log(this.props)
-        const {productCards, activeItem} = this.props
+        const {productCards, activeItem, activeCurrency, totalCount, cartList}  = this.props
         // console.log(productCards[0].products[0].id)
 
         let cards = productCards[activeItem].products?.map((product) => (
@@ -15,7 +15,7 @@ class Category extends React.Component {
                 <ProductCard
                     key={product.id}
                     product={product}
-                    activeCurrency={this.props.activeCurrency}
+                    activeCurrency={activeCurrency}
                 />
             </Link>
         ))
@@ -30,7 +30,8 @@ class Category extends React.Component {
                         </div>
                     </section>
                 </main>
-                <CartOverlay totalCount={this.props.totalCount} />
+                <CartOverlay totalCount={totalCount}
+                             cartList={cartList}/>
             </>
 
         )

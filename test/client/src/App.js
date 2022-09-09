@@ -266,6 +266,7 @@ class App extends React.Component {
                         activeItem={this.state.activeItem}
                         activeCurrency={this.state.activeCurrency}
                         totalCount={totalCount}
+                        cartList={this.state.cartList}
                     />}
                     />
                     <Route path="/cart" element={<Cart

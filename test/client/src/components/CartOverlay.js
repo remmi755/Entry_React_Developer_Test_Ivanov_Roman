@@ -3,21 +3,20 @@ import styles from "./CartOverlay.module.css"
 import BagItem from "./BagItem";
 
 class CartOverlay extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //
-    //     }
-    // }
 
     render() {
-        const {totalCount} = this.props
+        const {totalCount, cartList} = this.props
         return(
             <main className={styles.container}>
                 <span className={styles.title}>My Bag,</span>
                 <span>{totalCount} items</span>
                 <div className={styles.content}>
-                        <BagItem />
+                    {
+                        cartList &&
+                        cartList.map((cartItem, id) => (
+                            <BagItem cartItem={cartItem} key={id} id={id}/>
+                        ))
+                    }
                 </div>
                 <div className={styles.total}>
                     <span className={styles.totalItem}>Total</span>

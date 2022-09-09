@@ -56,7 +56,6 @@ import {apolloClient} from "./../index"
 
 class ProductCard extends React.Component {
     render() {
-//
 //         const { products} = this.props.categories;
 //         console.log(this.props)
         const {activeCurrency} = this.props
@@ -64,7 +63,6 @@ class ProductCard extends React.Component {
         let symbol = prices[activeCurrency].currency.symbol
         let amount = prices[activeCurrency].amount
 
-        // console.log(prices)
         return (
             <div className={styles.container}>
                 <div className={styles.blockImg}>
@@ -79,31 +77,5 @@ class ProductCard extends React.Component {
         )
     }
 };
-
-// class ProductCard extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state= {
-//             product: props.product,
-//
-//         }
-//     }
-//
-//     render() {
-//         const { name, category, gallery, prices} = this.props.product;
-//         console.log(this.name)
-//         return(
-//             <div className={styles.container}>
-//                 <div className={styles.blockImg}>
-//                     <img className={styles.img} src={gallery[0]} alt="Photo product"/>
-//                 </div>
-//                 <div className={styles.content}>
-//                     <div className={styles.title}>Title:{name}</div>
-//                     <div className={styles.price}>Price: {category}</div>
-//                 </div>
-//             </div>
-//         )
-//     }
-// };
 
 export default ProductCard

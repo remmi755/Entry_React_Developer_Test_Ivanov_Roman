@@ -6,37 +6,6 @@ import {apolloClient} from "../index";
 import {gql} from "@apollo/client"
 import {useParams} from "react-router-dom";
 
-// const GET_CARD = gql`
-//     query Product($productId: String!) {
-//         product(id: $productId) {
-//             id
-//             name
-//             inStock
-//             gallery
-//             description
-//             category
-//             prices {
-//                 amount
-//                 currency {
-//                     symbol
-//                     label
-//                 }
-//             }
-//             brand
-//             attributes {
-//                 id
-//                 name
-//                 type
-//                 items {
-//                     id
-//                     value
-//                     displayValue
-//                 }
-//             }
-//         }
-//     }
-// `;
-
 export function withRouter(Children) {
     return (props) => {
         const match = {params: useParams()};
@@ -108,26 +77,15 @@ class PDP extends React.Component {
         }
     };
 
-
     componentDidMount() {
         this.renderPDP();
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.product !== this.state.product) {
-            console.log('it was Changed')
-            // this.renderPDP();
-            // this.setState({
-            //     product: this.state.product
-            // })
+            // console.log('it was Changed')
         }
     }
-
-//     onAddToCart = (product) => {
-// this.setState({
-//     orders : [...this.props.orders, product]
-// })
-//     }
 
     render() {
         // console.log(this.onAddToCart(this.props.cart))
@@ -143,7 +101,6 @@ console.log(product)
         // const price =  prices[activeCurrency].amount
         // console.log(product.prices)
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
-        // console.log(product)
 
         return (
             <main className={styles.container}>
