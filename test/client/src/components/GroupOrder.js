@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./GroupOrder.module.css";
+import Button from "./Button"
 
 class GroupOrder extends React.Component {
     // constructor(props) {
@@ -38,6 +39,7 @@ class GroupOrder extends React.Component {
                 </div>
                 {/*<button onClick={this.increaseCount} className={styles.button}>ORDER</button>*/}
                 <button className={styles.button}>ORDER</button>
+                {/*<Button className={styles.button}>ORDER</Button>*/}
             </main>
         )
     }

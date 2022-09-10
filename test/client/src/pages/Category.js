@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Category.module.css"
 import ProductCard from "../components/ProductCard";
 import CartOverlay from "../components/CartOverlay"
+import Title from "../components/Title"
 import {Link} from "react-router-dom";
 
 class Category extends React.Component {
@@ -23,7 +24,7 @@ class Category extends React.Component {
         return (
             <>
                 <main className={styles.container}>
-                    <h1 className={styles.title}>{productCards[activeItem].name}</h1>
+                    <Title className={styles.title}>{productCards[activeItem].name}</Title>
                     <section className={styles.productCards}>
                         <div className={styles.grid}>
                             {cards}

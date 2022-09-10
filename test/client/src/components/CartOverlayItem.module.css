@@ -105,13 +105,8 @@
 width: 121px;
 }
 
-.titleCart {
-    font-size: 20px;
-    font-weight: 600;
+.titleCartOverlay {
+    font-weight: 300;
     margin: 0;
 }
 
-.labelCart {
-    font-size: 30px;
-    margin: 0;
-}

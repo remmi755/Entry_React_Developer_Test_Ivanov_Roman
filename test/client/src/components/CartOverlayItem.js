@@ -1,18 +1,16 @@
 import React from "react";
-import styles from "./BagItem.module.css"
-import GroupTitle from "./GroupTitle";
+import styles from "./CartOverlayItem.module.css"
 import Title from "./Title";
-import Label from "./Label"
 
-class BagItem extends React.Component {
+class CartOverlayItem extends React.Component {
     render() {
         console.log(this.props.cartItem)
         const{cartItem, id} = this.props
         return(
             <main className={styles.container}>
                 <section className={styles.content}>
-                    <Title className={styles.titleCart}>{cartItem.name}</Title>
-                    <Label className={styles.labelCart}>{cartItem.brand}</Label>
+                    <Title className={styles.titleCartOverlay}>{cartItem.name}</Title>
+                    <Title className={styles.titleCartOverlay}>{cartItem.brand}</Title>
                     {/*<GroupTitle cartItem={cartItem}*/}
                     {/*            brand={cartItem.brand}*/}
                     {/*name={cartItem.name}/>*/}
@@ -50,4 +48,4 @@ class BagItem extends React.Component {
     }
 }
 
-export default BagItem
+export default CartOverlayItem

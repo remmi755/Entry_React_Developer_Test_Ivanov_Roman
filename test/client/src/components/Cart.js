@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Cart.module.css"
 import GroupOrder from "./GroupOrder";
+import Title from "./Title"
 import Header from "./Header";
 import CartItem from "./CartItem"
 
@@ -67,7 +68,7 @@ class Cart extends React.Component {
 
         return (
             <main className={styles.container}>
-                <h1 className={styles.title}>Cart</h1>
+                <Title className={styles.titleHeader}>Cart</Title>
                 {cartList &&
                     cartList.map((orderItem, id) => (
                         <section className={styles.content} key={id}>

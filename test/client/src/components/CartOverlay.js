@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./CartOverlay.module.css"
-import BagItem from "./BagItem";
+import CartOverlayItem from "./CartOverlayItem";
+import Title from "./Title"
 
 class CartOverlay extends React.Component {
 
@@ -8,13 +9,17 @@ class CartOverlay extends React.Component {
         const {totalCount, cartList} = this.props
         return(
             <main className={styles.container}>
-                <span className={styles.title}>My Bag,</span>
-                <span>{totalCount} items</span>
+                <header className={styles.header}>
+                    <Title className={styles.title}>My Bag,</Title>
+                    <span className={styles.totalCount}>{totalCount} items</span>
+                </header>
+                {/*<span className={styles.title}>My Bag,</span>*/}
+                {/*<span>{totalCount} items</span>*/}
                 <div className={styles.content}>
                     {
                         cartList &&
                         cartList.map((cartItem, id) => (
-                            <BagItem cartItem={cartItem} key={id} id={id}/>
+                            <CartOverlayItem cartItem={cartItem} key={id} id={id}/>
                         ))
                     }
                 </div>

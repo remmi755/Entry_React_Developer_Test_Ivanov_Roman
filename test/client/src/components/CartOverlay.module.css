@@ -6,6 +6,14 @@
     margin: 0 auto;
 }
 
+.header {
+    display: flex;
+}
+
+.totalCount {
+    font-weight: 500;
+}
+
 .title {
     margin: 0 8px 0 0;
     font-weight: 700;

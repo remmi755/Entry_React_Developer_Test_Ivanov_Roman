@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Pdp.module.css"
 import GroupTitle from "./GroupTitle";
+import Title from "./Title"
+import Button from "./Button"
 import Attributes from "./Attributes";
 import {apolloClient} from "../index";
 import {gql} from "@apollo/client"
@@ -115,11 +117,13 @@ console.log(product)
                 <section className={styles.blockGroup}>
                     <img className={styles.groupImg} src={product.gallery} alt="imgMain"/>
                     <div className={styles.groupChoice}>
-                        <div><GroupTitle
-                            brand={product.brand}
-                            name={product.name}
-                            product={product}
-                        /></div>
+                        <Title className={styles.titleBrand}>{product.brand}</Title>
+                        <Title className={styles.titleName}>{product.name}</Title>
+                        {/*<GroupTitle*/}
+                        {/*    brand={product.brand}*/}
+                        {/*    name={product.name}*/}
+                        {/*    // product={product}*/}
+                        {/*/>*/}
                         <div className={styles.choiceSize}>
                             <Attributes product={product}
                                         attributes={attributes}
@@ -134,6 +138,7 @@ console.log(product)
                             </div>
                         </div>
                         <button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</button>
+                        {/*<Button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</Button>*/}
                         <p className={styles.description}>
                             {description}
                         </p>

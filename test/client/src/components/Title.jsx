@@ -11,7 +11,6 @@ class Title extends React.Component {
         return (
             <>
                 <p className={className}>{children}</p>
-                {/*<p className={styles.label}>{brand}</p>*/}
             </>
         )
     }

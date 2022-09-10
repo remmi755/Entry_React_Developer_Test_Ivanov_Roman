@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./CartItem.module.css"
+import Title from "./Title"
 import GroupTitle from "./GroupTitle";
 import Attributes from "./Attributes";
 
@@ -53,10 +54,8 @@ class CartItem extends React.Component {
             <main className={styles.container}>
                 <section>
                     <div>
-                        <GroupTitle
-                            brand={orderItem.brand}
-                            name={orderItem.name}
-                        />
+                        <Title className={styles.titleBrand}>{orderItem.brand}</Title>
+                        <Title className={styles.titleName}>{orderItem.name}</Title>
                     </div>
                     <p className={styles.price}>{symbol}{amount}</p>
                     <div className={styles.choiceSize}>

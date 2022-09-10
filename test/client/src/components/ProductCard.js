@@ -1,6 +1,8 @@
 import React from "react";
 import {useQuery, gql, useApolloClient, ApolloClient, InMemoryCache} from '@apollo/client';
 import styles from "./ProductCard.module.css"
+import Title from "./Title"
+
 import {apolloClient} from "./../index"
 
 
@@ -69,7 +71,7 @@ class ProductCard extends React.Component {
                     <img className={styles.img} src={gallery[0]} alt="Photo product"/>
                 </div>
                 <div className={styles.content}>
-                    <div className={styles.title}>{name}</div>
+                    <Title className={styles.title}>{name}</Title>
                     {/*<div className={styles.price}>Price: {prices[activeCurrency].currency.symbol} {prices[activeCurrency].amount}</div>*/}
                     <div className={styles.price}>Price: {symbol} {amount}</div>
                 </div>
