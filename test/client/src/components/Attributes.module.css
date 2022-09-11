@@ -1,7 +1,9 @@
 .container {
     width: 292px;
 }
-
+.ul {
+    font-size: 20px;
+}
 .sizes {
     margin-top: 8px;
     padding: 0;

@@ -124,7 +124,7 @@ console.log(product)
                         {/*    name={product.name}*/}
                         {/*    // product={product}*/}
                         {/*/>*/}
-                        <div className={styles.choiceSize}>
+                        <div className={styles.attributes}>
                             <Attributes product={product}
                                         attributes={attributes}
                                         activeAttribute={this.props.activeAttribute}
@@ -137,8 +137,8 @@ console.log(product)
                                 {symbol}{prices}
                             </div>
                         </div>
-                        <button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</button>
-                        {/*<Button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</Button>*/}
+                        {/*<button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</button>*/}
+                        <Button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</Button>
                         <p className={styles.description}>
                             {description}
                         </p>
