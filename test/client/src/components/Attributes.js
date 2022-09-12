@@ -7,21 +7,23 @@ class Attributes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeAttributes: 0,
-            activeAttributeId: 0,
+            activeAttributeInd: 0,
+            activeAttribute: 0,
         }
     }
 
     onSelectAttribute = (el, index) => {
+        // console.log(el)
         console.log(el.id)
+        // console.log(el.items[0])
+        // console.log(el.items[index])
         console.log(index)
-        console.log(el.items[index])
 
         // console.log(el.items[0].id)
         // if(el[index] === el ) {
             this.setState({
-                activeAttributes: index,
-                activeAttributeId: el.id,
+                activeAttributeInd: index,
+                activeAttribute: el.id,
             })
         // }
 
@@ -49,7 +51,7 @@ class Attributes extends React.Component {
         // let attributes = this.props.product.attributes[0].items
         // console.log(attributes)
         // let value ;
-const {activeAttributes, activeAttributeId}= this.state
+const {activeAttribute, activeAttributeInd}= this.state
         return (
             <main className={styles.container}>
                 {
@@ -63,7 +65,7 @@ const {activeAttributes, activeAttributeId}= this.state
                             {/*<h5>{attribute.id}</h5>*/}
                             <h5 className={styles.h5} key={`${attribute.id}_${attribute.name}`}>{attribute.name}</h5>
                             <li
-                                onClick={() => this.onSelectAttribute(attribute, index)}
+                                // onClick={() => this.onSelectAttribute(attribute, index)}
                                 // className={`${styles.sizes}
                                 //          ${activeAttributes === index && activeAttributeId === attribute.id? styles.activeAttribute : ''}`}
                                 className={styles.sizes}
@@ -83,9 +85,9 @@ const {activeAttributes, activeAttributeId}= this.state
                                         //     />
                                         // </li>
                                         <li key={el.id}
-                                            onClick={() => this.onSelectAttribute(el, index)}
+                                            onClick={() => this.onSelectAttribute(attribute, index)}
                                             className={`${styles.sizeItem}
-                                         ${activeAttributes === index && activeAttributeId === el.id? styles.activeAttribute : ''}`}
+                                         ${activeAttribute === attribute.id && activeAttributeInd === index ? styles.activeAttribute : ''}`}
                                             style={{backgroundColor: el.value}}
                                         >{attribute.name === 'Color' ? '': el.value} {index} {el.id}
                                         </li>
