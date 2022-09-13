@@ -6,7 +6,7 @@
 }
 
 .content {
-    width: 164px;
+    width: 136px;
     box-sizing: border-box;
 }
 
@@ -52,33 +52,6 @@
     background-color: rgba(29, 31, 34, 1);
 }
 
-.groupChoiceColor {
-    margin-top: 8px;
-}
-
-.choiceColor {
-    display: flex;
-    margin-top: 8px;
-}
-.choiceColorItem {
-    width: 20px;
-    height: 20px;
-    margin-right: 4px;
-    border: 1px solid grey;
-}
-
-.colorItem1 {
-    background-color: rgba(211, 210, 213, 1);
-}
-
-.colorItem2 {
-    background-color: rgba(43, 43, 43, 1);
-}
-
-.colorItem3 {
-    background-color: rgba(15, 100, 80, 1);
-}
-
 .sum {
     width: 24px;
     display: flex;
@@ -110,3 +83,29 @@ width: 121px;
     margin: 0;
 }
 
+.attributeName {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 8px 0 0;
+    list-style-type: none;
+}
+
+.attributeSize {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    font-size: 8px;
+    border: 1px solid rgba(29, 31, 34, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attributeSize:last-of-type {
+    margin-right: 0;
+}
+
+.attributeColor {
+    width: 24px;
+    height: 24px;
+}

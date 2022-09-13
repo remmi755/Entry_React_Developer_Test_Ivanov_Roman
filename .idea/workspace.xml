@@ -2,8 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="481f2bac-4e30-4221-889f-a49b8840366d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/client/src/components/Count.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/10.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/15.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/15.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/16.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/16.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/20.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/20.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/21.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/21.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/22.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/22.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/24.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/24.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/25.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/25.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/26.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/26.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/28.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/28.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/29.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/29.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/30.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/30.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/31.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/31.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/33.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/33.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/35.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/35.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/36.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/36.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/37.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/37.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/components/Attributes.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Attributes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Attributes.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Attributes.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartItem.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlay.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlay.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/GroupOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/GroupOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Pdp.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Pdp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Pdp.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Pdp.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Title.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/pages/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/pages/Category.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +235,13 @@
       <workItem from="1662736019637" duration="3116000" />
       <workItem from="1662809836741" duration="7248000" />
       <workItem from="1662913269708" duration="6209000" />
-      <workItem from="1662964917298" duration="2870000" />
+      <workItem from="1662964917298" duration="4235000" />
+      <workItem from="1662996175274" duration="4042000" />
+      <workItem from="1663002149263" duration="297000" />
+      <workItem from="1663004058690" duration="3220000" />
+      <workItem from="1663052376623" duration="5932000" />
+      <workItem from="1663076811510" duration="8811000" />
+      <workItem from="1663088201290" duration="4770000" />
     </task>
     <servers />
   </component>

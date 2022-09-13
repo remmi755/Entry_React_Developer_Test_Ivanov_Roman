@@ -91,58 +91,6 @@ class App extends React.Component {
         }
     }
 
-    // renderPDP = async () => {
-    //     try {
-    //         const result = await apolloClient
-    //         .query({
-    //             query: gql`
-    //                 query Product($productId: String!) {
-    //                     product(id: $productId) {
-    //                         id
-    //                         name
-    //                         inStock
-    //                         gallery
-    //                         description
-    //                         category
-    //                         prices {
-    //                             amount
-    //                             currency {
-    //                                 symbol
-    //                                 label
-    //                             }
-    //                         }
-    //                         brand
-    //                         attributes {
-    //                             id
-    //                             name
-    //                             type
-    //                             items {
-    //                                 id
-    //                                 value
-    //                                 displayValue
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //             `, variables: {productId: this.props.match.params['cardId'].substring(1)}
-    //         });
-    //         const product = result.data.product
-    //         const attributes = result.data.product.attributes
-    //         const allAttributes = result.data.product.attributes
-    //         const prices = result.data.product.prices[0].amount
-    //
-    //         this.setState({
-    //             product: product,
-    //             attributes: attributes,
-    //             allAttributes: allAttributes,
-    //             prices: prices,
-    //         });
-    //
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-
     componentDidMount() {
         this.renderCards();
         // this.renderPDP();
@@ -266,6 +214,7 @@ class App extends React.Component {
                         activeItem={this.state.activeItem}
                         activeCurrency={this.state.activeCurrency}
                         totalCount={totalCount}
+                        totalPrice={totalPrice}
                         cartList={this.state.cartList}
                     />}
                     />
@@ -280,6 +229,7 @@ class App extends React.Component {
                         deleteCartItem={this.deleteCartItem}
                         selectedCurrency={this.state.selectedCurrency}
                         total={this.state.total}
+
 
 
                     />}

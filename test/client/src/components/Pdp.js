@@ -129,6 +129,8 @@ console.log(product)
                                         attributes={attributes}
                                         activeAttribute={this.props.activeAttribute}
                                         onSelectAttributes={this.props.onSelectAttributes}
+                                        attributeName={styles.attributeName}
+                                        attributeSize={styles.attributeSize}
                             />
                         </div>
                         <div className={styles.groupChoicePrice}>

@@ -64,3 +64,25 @@
     height: 100%px;
     border: 1px solid grey;
 }
+
+.attributeName {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 8px 0 0;
+    list-style-type: none;
+}
+
+.attributeSize {
+    width: 63px;
+    height: 45px;
+    margin-right: 8px;
+    font-size: 8px;
+    border: 1px solid rgba(29, 31, 34, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attributeSize:last-of-type {
+    margin-right: 0;
+}

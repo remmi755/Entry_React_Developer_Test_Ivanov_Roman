@@ -46,10 +46,10 @@ class CartItem extends React.Component {
 
     render() {
 
-        const{orderItem, activeCurrency, countDecrease, id , count, countIncrease} = this.props
+        const{orderItem, activeCurrency, countDecrease, id , countIncrease} = this.props
         let amount = orderItem.prices[activeCurrency].amount;
         let symbol = orderItem.prices[activeCurrency].currency.symbol
-        // console.log(id)
+
         return(
             <main className={styles.container}>
                 <section>
@@ -62,6 +62,8 @@ class CartItem extends React.Component {
                         <Attributes
                             attributes={orderItem.attributes}
                             attributesId={orderItem.attributes.id}
+                            attributeName={styles.attributeName}
+                            attributeSize={styles.attributeSize}
                         />
                     </div>
                 </section>

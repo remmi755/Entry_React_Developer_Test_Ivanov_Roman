@@ -3,7 +3,7 @@ import styles from "./Title.module.css"
 
 class Title extends React.Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const{children, className} = this.props
         // const {name, brand} = this.props
         // console.log(cartItem.name)

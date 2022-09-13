@@ -1,43 +1,29 @@
 import React from "react";
 import styles from "./CartOverlayItem.module.css"
 import Title from "./Title";
+import Attributes from "./Attributes"
 
 class CartOverlayItem extends React.Component {
     render() {
         console.log(this.props.cartItem)
-        const{cartItem, id} = this.props
-        console.log(cartItem)
+        const{cartItem,  activeCurrency, id} = this.props
+        console.log(cartItem.prices[activeCurrency])
+        let price = cartItem.prices[activeCurrency].amount;
+        let symbol = cartItem.prices[activeCurrency].currency.symbol
+
         return(
             <main className={styles.container}>
                 <section className={styles.content}>
                     <Title className={styles.titleCartOverlay}>{cartItem.name}</Title>
                     <Title className={styles.titleCartOverlay}>{cartItem.brand}</Title>
-                    {
-                        // cartItem.attributes.map((attribute, id) => (
-                        //
-                        // ))
-                    }
-                    {/*<GroupTitle cartItem={cartItem}*/}
-                    {/*            brand={cartItem.brand}*/}
-                    {/*name={cartItem.name}/>*/}
-                    <p className={styles.price}>$50.00</p>
-                    {/*<div className={styles.groupChoiceSize}>*/}
-                    {/*    <h5 className={styles.h5}>size:</h5>*/}
-                    {/*    <div className={styles.choiceSize}>*/}
-                    {/*        <div className={styles.choiceSizeItem}>XS</div>*/}
-                    {/*        <div className={`${styles.choiceSizeItem} ${styles.activeSize}`}>S</div>*/}
-                    {/*        <div className={styles.choiceSizeItem}>M</div>*/}
-                    {/*        <div className={styles.choiceSizeItem}>L</div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-                    {/*<div className={styles.groupChoiceColor}>*/}
-                    {/*    <h5 className={styles.h5}>color:</h5>*/}
-                    {/*    <div className={styles.choiceColor}>*/}
-                    {/*        <div className={`${styles.choiceColorItem} ${styles.colorItem1}`}></div>*/}
-                    {/*        <div className={`${styles.choiceColorItem} ${styles.colorItem2}`}></div>*/}
-                    {/*        <div className={`${styles.choiceColorItem} ${styles.colorItem3}`}></div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
+                    <Attributes
+                        attributes={cartItem.attributes}
+                        attributesId={cartItem.attributes.id}
+                        attributeName={styles.attributeName}
+                        attributeSize={styles.attributeSize}
+                        attributeColor={styles.attributeColor}
+                    />
+                    <p className={styles.price}>{symbol}{price}</p>
                 </section>
                 <div className={styles.sum}>
                     <div className={styles.sumItem}>+</div>

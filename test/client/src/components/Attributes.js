@@ -12,22 +12,17 @@ class Attributes extends React.Component {
         }
     }
 
-    onSelectAttribute = (el, index) => {
-        // console.log(el)
-        console.log(el.id)
-        // console.log(el.items[0])
-        // console.log(el.items[index])
+    onSelectAttribute = (attribute, id, index) => {
+        console.log(attribute.items[index])
+        console.log(id)
         console.log(index)
-
-        // console.log(el.items[0].id)
-        // if(el[index] === el ) {
+        if(attribute.id === id ) {
+            console.log('OK')
             this.setState({
                 activeAttributeInd: index,
-                activeAttribute: el.id,
+                activeAttribute: attribute,
             })
-        // }
-
-
+        }
     }
 
     onSelectAttributes = (index, id) => {
@@ -46,60 +41,64 @@ class Attributes extends React.Component {
         // console.log(this.state.activeAttributes)
         // console.log(this.state.activeAttributeId)
         // console.log(this.props)
-        // console.log(this.props.attributes[this.state.activeAttributes].items[1])
         // let attributes = this.props.product.attributes[this.state.activeAttributes]
         // let attributes = this.props.product.attributes[0].items
         // console.log(attributes)
-        // let value ;
+        const {attributeName, attributeSize, ...attr} = this.props
+
 const {activeAttribute, activeAttributeInd}= this.state
         return (
-            <main className={styles.container}>
-                {
-                    this.props.attributes &&
-                    this.props.attributes.map((attribute, index) => (
-                        < ul className={styles.ul}
-                            // onClick={() => this.onSelectAttributes(index, attribute.id)}
-                            // onClick={() => this.onSelectAttribute(attribute, index)}
-
-                        >
-                            {/*<h5>{attribute.id}</h5>*/}
-                            <h5 className={styles.h5} key={`${attribute.id}_${attribute.name}`}>{attribute.name}</h5>
-                            <li
-                                // onClick={() => this.onSelectAttribute(attribute, index)}
-                                // className={`${styles.sizes}
-                                //          ${activeAttributes === index && activeAttributeId === attribute.id? styles.activeAttribute : ''}`}
-                                className={styles.sizes}
-                                key={attribute.name}>
-                                {
-                                    attribute.items &&
-                                    attribute.items.map((el, index) => (
-                                        // <li>
-                                        //     <Attribute
-                                        //     el={el}
-                                        //     id ={id}
-                                        //     index={index}
-                                        //     attribute={attribute}
-                                        //     activeAttributes={activeAttributes}
-                                        //     activeAttributeId={activeAttributeId}
-                                        //     onSelectAttributes={this.onSelectAttributes}
-                                        //     />
-                                        // </li>
-                                        <li key={el.id}
-                                            onClick={() => this.onSelectAttribute(attribute, index)}
-                                            className={`${styles.sizeItem}
-                                         ${activeAttribute === attribute.id && activeAttributeInd === index ? styles.activeAttribute : ''}`}
-                                            style={{backgroundColor: el.value}}
-                                        >{attribute.name === 'Color' ? '': el.value} {index} {el.id}
-                                        </li>
-                                    ))
-                                }
-                            </li>
-                        </ul>
-                    ))
-                }
-            </main>
+            <>
+                <ul className={styles.ul}>
+                    {
+                        this.props.attributes &&
+                        this.props.attributes.map((attribute, index) => (
+                            <>
+                                <li className={attributeName}  key={`${attribute.id}_${attribute.name}`}>
+                                    {attribute.name}</li>
+                                <li  key={attribute.name}  >
+                                    <ul className={styles.attributeGroup}
+                                        // onClick={() => this.onSelectAttribute(attribute, index)}
+                                    >
+                                        {
+                                            attribute.items &&
+                                            attribute.items.map((el, index) => (
+                                                <li key={el.id}
+                                                    onClick={() => this.onSelectAttribute(attribute, attribute.id, index)}
+                                                    className={`${attributeSize} ${attribute.name === 'Color' ? styles.attributeColor : ''}
+                                         ${ activeAttributeInd === index && activeAttribute === attribute ? styles.activeAttribute : ''}`}
+                                                    style={{backgroundColor: el.value}}
+                                                >{attribute.name === 'Color' ? '': el.value}
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                </li>
+                            </>
+                        ))
+                    }
+                </ul>
+            </>
         )
     }
 }
+
+// Attributes.defaultProps = {
+//     attributeName :{
+//         fontSize: "16px",
+//         fontWeight: "400px",
+//         margin: "24px 0 0",
+//         listStyleType: "none"
+//     },
+//     attributeSize: {
+//         width: "24px",
+//         high: "24px",
+//         fontSize: "12px",
+//         border: "1px solid rgba(29, 31, 34, 1)",
+//         display: "flex",
+//         alignItems: "center",
+//         justifyContent: "center"
+//     }
+// }
 
 export default Attributes;
