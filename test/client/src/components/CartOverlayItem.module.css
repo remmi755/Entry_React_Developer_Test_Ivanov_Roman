@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+/*.container:not(:first-child) {*/
+/*    margin-top: 40px;*/
+/*}*/
+
 .content {
     width: 136px;
     box-sizing: border-box;
@@ -93,12 +97,13 @@ width: 121px;
 .attributeSize {
     width: 24px;
     height: 24px;
-    margin-right: 8px;
     font-size: 8px;
-    border: 1px solid rgba(29, 31, 34, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    /*margin-right: 8px;*/
+    /*border: 1px solid rgba(29, 31, 34, 1);*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
 }
 
 .attributeSize:last-of-type {
@@ -108,4 +113,15 @@ width: 121px;
 .attributeColor {
     width: 24px;
     height: 24px;
+    font-size: 8px;
+
+    /*margin-right: 8px;*/
+    /*border: 1px solid rgba(29, 31, 34, 1);*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
+
+.attributeColor:last-of-type {
+    margin-right: 0;
 }

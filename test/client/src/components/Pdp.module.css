@@ -102,14 +102,27 @@
 .attributeSize {
     width: 65px;
     height: 45px;
-    margin-right: 8px;
     font-size: 12px;
-    border: 1px solid rgba(29, 31, 34, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    /*margin-right: 8px;*/
+    /*border: 1px solid rgba(29, 31, 34, 1);*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
 }
 
 .attributeSize:last-of-type {
     margin-right: 0;
+}
+
+.attributeColor {
+    width: 36px;
+    height: 36px;
+    font-size: 8px;
+
+    /*margin-right: 8px;*/
+    /*border: 1px solid rgba(29, 31, 34, 1);*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
 }

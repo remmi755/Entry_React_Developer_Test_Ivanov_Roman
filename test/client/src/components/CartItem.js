@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./CartItem.module.css"
 import Title from "./Title"
+import Count from "./Count"
 import GroupTitle from "./GroupTitle";
 import Attributes from "./Attributes";
 
@@ -64,6 +65,7 @@ class CartItem extends React.Component {
                             attributesId={orderItem.attributes.id}
                             attributeName={styles.attributeName}
                             attributeSize={styles.attributeSize}
+                            attributeColor={styles.attributeColor}
                         />
                     </div>
                 </section>
@@ -74,10 +76,18 @@ class CartItem extends React.Component {
                     {/*<div className={styles.choiceColor}><ChoiceColor /></div>*/}
                 </section>
                 <section className={styles.groupImg}>
-                    <div className={styles.sum}>
-                        <button className={styles.sumItem} onClick={() => countIncrease(orderItem, id)}>+</button>
-                        <div className={`${styles.sumItem} ${styles.borderNone}`}>{orderItem.count}</div>
-                        <button className={styles.sumItem} onClick={() => countDecrease(orderItem, id)}>-</button>
+                    <div className={styles.count}>
+                        <Count
+                            classSize={styles.countSize}
+                            children={orderItem.count}
+                            countIncrease={countIncrease}
+                            countDecrease={countDecrease}
+                            id={id}
+                            orderItem={orderItem}
+                        />
+                        {/*<button className={styles.sumItem} onClick={() => countIncrease(orderItem, id)}>+</button>*/}
+                        {/*<div className={`${styles.sumItem} ${styles.borderNone}`}>{orderItem.count}</div>*/}
+                        {/*<button className={styles.sumItem} onClick={() => countDecrease(orderItem, id)}>-</button>*/}
                     </div>
                     <img className={styles.img} src={orderItem.gallery[0]} alt="photo item"/>
                 </section>

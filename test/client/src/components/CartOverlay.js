@@ -7,8 +7,9 @@ class CartOverlay extends React.Component {
 
     render() {
         const {totalCount, totalPrice, cartList, activeCurrency} = this.props
-        let symbol = cartList[0].prices[activeCurrency].currency.symbol;
+        let symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
         console.log(symbol)
+
         return(
             <main className={styles.container}>
                 <header className={styles.header}>
@@ -28,6 +29,7 @@ class CartOverlay extends React.Component {
                 <div className={styles.total}>
                     <span className={styles.totalItem}>Total</span>
                     <span className={styles.totalItem}>{symbol}{totalPrice}</span>
+                    {/*<span className={styles.totalItem}>{totalPrice}</span>*/}
                 </div>
                 <div className={styles.groupButton}>
                  <button className={styles.buttonViewBag}>VIEW BAG</button>

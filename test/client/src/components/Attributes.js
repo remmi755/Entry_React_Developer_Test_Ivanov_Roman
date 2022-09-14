@@ -44,7 +44,7 @@ class Attributes extends React.Component {
         // let attributes = this.props.product.attributes[this.state.activeAttributes]
         // let attributes = this.props.product.attributes[0].items
         // console.log(attributes)
-        const {attributeName, attributeSize, ...attr} = this.props
+        const {attributeName, attributeSize, attributeColor, ...attr} = this.props
 
 const {activeAttribute, activeAttributeInd}= this.state
         return (
@@ -56,7 +56,7 @@ const {activeAttribute, activeAttributeInd}= this.state
                             <>
                                 <li className={attributeName}  key={`${attribute.id}_${attribute.name}`}>
                                     {attribute.name}</li>
-                                <li  key={attribute.name}  >
+                                <li  key={attribute.id}  >
                                     <ul className={styles.attributeGroup}
                                         // onClick={() => this.onSelectAttribute(attribute, index)}
                                     >
@@ -65,7 +65,7 @@ const {activeAttribute, activeAttributeInd}= this.state
                                             attribute.items.map((el, index) => (
                                                 <li key={el.id}
                                                     onClick={() => this.onSelectAttribute(attribute, attribute.id, index)}
-                                                    className={`${attributeSize} ${attribute.name === 'Color' ? styles.attributeColor : ''}
+                                                    className={`${styles.attribute} ${attribute.name === 'Color' ? attributeColor : attributeSize}
                                          ${ activeAttributeInd === index && activeAttribute === attribute ? styles.activeAttribute : ''}`}
                                                     style={{backgroundColor: el.value}}
                                                 >{attribute.name === 'Color' ? '': el.value}

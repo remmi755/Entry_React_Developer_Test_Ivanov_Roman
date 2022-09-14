@@ -56,6 +56,7 @@ class App extends React.Component {
                                 prices {
                                     currency {
                                         symbol
+                                        label
                                     }
                                     amount
                                 }
@@ -223,15 +224,11 @@ class App extends React.Component {
                         activeCurrency={this.state.activeCurrency}
                         cartList={this.state.cartList}
                         count={this.state.count}
-                        // countIncrease={this.countIncrease}
                         countDecrease={this.countDecrease}
                         activeItem={this.state.activeItem}
                         deleteCartItem={this.deleteCartItem}
                         selectedCurrency={this.state.selectedCurrency}
                         total={this.state.total}
-
-
-
                     />}
                     />
                     <Route path="/:cardId" element={<PDP
@@ -239,10 +236,8 @@ class App extends React.Component {
                         activeItem={this.state.activeItem}
                         activeCurrency={this.state.activeCurrency}
                         activeAttribute={this.state.activeAttribute}
-
                         onAddToCart={this.onAddToCart}
                         onSelectAttributes={this.onSelectAttributes}
-
                     />}
                     />
                 </Routes>

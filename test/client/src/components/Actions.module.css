@@ -20,6 +20,8 @@
     list-style-type: none;
     text-decoration: none;
     cursor: pointer;
+    /*display: flex;*/
+    /*justify-content: ;*/
 }
 
 .popupClosed {

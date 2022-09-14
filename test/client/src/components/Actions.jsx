@@ -31,7 +31,8 @@ class Actions extends React.Component {
        const {currencies, activeCurrency, openPopup, selectedCurrency, onSelectCurrencies, onOpenPopup } = this.props
         // const {activeCurrency, openPopup, selectedCurrency} = this.state
         // const selectedName = currencies[activeCurrency].currency.symbol
-        // console.log(currencies[activeCurrency].currency.symbol)
+        // console.log(currencies[activeCurrency].currency.label)
+        // console.log(currencies[activeCurrency]?.currency.label)
         // console.log(selectedCurrency)
         // console.log(selectedName)
 
@@ -52,11 +53,10 @@ class Actions extends React.Component {
                                         <label key={index}>
                                             <li key={index}
                                                 onClick={(e) => onSelectCurrencies(index, e)}
-                                                // onClick={() => onSelectCurrencies}
                                                 className={`${styles.actionsItem}  
                                             ${activeCurrency === index ? styles.active : ''}`}
                                                 key={index}>
-                                                {item.currency.symbol}
+                                                {item.currency.symbol}{item.currency.label}
                                             </li>
                                         </label>
                                     ))
