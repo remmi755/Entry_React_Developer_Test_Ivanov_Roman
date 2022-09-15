@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Cart.module.css"
 import GroupOrder from "./GroupOrder";
 import Title from "./Title"
-import Header from "./Header";
 import CartItem from "./CartItem"
 
 class Cart extends React.Component {
@@ -24,8 +23,9 @@ class Cart extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.count !== this.state.count ||
-        prevProps.activeCurrency !== this.props.activeCurrency) {
-            // console.log(this.props.cartList)
+        prevProps.activeCurrency !== this.props.activeCurrency ||
+         prevState.total !== this.state.total) {
+
             this.setState({
                 total:{
                     totalPrice: (this.props.cartList.reduce((prev, curr) => {
@@ -40,31 +40,29 @@ class Cart extends React.Component {
     }
 
 
-    countIncrease = (product, id) => {
-        if(product.id === id) {
-            this.setState({
-                count: ++product.count
-            })
-        }
-    }
-
-    countDecrease = (product, id) => {
-        const {deleteCartItem} = this.props;
-
-        if (product.id === id) {
-            this.setState({
-                count: product.count - 1 > 0 ? --product.count : deleteCartItem(id),
-            })
-        }
-    }
+    // countIncrease = (product, id) => {
+    //     if(product.id === id) {
+    //         this.setState({
+    //             count: ++product.count
+    //         })
+    //     }
+    // }
+    //
+    // countDecrease = (product, id) => {
+    //     const {deleteCartItem} = this.props;
+    //
+    //     if (product.id === id) {
+    //         this.setState({
+    //             count: product.count - 1 > 0 ? --product.count : deleteCartItem(id),
+    //         })
+    //     }
+    // }
 
     render() {
         // console.log(this.props.cartList)
-        const {cartList,productCards, activeCurrency} = this.props
+        const {cartList,selectedCurrency, activeCurrency, countIncrease, countDecrease } = this.props
        // const symbol = productCards[0].products[0].prices[activeCurrency].currency.symbol
         const {count} = this.state
-
-// console.log(count)
 
         return (
             <main className={styles.container}>
@@ -76,20 +74,20 @@ class Cart extends React.Component {
                                 orderItem={orderItem}
                                 count={count}
                                 id={orderItem.id}
-                                countIncrease={this.countIncrease}
-                                countDecrease={this.countDecrease}
-                                activeCurrency={this.props.activeCurrency}
-
+                                countIncrease={countIncrease}
+                                countDecrease={countDecrease}
+                                activeCurrency={activeCurrency}
                             />
                         </section>
                     ))
                 }
                 <div className={styles.groupOrder}>
-                    <GroupOrder total={this.state.total}
-                                activeCurrency={this.props.activeCurrency}
-                                selectedCurrency={this.props.selectedCurrency}
-                                total={this.state.total}
-
+                    <GroupOrder
+                        totalCount={this.props.totalCount}
+                        totalPrice={this.props.totalPrice}
+                        total={this.state.total}
+                        activeCurrency={activeCurrency}
+                        selectedCurrency={selectedCurrency}
                     />
                 </div>
             </main>

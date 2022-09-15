@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Attributes.module.css"
-import Attribute from "./Attribute"
 
 class Attributes extends React.Component {
 

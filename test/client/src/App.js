@@ -21,6 +21,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            count: 1,
             productCards: [this.renderCards],
             activeItem: 0,
             products: [this.renderCards],
@@ -29,6 +30,10 @@ class App extends React.Component {
             selectedCurrency: '$',
             cartList: [],
             activeAttribute: 0,
+            total: {
+                totalPrice: 0,
+                totalCount: 0
+            }
             // count: 1,
             // total:{
             //     totalPrice: (this.state.cartList.reduce((prev, curr) => {
@@ -97,11 +102,6 @@ class App extends React.Component {
         // this.renderPDP();
         // window.scrollTo(0, 0);
     }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.productCards !== this.state.productCards) {
-    //     }
-    // }
 
     // componentDidUpdate(prevProps, prevState) {
     //     if (prevState.count !== this.state.count ||
@@ -179,8 +179,28 @@ class App extends React.Component {
         })
     }
 
+    countIncrease = (product, id) => {
+        if(product.id === id) {
+            this.setState({
+                count: ++product.count
+            })
+        }
+    }
+
+    countDecrease = (product, id) => {
+        // const {deleteCartItem} = this.props;
+
+        if (product.id === id) {
+            this.setState({
+                count: product.count - 1 > 0 ? --product.count : this.deleteCartItem(id),
+            })
+        }
+    }
+
     render() {
         console.log(this.state.cartList)
+        console.log(this.state.count)
+
         let totalPrice = (this.state.cartList.reduce((prev, curr) => {
                     return prev + curr.prices[this.state.activeCurrency].amount * curr.count
                 }, 0)).toFixed(2)
@@ -189,7 +209,7 @@ class App extends React.Component {
                 return prev + curr.count
             }, 0)
 
-        console.log(totalCount)
+        // console.log(totalCount)
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
         // console.log(this.state.selectedCurrency)
@@ -217,6 +237,8 @@ class App extends React.Component {
                         totalCount={totalCount}
                         totalPrice={totalPrice}
                         cartList={this.state.cartList}
+                        countIncrease={this.countIncrease}
+                        countDecrease={this.countDecrease}
                     />}
                     />
                     <Route path="/cart" element={<Cart
@@ -224,11 +246,14 @@ class App extends React.Component {
                         activeCurrency={this.state.activeCurrency}
                         cartList={this.state.cartList}
                         count={this.state.count}
-                        countDecrease={this.countDecrease}
                         activeItem={this.state.activeItem}
                         deleteCartItem={this.deleteCartItem}
                         selectedCurrency={this.state.selectedCurrency}
                         total={this.state.total}
+                        countIncrease={this.countIncrease}
+                        countDecrease={this.countDecrease}
+                        totalCount={totalCount}
+                        totalPrice={totalPrice}
                     />}
                     />
                     <Route path="/:cardId" element={<PDP

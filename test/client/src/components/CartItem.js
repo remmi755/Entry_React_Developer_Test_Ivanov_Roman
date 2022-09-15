@@ -47,7 +47,7 @@ class CartItem extends React.Component {
 
     render() {
 
-        const{orderItem, activeCurrency, countDecrease, id , countIncrease} = this.props
+        const{orderItem, activeCurrency, countDecrease, id ,count, countIncrease} = this.props
         let amount = orderItem.prices[activeCurrency].amount;
         let symbol = orderItem.prices[activeCurrency].currency.symbol
 

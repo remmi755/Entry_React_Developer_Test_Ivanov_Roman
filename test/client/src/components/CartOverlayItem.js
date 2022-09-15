@@ -6,9 +6,7 @@ import Attributes from "./Attributes"
 
 class CartOverlayItem extends React.Component {
     render() {
-        console.log(this.props.cartItem)
-        const{cartItem,  activeCurrency, id} = this.props
-        // console.log(cartItem.prices[activeCurrency])
+        const{cartItem,  activeCurrency, id, countIncrease, countDecrease} = this.props
         let price = cartItem?.prices[activeCurrency].amount;
         let symbol = cartItem?.prices[activeCurrency].currency.symbol;
         // let img = cartItem.gallery[0]
@@ -25,23 +23,17 @@ class CartOverlayItem extends React.Component {
                         attributeName={styles.attributeName}
                         attributeSize={styles.attributeSize}
                         attributeColor={styles.attributeColor}
-
                     />
-
-                    {/*<p className={styles.price}>555</p>*/}
                 </section>
-                <div className={styles.sum}>
-                    {/*<Count*/}
-                    {/*    classSize={styles.countSize}*/}
-                    {/*    children={orderItem.count}*/}
-                    {/*    countIncrease={countIncrease}*/}
-                    {/*    countDecrease={countDecrease}*/}
-                    {/*    id={id}*/}
-                    {/*    orderItem={orderItem}*/}
-                    {/*/>*/}
-                    <div className={styles.sumItem}>+</div>
-                    <div className={`${styles.sumItem} ${styles.borderNone}`}>1</div>
-                    <div className={styles.sumItem}>-</div>
+                <div className={styles.count}>
+                    <Count
+                        classSize={styles.countSize}
+                        children={cartItem.count}
+                        countIncrease={countIncrease}
+                        countDecrease={countDecrease}
+                        id={cartItem.id}
+                        orderItem={cartItem}
+                    />
                 </div>
                 <div className={styles.img}>
                     <img src="" alt="photo item"/>

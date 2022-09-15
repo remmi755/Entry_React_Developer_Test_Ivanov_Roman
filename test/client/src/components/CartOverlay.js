@@ -2,13 +2,14 @@ import React from "react";
 import styles from "./CartOverlay.module.css"
 import CartOverlayItem from "./CartOverlayItem";
 import Title from "./Title"
+import Button from "./Button"
 
 class CartOverlay extends React.Component {
 
     render() {
         const {totalCount, totalPrice, cartList, activeCurrency} = this.props
         let symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
-        console.log(symbol)
+        // console.log(symbol)
 
         return(
             <main className={styles.container}>
@@ -22,6 +23,8 @@ class CartOverlay extends React.Component {
                         cartList.map((cartItem, id) => (
                             <CartOverlayItem cartItem={cartItem} key={id} id={id}
                                              activeCurrency={activeCurrency}
+                                             countIncrease={this.props.countIncrease}
+                                             countDecrease={this.props.countDecrease}
                             />
                         ))
                     }
@@ -34,6 +37,7 @@ class CartOverlay extends React.Component {
                 <div className={styles.groupButton}>
                  <button className={styles.buttonViewBag}>VIEW BAG</button>
                  <button className={styles.buttonCheckOut}>CHECK OUT</button>
+                    {/*<Button />*/}
                 </div>
             </main>
         )

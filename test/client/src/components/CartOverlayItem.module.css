@@ -1,25 +1,16 @@
 .container {
     width: 293px;
-    /*height: 190px;*/
     display: flex;
     box-sizing: border-box;
 }
 
-/*.container:not(:first-child) {*/
-/*    margin-top: 40px;*/
-/*}*/
+/*!*.container:not(:first-child) {*!*/
+/*!*    margin-top: 40px;*!*/
+/*!*}*!*/
 
 .content {
     width: 136px;
     box-sizing: border-box;
-}
-
-.title {
-    margin: 0;
-}
-
-.label {
-    margin: 0;
 }
 
 .price {
@@ -27,36 +18,7 @@
     margin: 8px 0 0 0;
 }
 
-.h5 {
-    font-size: 14px;
-    font-weight: 400;
-    margin: 8px 0 0 0;
-}
-
-.groupChoiceSize {
-    margin-top: 8px;
-}
-
-.choiceSize {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-}
-.choiceSizeItem {
-    width: 24px;
-    height: 24px;
-    border: 1px solid rgba(29, 31, 34, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.activeSize {
-    color: white;
-    background-color: rgba(29, 31, 34, 1);
-}
-
-.sum {
+.count {
     width: 24px;
     display: flex;
     margin: 0 8px 0 4px;
@@ -64,18 +26,11 @@
     justify-content: space-between;
 }
 
-.sumItem {
+.countSize {
+    box-sizing: border-box;
     width: 24px;
     height: 24px;
-    display: flex;
-    align-content: space-between;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(29, 31, 34, 1);
-}
-
-.borderNone {
-    border: none;
+    font-size: 12px;
 }
 
 .img {
@@ -95,15 +50,10 @@ width: 121px;
 }
 
 .attributeSize {
+    box-sizing: border-box;
     width: 24px;
     height: 24px;
     font-size: 8px;
-
-    /*margin-right: 8px;*/
-    /*border: 1px solid rgba(29, 31, 34, 1);*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
 }
 
 .attributeSize:last-of-type {
@@ -114,12 +64,6 @@ width: 121px;
     width: 24px;
     height: 24px;
     font-size: 8px;
-
-    /*margin-right: 8px;*/
-    /*border: 1px solid rgba(29, 31, 34, 1);*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
 }
 
 .attributeColor:last-of-type {
