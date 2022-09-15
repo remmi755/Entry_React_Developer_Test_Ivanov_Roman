@@ -12,11 +12,7 @@ class Attributes extends React.Component {
     }
 
     onSelectAttribute = (attribute, id, index) => {
-        console.log(attribute.items[index])
-        console.log(id)
-        console.log(index)
         if(attribute.id === id ) {
-            console.log('OK')
             this.setState({
                 activeAttributeInd: index,
                 activeAttribute: attribute,
@@ -25,14 +21,9 @@ class Attributes extends React.Component {
     }
 
     onSelectAttributes = (index, id) => {
-        // alert(index)
-        // console.log(index)
-        // console.log(id)
-
         this.setState({
             activeAttributes: index,
             activeAttributeId: id,
-
         })
     }
 
@@ -43,7 +34,7 @@ class Attributes extends React.Component {
         // let attributes = this.props.product.attributes[this.state.activeAttributes]
         // let attributes = this.props.product.attributes[0].items
         // console.log(attributes)
-        const {attributeName, attributeSize, attributeColor, ...attr} = this.props
+        const {attributeName, attributeSize, attributeColor} = this.props
 
 const {activeAttribute, activeAttributeInd}= this.state
         return (
@@ -81,23 +72,5 @@ const {activeAttribute, activeAttributeInd}= this.state
         )
     }
 }
-
-// Attributes.defaultProps = {
-//     attributeName :{
-//         fontSize: "16px",
-//         fontWeight: "400px",
-//         margin: "24px 0 0",
-//         listStyleType: "none"
-//     },
-//     attributeSize: {
-//         width: "24px",
-//         high: "24px",
-//         fontSize: "12px",
-//         border: "1px solid rgba(29, 31, 34, 1)",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center"
-//     }
-// }
 
 export default Attributes;

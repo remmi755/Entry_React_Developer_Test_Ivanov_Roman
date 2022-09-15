@@ -6,7 +6,6 @@ import styles from "./Header.module.css"
 import Categories from "./Categories";
 import Actions from "./Actions";
 
-
 class Header extends React.Component {
 
     render() {
@@ -16,7 +15,6 @@ class Header extends React.Component {
             <div className={styles.container}>
                 <Link to="/">
                     <div className={styles.navigation}>
-                        {/*<div className={styles.navigation} onClick={() => this.props.onClick()}>*/}
                         <Categories
                             onClick={(index) => {
                                 this.props.onClick(index)
@@ -25,7 +23,6 @@ class Header extends React.Component {
                             activeItem={this.props.activeItem}
                             categories={this.props.categories}
                         />
-                        {/*</div>*/}
                     </div>
                 </Link>
                 <div className={styles.logo}>
@@ -33,7 +30,6 @@ class Header extends React.Component {
                 </div>
 
                     <Actions
-                        // outline onClick={this.props.onClick}
                              onSelectCurrencies={this.props.onSelectCurrencies}
                              onOpenPopup={this.props.onOpenPopup}
                              productCards={this.props.productCards}

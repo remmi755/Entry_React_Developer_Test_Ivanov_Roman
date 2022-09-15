@@ -1,9 +1,18 @@
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    right: 0;
+}
 .container {
     width: 325px;
     box-sizing: border-box;
     padding: 32px 16px;
     border: 1px solid yellowgreen;
-    margin: 0 auto;
+    margin: 0 auto ;
+    background-color: white;
 }
 
 .header {
@@ -41,6 +50,7 @@
 
 .buttonViewBag {
     width: 140px;
+    height: 43px;
 }
 
 .buttonCheckOut {
@@ -49,4 +59,5 @@
     background-color: #5ECE7B;
     border: none;
 }
+
 

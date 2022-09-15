@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./CartItem.module.css"
 import Title from "./Title"
 import Count from "./Count"
-import GroupTitle from "./GroupTitle";
 import Attributes from "./Attributes";
+import Image from "./Image"
 
 class CartItem extends React.Component {
     // constructor(props) {
@@ -69,12 +69,6 @@ class CartItem extends React.Component {
                         />
                     </div>
                 </section>
-                <section>
-                    {/*<div><GroupTitle /></div>*/}
-                    {/*<p className={styles.price}>$50.00</p>*/}
-                    {/*<div className={styles.choiceSize}><ChoiceSize /></div>*/}
-                    {/*<div className={styles.choiceColor}><ChoiceColor /></div>*/}
-                </section>
                 <section className={styles.groupImg}>
                     <div className={styles.count}>
                         <Count
@@ -85,11 +79,9 @@ class CartItem extends React.Component {
                             id={id}
                             orderItem={orderItem}
                         />
-                        {/*<button className={styles.sumItem} onClick={() => countIncrease(orderItem, id)}>+</button>*/}
-                        {/*<div className={`${styles.sumItem} ${styles.borderNone}`}>{orderItem.count}</div>*/}
-                        {/*<button className={styles.sumItem} onClick={() => countDecrease(orderItem, id)}>-</button>*/}
                     </div>
                     <img className={styles.img} src={orderItem.gallery[0]} alt="photo item"/>
+                    <Image />
                 </section>
             </main>
         )

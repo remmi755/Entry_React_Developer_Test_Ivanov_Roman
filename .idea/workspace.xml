@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="481f2bac-4e30-4221-889f-a49b8840366d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/client/src/components/Button.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/client/src/components/Icon.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/client/src/components/Image.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/client/src/components/Layot.jsx.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/15.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/15.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/20.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/20.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/21.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/21.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/24.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/24.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/25.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/25.pack" afterDir="false" />
@@ -21,20 +22,27 @@
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/39.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/39.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/4.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/40.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/40.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/41.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/41.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/7.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Attribute.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Attribute.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Actions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Actions.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/components/Attributes.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Attributes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/components/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Button.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Button.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Button.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/components/CartItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartItem.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlay.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlay.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/components/Count.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Count.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/GroupOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/GroupOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/GroupTitle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/GroupTitle.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Layot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Pdp.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Pdp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Title.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client/src/components/Title.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Title.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/client/src/pages/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/pages/Category.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint" afterDir="false" />
     </list>
@@ -47,8 +55,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -72,9 +80,8 @@
     <setting file="file://$PROJECT_DIR$/test/client/src/components/GroupOrder.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/client/src/components/Count.jsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/client/src/components/CartOverlayItem.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/test/client/src/components/GroupTitle.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/test/client/src/components/Image.jsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/client/src/components/CartOverlay.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/test/client/src/components/Attributes.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/client/src/components/Cart.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/client/src/components/Title.jsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/client/src/components/Categories.jsx" root0="FORCE_HIGHLIGHTING" />
@@ -84,6 +91,7 @@
     <setting file="file://$PROJECT_DIR$/test/client/src/components/Actions.jsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/client/src/components/CartItem.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/client/src/components/Button.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/test/client/src/components/Icon.jsx" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -241,7 +249,9 @@
       <workItem from="1663161785112" duration="4851000" />
       <workItem from="1663174688091" duration="6957000" />
       <workItem from="1663224050129" duration="3303000" />
-      <workItem from="1663227992070" duration="11241000" />
+      <workItem from="1663227992070" duration="11280000" />
+      <workItem from="1663253318317" duration="4293000" />
+      <workItem from="1663261450714" duration="5478000" />
     </task>
     <servers />
   </component>

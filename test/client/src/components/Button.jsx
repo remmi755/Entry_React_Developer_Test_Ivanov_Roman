@@ -21,6 +21,6 @@ class Button extends React.Component {
 Button.defaultProps = {
 children: "Default Button",
     onClick: () => {},
-    className: ''
+    className: 'styles.btn'
 }
 export default Button;

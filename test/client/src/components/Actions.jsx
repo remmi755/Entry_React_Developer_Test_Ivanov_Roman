@@ -1,7 +1,6 @@
 import React from "react";
 import {ReactComponent as VectorCurrency} from '../SVG/VectorCurrency.svg';
 import {Link} from "react-router-dom";
-
 import styles from "./Actions.module.css"
 import {ReactComponent as HeaderBasket} from "../SVG/headerBasket.svg";
 
@@ -65,10 +64,9 @@ class Actions extends React.Component {
                         </div>
                     )
                 }
-                <Link to="/cart">
-                    <div className={styles.cart}>< HeaderBasket/></div>
-                </Link>
-
+                {/*<Link to="/cart">*/}
+                    <div className={styles.cart} onClick={() => alert('333')}>< HeaderBasket/></div>
+                {/*</Link>*/}
             </div>
         )
     }

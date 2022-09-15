@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Pdp.module.css"
-import GroupTitle from "./GroupTitle";
 import Title from "./Title"
 import Button from "./Button"
 import Attributes from "./Attributes";
@@ -111,7 +110,6 @@ console.log(product)
                         product.gallery.map((img, id) => (
                             <img key={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
                         ))
-
                     }
                 </section>
                 <section className={styles.blockGroup}>
@@ -119,11 +117,6 @@ console.log(product)
                     <div className={styles.groupChoice}>
                         <Title className={styles.titleBrand}>{product.brand}</Title>
                         <Title className={styles.titleName}>{product.name}</Title>
-                        {/*<GroupTitle*/}
-                        {/*    brand={product.brand}*/}
-                        {/*    name={product.name}*/}
-                        {/*    // product={product}*/}
-                        {/*/>*/}
                         <div className={styles.attributes}>
                             <Attributes product={product}
                                         attributes={attributes}
@@ -140,7 +133,6 @@ console.log(product)
                                 {symbol}{prices}
                             </div>
                         </div>
-                        {/*<button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</button>*/}
                         <Button className={styles.button} onClick={() => onAddToCart(product)}>ADD TO CART</Button>
                         <p className={styles.description}>
                             {description}

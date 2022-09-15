@@ -6,6 +6,12 @@ import Title from "../components/Title"
 import {Link} from "react-router-dom";
 
 class Category extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeCartOverlay: true
+        }
+    }
     render() {
         // console.log(this.props)
         const {productCards, activeItem, activeCurrency, totalCount, totalPrice, cartList, countIncrease, countDecrease}  = this.props
@@ -37,6 +43,8 @@ class Category extends React.Component {
                              activeCurrency={activeCurrency}
                              countIncrease={countIncrease}
                              countDecrease={countDecrease}
+
+                             activeCartOverlay={this.state.activeCartOverlay}
                 />
             </>
 
