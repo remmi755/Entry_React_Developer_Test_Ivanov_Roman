@@ -1,0 +1,24 @@
+.modalBackdrop {
+    width: 1400px;
+    margin: 0 auto;
+    position: fixed;
+    /*top = ''; window. scrollTo(0, parseInt(scrollY || '0') * -1)*/
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: right;
+    align-items:start;
+    /*overflow-y: hidden;*/
+    z-index: 2;
+}
+
+.modalContent {
+    /*overflow-y: hidden;*/
+    /*width: 60%;*/
+    /*min-height: 200px;*/
+    background-color: white;
+    margin: -15px 72px 0 0;
+}

@@ -3,7 +3,7 @@ import styles from "./Button.module.css"
 
 class Button extends React.Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const{children, className, onClick, ...attrs} = this.props
 
         return (

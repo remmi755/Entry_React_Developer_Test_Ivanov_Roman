@@ -3,50 +3,101 @@ import styles from "./Category.module.css"
 import ProductCard from "../components/ProductCard";
 import CartOverlay from "../components/CartOverlay"
 import Title from "../components/Title"
+import Modal from "../components/Modal"
 import {Link} from "react-router-dom";
 
 class Category extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeCartOverlay: true
-        }
-    }
-    render() {
-        // console.log(this.props)
-        const {productCards, activeItem, activeCurrency, totalCount, totalPrice, cartList, countIncrease, countDecrease}  = this.props
-        // console.log(productCards[0].products[0].id)
 
-        let cards = productCards[activeItem].products?.map((product) => (
-            <Link to={`/ ${product.id}`}>
-                <ProductCard
-                    key={product.id}
-                    product={product}
-                    activeCurrency={activeCurrency}
-                />
-            </Link>
-        ))
+    // openModal = () => {
+    //     this.state = {
+    //         activeCartOverlay: true
+    //     }
+    // }
+    render() {
+        const {productCards, activeItem, activeCurrency, totalCount,
+            totalPrice, cartList, countIncrease, countDecrease,modalShow}  = this.props
+        console.log(modalShow)
+        // const cards = productCards[activeItem].products?.map((product) => (
+        //     <Link to={`/ ${product.id}`}>
+        //         <ProductCard
+        //             key={product.id}
+        //             product={product}
+        //             activeCurrency={activeCurrency}
+        //         />
+        //     </Link>
+        // ))
 
         return (
-            <>
-                <main className={styles.container}>
+            <div className={styles.back}>
+                <div className={`${styles.container} 
+                 
+                 `}>
+                    {/*<div className={modalShow? styles.modal: ""}></div>*/}
                     <Title className={styles.title}>{productCards[activeItem].name}</Title>
                     <section className={styles.productCards}>
                         <div className={styles.grid}>
-                            {cards}
+                            {
+                                productCards[activeItem].products?.map((product) => (
+                                    <Link to={`/ ${product.id}`}>
+                                        <ProductCard
+                                            key={product.id}
+                                            product={product}
+                                            activeCurrency={activeCurrency}
+                                        />
+                                    </Link>
+                                ))
+                            }
+                            {/*{cards}*/}
                         </div>
                     </section>
-                </main>
-                <CartOverlay totalCount={totalCount}
-                             totalPrice={totalPrice}
-                             cartList={cartList}
-                             activeCurrency={activeCurrency}
-                             countIncrease={countIncrease}
-                             countDecrease={countDecrease}
+                    <div className={styles.containerCartOverlay}>
+                        <Modal className={modalShow? styles.modal: ""}
+                            show={modalShow}
+                            close={() => {
+                                this.setState({
+                                    modalShow: false
+                                })
+                            }}
+                        >
+                            {/*<section className={styles.containerCartOverlay}>*/}
+                                <CartOverlay totalCount={totalCount}
+                                             totalPrice={totalPrice}
+                                             cartList={cartList}
+                                             activeCurrency={activeCurrency}
+                                             countIncrease={countIncrease}
+                                             countDecrease={countDecrease}
+                                />
+                            {/*</section>*/}
+                        </Modal >
+                    </div>
 
-                             activeCartOverlay={this.state.activeCartOverlay}
-                />
-            </>
+                    {/*{*/}
+                    {/*    modalShow? (*/}
+                    {/*        <section className={styles.containerCartOverlay}>*/}
+                    {/*            <CartOverlay totalCount={totalCount}*/}
+                    {/*                         totalPrice={totalPrice}*/}
+                    {/*                         cartList={cartList}*/}
+                    {/*                         activeCurrency={activeCurrency}*/}
+                    {/*                         countIncrease={countIncrease}*/}
+                    {/*                         countDecrease={countDecrease}*/}
+
+                    {/*            />*/}
+                    {/*        </section>*/}
+                    {/*    ): null*/}
+                    {/*}*/}
+
+                </div>
+
+                {/*<CartOverlay totalCount={totalCount}*/}
+                {/*             totalPrice={totalPrice}*/}
+                {/*             cartList={cartList}*/}
+                {/*             activeCurrency={activeCurrency}*/}
+                {/*             countIncrease={countIncrease}*/}
+                {/*             countDecrease={countDecrease}*/}
+
+                {/*             activeCartOverlay={this.state.activeCartOverlay}*/}
+                {/*/>*/}
+            </div>
 
         )
     }

@@ -21,6 +21,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            modalShow: false,
             count: 1,
             productCards: [this.renderCards],
             activeItem: 0,
@@ -197,6 +198,16 @@ class App extends React.Component {
         }
     }
 
+    toggleModal = () => {
+        console.log('toggle')
+        this.setState({
+            modalShow: !this.state.modalShow
+        })
+
+            // window.scrollTo(0, parseInt(scroll Y || '0') * -1)
+    // toggleModal(!modalShown);
+}
+
     render() {
         console.log(this.state.cartList)
         console.log(this.state.count)
@@ -228,6 +239,7 @@ class App extends React.Component {
                         activeCurrency={this.state.activeCurrency}
                         selectedCurrency={this.state.selectedCurrency}
                         onSelectCurrencies={this.onSelectCurrencies}
+                        toggleModal={this.toggleModal}
                 />
                 <Routes>
                     <Route path="/" element={<Category
@@ -239,6 +251,8 @@ class App extends React.Component {
                         cartList={this.state.cartList}
                         countIncrease={this.countIncrease}
                         countDecrease={this.countDecrease}
+                        modalShow={this.state.modalShow}
+
                     />}
                     />
                     <Route path="/cart" element={<Cart

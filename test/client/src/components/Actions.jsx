@@ -27,7 +27,7 @@ class Actions extends React.Component {
 
     render() {
        // console.log(this.props)
-       const {currencies, activeCurrency, openPopup, selectedCurrency, onSelectCurrencies, onOpenPopup } = this.props
+       const {currencies, activeCurrency, openPopup, selectedCurrency, onSelectCurrencies, onOpenPopup, toggleModal}  = this.props
         // const {activeCurrency, openPopup, selectedCurrency} = this.state
         // const selectedName = currencies[activeCurrency].currency.symbol
         // console.log(currencies[activeCurrency].currency.label)
@@ -65,7 +65,7 @@ class Actions extends React.Component {
                     )
                 }
                 {/*<Link to="/cart">*/}
-                    <div className={styles.cart} onClick={() => alert('333')}>< HeaderBasket/></div>
+                    <div className={styles.cart} onClick={toggleModal}>< HeaderBasket/></div>
                 {/*</Link>*/}
             </div>
         )

@@ -13,7 +13,7 @@ class CartOverlay extends React.Component {
         let symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
 
         return(
-            <div className={styles.modal}>
+            <div>
                 <main className={styles.container}>
                     <header className={styles.header}>
                         <Title className={styles.title}>My Bag,</Title>

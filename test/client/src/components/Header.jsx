@@ -39,6 +39,7 @@ class Header extends React.Component {
                              openPopup={this.props.openPopup}
                              activeCurrency={this.props.activeCurrency}
                              selectedCurrency={this.props.selectedCurrency}
+                             toggleModal={this.props.toggleModal}
                     />
                     {/*<div className={styles.actions}>*/}
                     {/*    <div className={styles.actionsItem}>$</div>*/}
