@@ -203,9 +203,6 @@ class App extends React.Component {
         this.setState({
             modalShow: !this.state.modalShow
         })
-
-            // window.scrollTo(0, parseInt(scroll Y || '0') * -1)
-    // toggleModal(!modalShown);
 }
 
     render() {

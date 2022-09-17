@@ -28,7 +28,7 @@ class Category extends React.Component {
         // ))
 
         return (
-            <div className={styles.back}>
+            <div >
                 <div className={`${styles.container} 
                  
                  `}>
@@ -51,7 +51,7 @@ class Category extends React.Component {
                         </div>
                     </section>
                     <div className={styles.containerCartOverlay}>
-                        <Modal className={modalShow? styles.modal: ""}
+                        <Modal className={modalShow? document.body.style.overflow = "hidden":document.body.style.overflow = ""}
                             show={modalShow}
                             close={() => {
                                 this.setState({
