@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Pdp.module.css"
 import Title from "./Title"
 import Button from "./Button"
+import Image from "./Image"
 import Attributes from "./Attributes";
 import {apolloClient} from "../index";
 import {gql} from "@apollo/client"
@@ -90,7 +91,7 @@ class PDP extends React.Component {
 const{ onAddToCart} = this.props
 
         const{product, attributes, prices, symbol}= this.state
-// console.log(product)
+console.log(product.gallery)
         const newProduct = {...product, count : 1}
         // console.log(newProduct)
 
@@ -101,12 +102,26 @@ const{ onAddToCart} = this.props
                 <section className={styles.blockImg}>
                     {product.gallery &&
                         product.gallery.map((img, id) => (
-                            <img key={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
+                            // <img key={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
+                        <Image
+                            key={id}
+                            className={styles.blockImgItem}
+                        width={79}
+                        height={80}
+                        src={img}
+                        />
                         ))
                     }
                 </section>
                 <section className={styles.blockGroup}>
-                    <img className={styles.groupImg} src={product.gallery} alt="imgMain"/>
+                    {/*<img className={styles.groupImg} src={product.gallery} alt="imgMain"/>*/}
+                    <Image
+                        className={styles.groupImg}
+                        width={610}
+                        height={511}
+                        src={product.gallery}
+                        alt={product.name}
+                    />
                     <div className={styles.groupChoice}>
                         <Title className={styles.titleBrand}>{product.brand}</Title>
                         <Title className={styles.titleName}>{product.name}</Title>

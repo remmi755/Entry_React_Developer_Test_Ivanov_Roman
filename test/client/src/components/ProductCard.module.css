@@ -11,6 +11,8 @@
     width: 354px;
     height: 330px;
     border: 2px solid yellowgreen;
+    /*object-fit: contain;*/
+    /*background-size: contain;*/
 }
 .img {
     width: 100%;
@@ -21,7 +23,9 @@
     background-size: 100% 100%;
 
 }
-
+.img:nth-child(2) {
+    object-fit: fill;
+}
 .stock {
     font-size: 24px;
     font-weight: 400;

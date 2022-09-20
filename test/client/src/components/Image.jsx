@@ -20,7 +20,7 @@ class Image extends React.Component {
 };
 
 Image.defaulProps = {
-    src:"https://via.placeholder.com/100*100",
+    src:`https://via.placeholder.com/100*100`,
     alt:"image name",
     className: '',
     width: 100,

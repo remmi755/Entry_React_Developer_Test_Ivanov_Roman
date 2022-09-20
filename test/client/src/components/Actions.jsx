@@ -49,9 +49,15 @@ class Actions extends React.Component {
                     )
                 }
                 {/*<Link to="/cart">*/}
+
                     <div className={styles.cart} onClick={toggleModal}>< HeaderBasket/></div>
-                <div className={styles.cartQuantity}> <CartQuantity  /></div>
-                <span className={styles.quantity}>{totalCount}</span>
+                    <div className={styles.cartQuantity}><CartQuantity /></div>
+                    <span className={styles.quantity}
+                          style={totalCount > 9 ? {left: 54.5}: {left: 59}}
+                    >{totalCount}
+                    </span>
+
+
 
                 {/*</Link>*/}
             </div>

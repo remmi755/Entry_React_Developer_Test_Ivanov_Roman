@@ -30,7 +30,7 @@ li {
     /*width: 65px;*/
     /*height: 45px;*/
     /*font-size: 12px;*/
-
+    cursor: pointer;
     margin-right: 8px;
     border: 1px solid rgba(29, 31, 34, 1);
     display: flex;

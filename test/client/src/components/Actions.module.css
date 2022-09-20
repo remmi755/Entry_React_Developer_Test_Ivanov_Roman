@@ -29,6 +29,7 @@
     font-size: 18px;
     width: 60px;
     text-align: center;
+    cursor: pointer;
 }
 
 .active {
@@ -39,6 +40,7 @@
 .cart {
     padding-top: 3px;
     position: relative;
+    cursor: pointer;
 }
 
 .cartQuantity {
@@ -55,5 +57,5 @@
     z-index: 3;
     position: absolute;
     top: -5px;
-    left: 58px;
+    /*left: 58px;*/
 }

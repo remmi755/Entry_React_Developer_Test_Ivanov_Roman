@@ -102,13 +102,12 @@ class App extends React.Component {
     }
 
     onSelectCurrencies = (index, e) => {
+        const{currencies, activeCurrency}= this.state
         console.log(index)
         this.setState({
             activeCurrency: index,
-            selectedCurrency: e.target.innerText,
-            // selectedCurrency: index
-            // selectedCurrency: this.props.currencies[this.state.activeCurrency].currency.symbol,
-            // openPopup: false,
+            selectedCurrency: currencies[index].currency.symbol,
+            openPopup: false,
         })
     }
 
@@ -118,7 +117,7 @@ class App extends React.Component {
 
     onAddToCart = (product) => {
         const {cartList} = this.state
-        const newProduct = {...product, count: 1};
+        const newProduct = {...product, count: 1, inCart: true};
         let isInCart = false;
 
         cartList.forEach((el) => {
@@ -184,7 +183,12 @@ class App extends React.Component {
             return prev + curr.count
         }, 0)
 
-        // console.log(totalCount)
+        let inCart = this.state.cartList.inCart
+        console.log(inCart)
+
+        // let newArr = this.state.productCards.slice()
+        // console.log(newArr)
+        console.log(this.state.cartList)
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
         // console.log(this.props.match.params['cardId'].substring(1))

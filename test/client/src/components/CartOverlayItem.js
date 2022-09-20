@@ -3,6 +3,7 @@ import styles from "./CartOverlayItem.module.css"
 import Title from "./Title";
 import Count from "./Count"
 import Attributes from "./Attributes"
+import Image from "./Image"
 
 class CartOverlayItem extends React.Component {
     render() {
@@ -36,7 +37,12 @@ class CartOverlayItem extends React.Component {
                     />
                 </div>
                 <div className={styles.img}>
-                    {/*<img src={img} alt="photo item"/>*/}
+                    <Image
+                        width={121}
+                        height={190}
+                        alt={cartItem.name}
+                        src={cartItem.gallery[0]}
+                    />
                 </div>
             </main>
         )

@@ -13,9 +13,8 @@
 }
 
 .blockImgItem {
-    width: 79px;
     margin-bottom: 40px;
-    border: 1px solid yellowgreen;
+    object-fit: fill;
 }
 
 .blockGroup {
@@ -24,8 +23,8 @@
 }
 
 .groupImg {
-    width: 610px;
     border: 1px solid yellowgreen;
+    object-fit: fill;
 }
 
 .groupChoice {

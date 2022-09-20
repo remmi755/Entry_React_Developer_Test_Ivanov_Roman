@@ -14,13 +14,15 @@ class GroupOrder extends React.Component {
                 <div>
                     <span className={styles.tax}>Tax 21%:</span>
                     <span className={styles.taxValue}>
-                        {/*{activeCurrency? cartList[0]?.prices[activeCurrency].currency.symbol: "$"}*/}
+                        {selectedCurrency}
                         {tax}
                     </span>
                 </div>
                 <div>
                     <span className={styles.quantity}>Quantity:</span>
-                    <span className={styles.quantityValue}>{totalCount}</span>
+                    <span className={styles.quantityValue}>
+                        {totalCount}
+                    </span>
                 </div>
                 <div>
                     <span className={styles.total}>Total:</span>
@@ -30,8 +32,8 @@ class GroupOrder extends React.Component {
                     </span>
                 </div>
                 {/*<button onClick={this.increaseCount} className={styles.button}>ORDER</button>*/}
-                <button className={styles.button}>ORDER</button>
-                {/*<Button className={styles.button}>ORDER</Button>*/}
+                {/*<button className={styles.button}>ORDER</button>*/}
+                <Button className={styles.button}>ORDER</Button>
             </main>
         )
     }
