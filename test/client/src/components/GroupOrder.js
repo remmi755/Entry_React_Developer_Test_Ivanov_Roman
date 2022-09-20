@@ -3,30 +3,20 @@ import styles from "./GroupOrder.module.css";
 import Button from "./Button"
 
 class GroupOrder extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         count: 0
-    //     }
-    // }
-    //
-    // increaseCount = () => {
-    //     this.setState({count: this.state.count + 5})
-    // }
-
     render() {
-        const {totalCount, totalPrice,  activeCurrency, total, selectedCurrency} = this.props
-        // console.log(activeCurrency)
-        // const{totalCount, totalPrice}= total
+        const {totalCount, totalPrice, selectedCurrency, activeCurrency, cartList} = this.props
         const tax = (totalPrice * 21/100).toFixed(2)
+          console.log(selectedCurrency)
 
-        // let symbol = orderItem.prices[activeCurrency].currency.symbol
 
         return (
             <main className={styles.order}>
                 <div>
                     <span className={styles.tax}>Tax 21%:</span>
-                    <span className={styles.taxValue}>{selectedCurrency}{tax}</span>
+                    <span className={styles.taxValue}>
+                        {/*{activeCurrency? cartList[0]?.prices[activeCurrency].currency.symbol: "$"}*/}
+                        {tax}
+                    </span>
                 </div>
                 <div>
                     <span className={styles.quantity}>Quantity:</span>
@@ -34,8 +24,10 @@ class GroupOrder extends React.Component {
                 </div>
                 <div>
                     <span className={styles.total}>Total:</span>
-                    <span className={styles.totalValue}>{selectedCurrency}{totalPrice}</span>
-                    {/*<span>{this.state.count}</span>*/}
+                    <span className={styles.totalValue}>
+                        {selectedCurrency}
+                        {totalPrice}
+                    </span>
                 </div>
                 {/*<button onClick={this.increaseCount} className={styles.button}>ORDER</button>*/}
                 <button className={styles.button}>ORDER</button>

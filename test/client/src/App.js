@@ -5,6 +5,7 @@ import Cart from "./components/Cart";
 import {apolloClient} from "./index";
 import {gql} from "@apollo/client";
 import PDP from "./components/Pdp";
+import styles from "./App.css"
 // import {useParams} from "react-router-dom";
 
 // export function withRouter(Children) {
@@ -35,15 +36,6 @@ class App extends React.Component {
                 totalPrice: 0,
                 totalCount: 0
             }
-            // count: 1,
-            // total:{
-            //     totalPrice: (this.state.cartList.reduce((prev, curr) => {
-            //         return prev + curr.prices[this.props.activeCurrency].amount * curr.count
-            //     }, 0)).toFixed(2),
-            //     totalCount: this.state.cartList.reduce((prev, curr) => {
-            //         return prev + curr.count
-            //     }, 0)
-            // }
         }
     }
 
@@ -100,26 +92,8 @@ class App extends React.Component {
 
     componentDidMount() {
         this.renderCards();
-        // this.renderPDP();
         // window.scrollTo(0, 0);
     }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.count !== this.state.count ||
-    //         prevState.activeCurrency !== this.state.activeCurrency) {
-    //         console.log(this.state.cartList)
-    //         this.setState({
-    //             total:{
-    //                 totalPrice: (this.state.cartList.reduce((prev, curr) => {
-    //                     return prev + curr.prices[this.state.activeCurrency].amount * curr.count
-    //                 }, 0)).toFixed(2),
-    //                 totalCount: this.state.cartList.reduce((prev, curr) => {
-    //                     return prev + curr.count
-    //                 }, 0)
-    //             }
-    //         })
-    //     }
-    // }
 
     onSelectCategories = index => {
         this.setState({
@@ -128,19 +102,14 @@ class App extends React.Component {
     }
 
     onSelectCurrencies = (index, e) => {
+        console.log(index)
         this.setState({
             activeCurrency: index,
             selectedCurrency: e.target.innerText,
+            // selectedCurrency: index
             // selectedCurrency: this.props.currencies[this.state.activeCurrency].currency.symbol,
-            openPopup: false,
+            // openPopup: false,
         })
-    }
-
-    onSelectAttributes = (index) => {
-        alert(index)
-        // this.setState({
-        //     activeAttribute: index,
-        // })
     }
 
     onOpenPopup = () => {
@@ -165,11 +134,6 @@ class App extends React.Component {
             this.setState({
                 cartList: [...cartList, newProduct]
             })
-
-        // const newProduct = {...product, count : 1}
-        // this.setState({
-        //     cartList: [...cartList, newProduct]
-        // })
     }
 
     deleteCartItem = (id) => {
@@ -189,8 +153,6 @@ class App extends React.Component {
     }
 
     countDecrease = (product, id) => {
-        // const {deleteCartItem} = this.props;
-
         if (product.id === id) {
             this.setState({
                 count: product.count - 1 > 0 ? --product.count : this.deleteCartItem(id),
@@ -205,38 +167,42 @@ class App extends React.Component {
         })
 }
 
+
+    onHidePopup = () => {
+        document.body.style.overflow = "";
+        this.setState({
+            modalShow: false
+        })
+    }
+
     render() {
-        console.log(this.state.cartList)
-        console.log(this.state.count)
-
         let totalPrice = (this.state.cartList.reduce((prev, curr) => {
-                    return prev + curr.prices[this.state.activeCurrency].amount * curr.count
-                }, 0)).toFixed(2)
+            return prev + curr.prices[this.state.activeCurrency].amount * curr.count
+        }, 0)).toFixed(2)
 
-            let totalCount = this.state.cartList.reduce((prev, curr) => {
-                return prev + curr.count
-            }, 0)
+        let totalCount = this.state.cartList.reduce((prev, curr) => {
+            return prev + curr.count
+        }, 0)
 
         // console.log(totalCount)
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
-        // console.log(this.state.selectedCurrency)
         // console.log(this.props.match.params['cardId'].substring(1))
         // console.log(this.state.productCards[0].products[0])
         return (
             <div>
-                {/*<h2>My first Apollo app 🚀</h2>*/}
-                <Header onClick={this.onSelectCategories}
-                        onOpenPopup={this.onOpenPopup}
-                        productCards={this.state.productCards}
-                        activeItem={this.state.activeItem}
-                        currencies={this.state.currencies}
-
-                        openPopup={this.state.openPopup}
-                        activeCurrency={this.state.activeCurrency}
-                        selectedCurrency={this.state.selectedCurrency}
-                        onSelectCurrencies={this.onSelectCurrencies}
-                        toggleModal={this.toggleModal}
+                <Header
+                    onClick={this.onSelectCategories}
+                    onOpenPopup={this.onOpenPopup}
+                    productCards={this.state.productCards}
+                    activeItem={this.state.activeItem}
+                    currencies={this.state.currencies}
+                    totalCount={totalCount}
+                    openPopup={this.state.openPopup}
+                    activeCurrency={this.state.activeCurrency}
+                    selectedCurrency={this.state.selectedCurrency}
+                    onSelectCurrencies={this.onSelectCurrencies}
+                    toggleModal={this.toggleModal}
                 />
                 <Routes>
                     <Route path="/" element={<Category
@@ -249,7 +215,7 @@ class App extends React.Component {
                         countIncrease={this.countIncrease}
                         countDecrease={this.countDecrease}
                         modalShow={this.state.modalShow}
-
+                        onHidePopup={this.onHidePopup}
                     />}
                     />
                     <Route path="/cart" element={<Cart

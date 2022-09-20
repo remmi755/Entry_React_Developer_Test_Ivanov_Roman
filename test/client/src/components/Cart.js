@@ -21,48 +21,31 @@ class Cart extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.count !== this.state.count ||
-        prevProps.activeCurrency !== this.props.activeCurrency ||
-         prevState.total !== this.state.total) {
-
-            this.setState({
-                total:{
-                    totalPrice: (this.props.cartList.reduce((prev, curr) => {
-                        return prev + curr.prices[this.props.activeCurrency].amount * curr.count
-                    }, 0)).toFixed(2),
-                    totalCount: this.props.cartList.reduce((prev, curr) => {
-                        return prev + curr.count
-                    }, 0)
-                }
-            })
-        }
-    }
-
-
-    // countIncrease = (product, id) => {
-    //     if(product.id === id) {
-    //         this.setState({
-    //             count: ++product.count
-    //         })
-    //     }
-    // }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.count !== this.state.count ||
+    //     prevProps.activeCurrency !== this.props.activeCurrency ||
+    //      prevState.total !== this.state.total) {
     //
-    // countDecrease = (product, id) => {
-    //     const {deleteCartItem} = this.props;
-    //
-    //     if (product.id === id) {
-    //         this.setState({
-    //             count: product.count - 1 > 0 ? --product.count : deleteCartItem(id),
-    //         })
+    //         // this.setState({
+    //         //     total:{
+    //         //         totalPrice: (this.props.cartList.reduce((prev, curr) => {
+    //         //             return prev + curr.prices[this.props.activeCurrency].amount * curr.count
+    //         //         }, 0)).toFixed(2),
+    //         //         totalCount: this.props.cartList.reduce((prev, curr) => {
+    //         //             return prev + curr.count
+    //         //         }, 0)
+    //         //     }
+    //         // })
     //     }
     // }
 
     render() {
         // console.log(this.props.cartList)
-        const {cartList,selectedCurrency, activeCurrency, countIncrease, countDecrease } = this.props
+        const {cartList,selectedCurrency, activeCurrency, countIncrease, countDecrease, productCards } = this.props
        // const symbol = productCards[0].products[0].prices[activeCurrency].currency.symbol
+       //  console.log(symbol)
         const {count} = this.state
+        // console.log(cartList[0].prices[activeCurrency].currency.symbol)
 
         return (
             <main className={styles.container}>
@@ -83,6 +66,7 @@ class Cart extends React.Component {
                 }
                 <div className={styles.groupOrder}>
                     <GroupOrder
+                        cartlist={cartList}
                         totalCount={this.props.totalCount}
                         totalPrice={this.props.totalPrice}
                         total={this.state.total}

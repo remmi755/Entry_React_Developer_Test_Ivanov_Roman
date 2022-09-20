@@ -2,7 +2,6 @@
     width: 1400px;
     margin: 0 auto;
     position: fixed;
-    /*top = ''; window. scrollTo(0, parseInt(scrollY || '0') * -1)*/
     top: 80px;
     bottom: 0;
     left: 0;
@@ -11,7 +10,7 @@
     display: flex;
     justify-content: right;
     align-items:start;
-    /*overflow: hidden;*/
+    overflow: scroll;
     z-index: 2;
 }
 

@@ -1,4 +1,6 @@
 .container {
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     max-width: 1400px;
@@ -25,6 +27,8 @@
 }
 
 .actions {
+    position: absolute;
+    z-index: 3;
     display: flex;
     width: 200px;
     justify-content: end;

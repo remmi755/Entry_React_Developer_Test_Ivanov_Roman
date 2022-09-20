@@ -1,47 +1,30 @@
 import React from "react";
-import {ReactComponent as VectorCurrency} from '../SVG/VectorCurrency.svg';
+import {ReactComponent as VectorDown} from '../SVG/VectorCurrency.svg';
+import {ReactComponent as VectorUp} from "../SVG/VectorUp.svg"
+import {ReactComponent as CartQuantity} from "../SVG/cartQuantity.svg"
+
 import {Link} from "react-router-dom";
 import styles from "./Actions.module.css"
 import {ReactComponent as HeaderBasket} from "../SVG/headerBasket.svg";
 
 class Actions extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = ({
-    //         openPopup: false,
-    //         activeCurrency: 0,
-    //         selectedCurrency: '$',
-    //         // selectedCurrency: this.props.currencies[this.state.activeCurrency].currency.symbol
-    //
-    //     })
-    // }
-
-    // onSelectCurrencies = (index, e) => {
-    //     this.setState({
-    //         activeCurrency: index,
-    //         selectedCurrency: e.target.innerText,
-    //         // selectedCurrency: this.props.currencies[this.state.activeCurrency].currency.symbol,
-    //         openPopup: false,
-    //     })
-    // }
-
     render() {
        // console.log(this.props)
-       const {currencies, activeCurrency, openPopup, selectedCurrency, onSelectCurrencies, onOpenPopup, toggleModal}  = this.props
+       const {currencies, activeCurrency, openPopup, onSelectCurrencies, onOpenPopup, toggleModal, totalCount}  = this.props
         // const {activeCurrency, openPopup, selectedCurrency} = this.state
         // const selectedName = currencies[activeCurrency].currency.symbol
         // console.log(currencies[activeCurrency].currency.label)
-        // console.log(currencies[activeCurrency]?.currency.label)
-        // console.log(selectedCurrency)
-        // console.log(selectedName)
-
+        // let symbol = currencies[activeCurrency].currency.symbol
+        // console.log(currencies[activeCurrency]?.currency.symbol)
+        // console.log(onSelectCurrencies)
+        // console.log(currencies)
+        // console.log(activeCurrency)
         return (
             <div className={styles.actions}>
                 <span className={styles.popupClosed}
                       onClick={onOpenPopup}>
-                    {selectedCurrency}
-                    {/*{selectedName}*/}
-                    <VectorCurrency/>
+                    {activeCurrency? currencies[activeCurrency].currency.symbol :"$"}
+                    {openPopup? <VectorUp /> : <VectorDown/>}
                 </span>
                 {
                     openPopup && (
@@ -49,15 +32,16 @@ class Actions extends React.Component {
                             <ul className={styles.blockCurrencies}>
                                 {
                                     currencies?.map((item, index) => (
-                                        <label key={index}>
-                                            <li key={index}
+                                        // <label key={index}>
+                                            <li key={`${item} ${index}`}
                                                 onClick={(e) => onSelectCurrencies(index, e)}
                                                 className={`${styles.actionsItem}  
                                             ${activeCurrency === index ? styles.active : ''}`}
-                                                key={index}>
-                                                {item.currency.symbol}{item.currency.label}
+                                            >
+                                                <div>{item.currency.symbol}</div>
+                                                <div>{item.currency.label}</div>
                                             </li>
-                                        </label>
+                                        // </label>
                                     ))
                                 }
                             </ul>
@@ -66,11 +50,13 @@ class Actions extends React.Component {
                 }
                 {/*<Link to="/cart">*/}
                     <div className={styles.cart} onClick={toggleModal}>< HeaderBasket/></div>
+                <div className={styles.cartQuantity}> <CartQuantity  /></div>
+                <span className={styles.quantity}>{totalCount}</span>
+
                 {/*</Link>*/}
             </div>
         )
     }
 }
-
 
 export default Actions;

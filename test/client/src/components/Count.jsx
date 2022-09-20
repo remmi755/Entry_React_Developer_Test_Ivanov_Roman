@@ -6,7 +6,7 @@ class Count extends React.Component {
     render() {
         const{children, classSize, countIncrease, countDecrease,orderItem, id } = this.props
 
-        console.log(orderItem.count)
+        // console.log(orderItem.count)
 
         return (
             <>

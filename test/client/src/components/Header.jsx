@@ -35,17 +35,12 @@ class Header extends React.Component {
                              productCards={this.props.productCards}
                              activeItem={this.props.activeItem}
                              currencies={this.props.currencies}
-
+                             totalCount={this.props.totalCount}
                              openPopup={this.props.openPopup}
                              activeCurrency={this.props.activeCurrency}
                              selectedCurrency={this.props.selectedCurrency}
                              toggleModal={this.props.toggleModal}
                     />
-                    {/*<div className={styles.actions}>*/}
-                    {/*    <div className={styles.actionsItem}>$</div>*/}
-                    {/*    <div>< HeaderBasket/></div>*/}
-                    {/*</div>*/}
-
             </div>
         )
     }

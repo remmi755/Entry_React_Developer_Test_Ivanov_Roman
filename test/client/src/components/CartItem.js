@@ -6,50 +6,12 @@ import Attributes from "./Attributes";
 import Image from "./Image"
 
 class CartItem extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state= {
-    //         count: 1,
-    //     }
-    // }
-
-    // countIncrease = (product, id) => {
-    //     console.log(id)
-    //     console.log(product.id)
-    //     console.log(this.props.count)
-    //
-    //
-    //     if (product.id === id) {
-    //         this.setState({
-    //             count: this.props.count + 1,
-    //         })
-    //     }
-
-
-        // this.setState((orders) => {
-        //
-        //     return orders.map((product) => {
-        //
-        //         if(product.id === id) {
-        //             return {
-        //                 ...product,
-        //                 count: ++product.count
-        //             }
-        //         }
-        //
-        //         return product
-        //     })
-        //
-        // })
-
-    // }
-
-
     render() {
-
         const{orderItem, activeCurrency, countDecrease, id ,count, countIncrease} = this.props
         let amount = orderItem.prices[activeCurrency].amount;
         let symbol = orderItem.prices[activeCurrency].currency.symbol
+        console.log(orderItem)
+
 
         return(
             <main className={styles.container}>

@@ -15,20 +15,10 @@ class Category extends React.Component {
     // }
     render() {
         const {productCards, activeItem, activeCurrency, totalCount,
-            totalPrice, cartList, countIncrease, countDecrease,modalShow}  = this.props
-        console.log(modalShow)
-        // const cards = productCards[activeItem].products?.map((product) => (
-        //     <Link to={`/ ${product.id}`}>
-        //         <ProductCard
-        //             key={product.id}
-        //             product={product}
-        //             activeCurrency={activeCurrency}
-        //         />
-        //     </Link>
-        // ))
+            totalPrice, cartList, countIncrease, countDecrease,modalShow, onHidePopup}  = this.props
 
         return (
-            <div >
+            <div>
                 <div className={`${styles.container} 
                  
                  `}>
@@ -47,11 +37,11 @@ class Category extends React.Component {
                                     </Link>
                                 ))
                             }
-                            {/*{cards}*/}
                         </div>
                     </section>
                     <div className={styles.containerCartOverlay}>
-                        <Modal className={modalShow? document.body.style.overflow = "hidden":document.body.style.overflow = ""}
+                        <Modal
+                            className={modalShow ? document.body.style.overflow = "hidden" : document.body.style.overflow = ""}
                             show={modalShow}
                             close={() => {
                                 this.setState({
@@ -59,46 +49,18 @@ class Category extends React.Component {
                                 })
                             }}
                         >
-                            {/*<section className={styles.containerCartOverlay}>*/}
-                                <CartOverlay totalCount={totalCount}
-                                             totalPrice={totalPrice}
-                                             cartList={cartList}
-                                             activeCurrency={activeCurrency}
-                                             countIncrease={countIncrease}
-                                             countDecrease={countDecrease}
-                                />
-                            {/*</section>*/}
-                        </Modal >
+                            <CartOverlay totalCount={totalCount}
+                                         totalPrice={totalPrice}
+                                         cartList={cartList}
+                                         activeCurrency={activeCurrency}
+                                         countIncrease={countIncrease}
+                                         countDecrease={countDecrease}
+                                         onHidePopup={onHidePopup}
+                            />
+                        </Modal>
                     </div>
-
-                    {/*{*/}
-                    {/*    modalShow? (*/}
-                    {/*        <section className={styles.containerCartOverlay}>*/}
-                    {/*            <CartOverlay totalCount={totalCount}*/}
-                    {/*                         totalPrice={totalPrice}*/}
-                    {/*                         cartList={cartList}*/}
-                    {/*                         activeCurrency={activeCurrency}*/}
-                    {/*                         countIncrease={countIncrease}*/}
-                    {/*                         countDecrease={countDecrease}*/}
-
-                    {/*            />*/}
-                    {/*        </section>*/}
-                    {/*    ): null*/}
-                    {/*}*/}
-
                 </div>
-
-                {/*<CartOverlay totalCount={totalCount}*/}
-                {/*             totalPrice={totalPrice}*/}
-                {/*             cartList={cartList}*/}
-                {/*             activeCurrency={activeCurrency}*/}
-                {/*             countIncrease={countIncrease}*/}
-                {/*             countDecrease={countDecrease}*/}
-
-                {/*             activeCartOverlay={this.state.activeCartOverlay}*/}
-                {/*/>*/}
             </div>
-
         )
     }
 }

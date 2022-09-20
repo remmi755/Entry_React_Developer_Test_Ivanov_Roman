@@ -6,7 +6,7 @@ import Attributes from "./Attributes"
 
 class CartOverlayItem extends React.Component {
     render() {
-        const{cartItem,  activeCurrency, id, countIncrease, countDecrease} = this.props
+        const{cartItem,  activeCurrency, countIncrease, countDecrease} = this.props
         let price = cartItem?.prices[activeCurrency].amount;
         let symbol = cartItem?.prices[activeCurrency].currency.symbol;
         // let img = cartItem.gallery[0]
@@ -36,7 +36,7 @@ class CartOverlayItem extends React.Component {
                     />
                 </div>
                 <div className={styles.img}>
-                    <img src="" alt="photo item"/>
+                    {/*<img src={img} alt="photo item"/>*/}
                 </div>
             </main>
         )

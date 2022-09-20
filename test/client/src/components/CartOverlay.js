@@ -6,13 +6,8 @@ import Title from "./Title"
 import Button from "./Button"
 
 class CartOverlay extends React.Component {
-
-// closePop = () => {
-//     document.body.style.overflow = ""
-// }
-
     render() {
-        const {totalCount, totalPrice, cartList, activeCurrency} = this.props
+        const {totalCount, totalPrice, cartList, activeCurrency, onHidePopup} = this.props
         let symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
 
         return(
@@ -41,9 +36,9 @@ class CartOverlay extends React.Component {
                     </div>
                     <div className={styles.groupButton}>
                         <Link to="/cart">
-                            <Button className={styles.buttonViewBag} >VIEW BAG</Button>
+                            <Button className={styles.buttonViewBag} onClick={onHidePopup} >VIEW BAG</Button>
                         </Link>
-                        <Button className={styles.buttonCheckOut}>CHECK OUT</Button>
+                        <Button className={styles.buttonCheckOut} >CHECK OUT</Button>
                     </div>
                 </main>
             </div>

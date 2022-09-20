@@ -82,25 +82,18 @@ class PDP extends React.Component {
         this.renderPDP();
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.product !== this.state.product) {
-            // console.log('it was Changed')
-        }
-    }
-
     render() {
         // console.log(this.onAddToCart(this.props.cart))
         // console.log(this.props)
         // console.log(this.props.orders)
 
-const{activeCurrency, onAddToCart} = this.props
+const{ onAddToCart} = this.props
 
         const{product, attributes, prices, symbol}= this.state
-console.log(product)
+// console.log(product)
         const newProduct = {...product, count : 1}
         // console.log(newProduct)
-        // const price =  prices[activeCurrency].amount
-        // console.log(product.prices)
+
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
 
         return (

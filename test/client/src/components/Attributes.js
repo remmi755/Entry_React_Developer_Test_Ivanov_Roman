@@ -47,7 +47,7 @@ const {activeAttribute, activeAttributeInd}= this.state
                                 <li className={attributeName}  key={`${attribute.id}_${attribute.name}`}>
                                     {attribute.name}</li>
                                 <li  key={attribute.id}  >
-                                    <ul className={styles.attributeGroup}
+                                    <ul key={attribute.name} className={styles.attributeGroup}
                                         // onClick={() => this.onSelectAttribute(attribute, index)}
                                     >
                                         {
