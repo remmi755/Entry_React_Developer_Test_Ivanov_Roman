@@ -3,14 +3,17 @@
     display: flex;
     width: 60px;
     height: 25px;
-    display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
-
+.separator {
+    width: 22px;
+}
 .blockCurrencies{
+    background-color: white;
+    padding: 0;
     position:absolute;
     top: 15px;
-    left: -41px;
+    left: 7px;
     text-align: center;
 }
 
@@ -27,7 +30,7 @@
 
 .popupClosed {
     font-size: 18px;
-    width: 60px;
+    width: 65px;
     text-align: center;
     cursor: pointer;
 }

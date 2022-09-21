@@ -1,12 +1,13 @@
 .modalBackdrop {
-    width: 1400px;
+    width: 1440px;
     margin: 0 auto;
     position: fixed;
     top: 80px;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.22);
+    /*background-color: #393748;*/
     display: flex;
     justify-content: right;
     align-items:start;
@@ -15,9 +16,6 @@
 }
 
 .modalContent {
-    /*overflow-y: hidden;*/
-    /*width: 60%;*/
-    /*min-height: 200px;*/
     background-color: white;
     margin: -15px 72px 0 0;
 }

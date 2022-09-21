@@ -36,14 +36,13 @@ class CartOverlayItem extends React.Component {
                         orderItem={cartItem}
                     />
                 </div>
-                <div className={styles.img}>
-                    <Image
-                        width={121}
-                        height={190}
-                        alt={cartItem.name}
-                        src={cartItem.gallery[0]}
-                    />
-                </div>
+                <Image
+                    className={styles.img}
+                    width={121}
+                    height={190}
+                    alt={cartItem.name}
+                    src={cartItem.gallery[0]}
+                />
             </main>
         )
     }

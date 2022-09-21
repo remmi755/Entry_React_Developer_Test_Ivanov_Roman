@@ -1,9 +1,10 @@
 .container {
+    background-color: white;
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: space-between;
-    max-width: 1400px;
+    width: 1440px;
     max-height: 80px;
     margin: 0 auto;
     box-sizing: border-box;

@@ -1,11 +1,12 @@
-.body {
-    overflow: hidden;
-}
+/*.body {*/
+/*    overflow: hidden;*/
+/*}*/
 /*.back {*/
 /*    position: relative;*/
 /*}*/
 .container {
-    width: 1400px;
+    background-color: white;
+    width: 1440px;
     margin: 0 auto;
     box-sazing: border-box;
     pading: 80px 100px 190px 100px;
@@ -43,8 +44,6 @@
 
 .productCards {
     margin-top: 100px;
-    /*position: fixed;*/
-    /*z-index: 0;*/
 }
 
 .grid {
@@ -53,7 +52,3 @@
     justify-content: space-between;
 }
 
-/*.back {*/
-/*    position: absolute;*/
-/*    width: calc(100vw - 100%);*/
-/*}*/

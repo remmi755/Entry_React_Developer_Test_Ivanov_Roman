@@ -10,8 +10,6 @@ class CartItem extends React.Component {
         const{orderItem, activeCurrency, countDecrease, id ,count, countIncrease} = this.props
         let amount = orderItem.prices[activeCurrency].amount;
         let symbol = orderItem.prices[activeCurrency].currency.symbol
-        console.log(orderItem)
-
 
         return(
             <main className={styles.container}>
@@ -42,8 +40,11 @@ class CartItem extends React.Component {
                             orderItem={orderItem}
                         />
                     </div>
-                    <img className={styles.img} src={orderItem.gallery[0]} alt="photo item"/>
-                    <Image />
+                    <Image
+                        width={200}
+                        className={styles.img}
+                        src={orderItem.gallery[0]}
+                    />
                 </section>
             </main>
         )

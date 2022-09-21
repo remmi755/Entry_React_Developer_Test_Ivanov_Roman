@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 
-/*!*.container:not(:first-child) {*!*/
-/*!*    margin-top: 40px;*!*/
-/*!*}*!*/
+.container:not(:first-child) {
+    margin-top: 40px;
+}
 
 .content {
     width: 136px;
@@ -34,7 +34,7 @@
 }
 
 .img {
-width: 121px;
+object-fit: contain;
 }
 
 .titleCartOverlay {

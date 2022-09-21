@@ -23,25 +23,26 @@ class Actions extends React.Component {
             <div className={styles.actions}>
                 <span className={styles.popupClosed}
                       onClick={onOpenPopup}>
-                    {activeCurrency? currencies[activeCurrency].currency.symbol :"$"}
-                    {openPopup? <VectorUp /> : <VectorDown/>}
+                    {activeCurrency ? currencies[activeCurrency].currency.symbol : "$"}
+                    <span>
+                        {openPopup ? <VectorUp/> : <VectorDown/>}
+                        </span>
                 </span>
+                <span className={styles.separator}></span>
                 {
                     openPopup && (
                         <div>
                             <ul className={styles.blockCurrencies}>
                                 {
                                     currencies?.map((item, index) => (
-                                        // <label key={index}>
-                                            <li key={`${item} ${index}`}
-                                                onClick={(e) => onSelectCurrencies(index, e)}
-                                                className={`${styles.actionsItem}  
+                                        <li key={`${item} ${index}`}
+                                            onClick={(e) => onSelectCurrencies(index, e)}
+                                            className={`${styles.actionsItem}  
                                             ${activeCurrency === index ? styles.active : ''}`}
-                                            >
-                                                <div>{item.currency.symbol}</div>
-                                                <div>{item.currency.label}</div>
-                                            </li>
-                                        // </label>
+                                        >
+                                            <div>{item.currency.symbol}</div>
+                                            <div>{item.currency.label}</div>
+                                        </li>
                                     ))
                                 }
                             </ul>
@@ -50,13 +51,14 @@ class Actions extends React.Component {
                 }
                 {/*<Link to="/cart">*/}
 
-                    <div className={styles.cart} onClick={toggleModal}>< HeaderBasket/></div>
-                    <div className={styles.cartQuantity}><CartQuantity /></div>
+                <div className={styles.cart} onClick={toggleModal}>< HeaderBasket/></div>
+                {totalCount ? ( <div className={styles.cartQuantity}><CartQuantity/></div>): ""}
+                {totalCount ? (
                     <span className={styles.quantity}
-                          style={totalCount > 9 ? {left: 54.5}: {left: 59}}
+                          style={totalCount > 9 ? {left: 54.5} : {left: 59}}
                     >{totalCount}
                     </span>
-
+                ) : ""}
 
 
                 {/*</Link>*/}
