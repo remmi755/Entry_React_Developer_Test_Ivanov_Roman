@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="481f2bac-4e30-4221-889f-a49b8840366d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/client/src/components/ImageSlider.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/28.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/28.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/4.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/47.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/47.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/48.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/48.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/7.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Actions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Actions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Actions.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Actions.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Cart.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Cart.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/CartOverlayItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Header.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Modal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Modal.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/components/Pdp.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/components/Pdp.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/client/src/pages/Category.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/test/client/src/pages/Category.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/junior-react-endpoint" beforeDir="false" afterPath="$PROJECT_DIR$/test/junior-react-endpoint" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -246,7 +226,8 @@
       <workItem from="1663672734055" duration="11427000" />
       <workItem from="1663688543216" duration="7966000" />
       <workItem from="1663741519233" duration="640000" />
-      <workItem from="1663765645627" duration="7990000" />
+      <workItem from="1663765645627" duration="8097000" />
+      <workItem from="1663779701210" duration="963000" />
     </task>
     <servers />
   </component>
