@@ -20,6 +20,7 @@ class PDP extends React.Component {
         super(props);
         this.state = {
             product: [this.renderPDP],
+            currentImgId: 0
         }
     }
 
@@ -83,6 +84,14 @@ class PDP extends React.Component {
         this.renderPDP();
     }
 
+    onChangeImage = (id) => {
+        console.log(id)
+        const{product} = this.state
+        this.setState({
+            currentImgId: id
+        })
+    }
+
     render() {
         // console.log(this.onAddToCart(this.props.cart))
         // console.log(this.props)
@@ -90,8 +99,9 @@ class PDP extends React.Component {
 
 const{ onAddToCart} = this.props
 
-        const{product, attributes, prices, symbol}= this.state
+        const{product, attributes, prices, symbol, currentImgId}= this.state
 console.log(product.gallery)
+        console.log(this.state.currentImgInd)
         const newProduct = {...product, count : 1}
         // console.log(newProduct)
 
@@ -103,25 +113,27 @@ console.log(product.gallery)
                     {product.gallery &&
                         product.gallery.map((img, id) => (
                             // <img key={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
-                        <Image
-                            key={id}
-                            className={styles.blockImgItem}
-                        width={79}
-                        height={80}
-                        src={img}
-                        />
+                            <Image
+                                onClick={() => this.onChangeImage(id)}
+                                key={id}
+                                className={styles.blockImgItem}
+                                width={79}
+                                height={80}
+                                src={img}
+                            />
                         ))
                     }
                 </section>
                 <section className={styles.blockGroup}>
                     {/*<img className={styles.groupImg} src={product.gallery} alt="imgMain"/>*/}
-                    <Image
-                        className={styles.groupImg}
-                        width={610}
-                        height={511}
-                        src={product.gallery}
-                        alt={product.name}
-                    />
+                    {product.gallery && (
+                        <Image
+                            className={styles.groupImg}
+                            width={610}
+                            height={511}
+                            src={product.gallery[currentImgId]}
+                            alt={product.name}
+                        />)}
                     <div className={styles.groupChoice}>
                         <Title className={styles.titleBrand}>{product.brand}</Title>
                         <Title className={styles.titleName}>{product.name}</Title>

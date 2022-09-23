@@ -15,7 +15,7 @@
 
 .blockImgItem {
     margin-bottom: 40px;
-    object-fit: fill;
+    object-fit: scale-down;
 }
 
 .blockGroup {
@@ -25,7 +25,7 @@
 
 .groupImg {
     border: 1px solid yellowgreen;
-    object-fit: fill;
+    object-fit: contain;
 }
 
 .groupChoice {
