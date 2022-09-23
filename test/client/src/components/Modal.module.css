@@ -7,10 +7,9 @@
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.22);
-    /*background-color: #393748;*/
     display: flex;
     justify-content: right;
-    align-items:start;
+    align-items: flex-start;
     overflow: scroll;
     z-index: 2;
 }

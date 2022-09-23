@@ -3,7 +3,7 @@ import styles from "./CartItem.module.css"
 import Title from "./Title"
 import Count from "./Count"
 import Attributes from "./Attributes";
-import Image from "./Image"
+import ImageSlider from "./ImageSlider"
 
 class CartItem extends React.Component {
     render() {
@@ -40,10 +40,9 @@ class CartItem extends React.Component {
                             orderItem={orderItem}
                         />
                     </div>
-                    <Image
-                        width={200}
-                        className={styles.img}
-                        src={orderItem.gallery[0]}
+                    <ImageSlider
+                        slides={orderItem.gallery}
+                        className={styles.slider}
                     />
                 </section>
             </main>

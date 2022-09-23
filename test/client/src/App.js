@@ -102,7 +102,7 @@ class App extends React.Component {
     }
 
     onSelectCurrencies = (index, e) => {
-        const{currencies, activeCurrency}= this.state
+        const{currencies}= this.state
         console.log(index)
         this.setState({
             activeCurrency: index,

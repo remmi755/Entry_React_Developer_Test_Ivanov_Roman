@@ -1,5 +1,5 @@
 .container {
-    width: 293px;
+     width: 293px;
     display: flex;
     box-sizing: border-box;
 }
@@ -68,4 +68,10 @@ object-fit: contain;
 
 .attributeColor:last-of-type {
     margin-right: 0;
+}
+
+.slider {
+    width: 121px;
+    height: 190px;
+    object-fit: contain;
 }

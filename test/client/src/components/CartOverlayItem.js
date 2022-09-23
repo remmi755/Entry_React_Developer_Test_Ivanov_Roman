@@ -4,13 +4,15 @@ import Title from "./Title";
 import Count from "./Count"
 import Attributes from "./Attributes"
 import Image from "./Image"
+import ImageSlider from "./ImageSlider"
 
 class CartOverlayItem extends React.Component {
     render() {
         const{cartItem,  activeCurrency, countIncrease, countDecrease} = this.props
         let price = cartItem?.prices[activeCurrency].amount;
         let symbol = cartItem?.prices[activeCurrency].currency.symbol;
-        // let img = cartItem.gallery[0]
+        let img = cartItem.gallery
+        console.log(img)
 
         return(
             <main className={styles.container}>
@@ -43,6 +45,14 @@ class CartOverlayItem extends React.Component {
                     alt={cartItem.name}
                     src={cartItem.gallery[0]}
                 />
+
+                    {/*<ImageSlider*/}
+                    {/*    slides={cartItem.gallery}*/}
+                    {/*    className={styles.slider}*/}
+                    {/*/>*/}
+
+
+                {/*<img className={styles.slider} src={cartItem.gallery[0]} alt=""/>*/}
             </main>
         )
     }
