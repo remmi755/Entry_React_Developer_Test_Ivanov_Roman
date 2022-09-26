@@ -5,10 +5,15 @@ import {Link} from "react-router-dom";
 import styles from "./Header.module.css"
 import Categories from "./Categories";
 import Actions from "./Actions";
+import {AppContext} from "../App"
 
 class Header extends React.Component {
-
+// static contextType = AppContext
     render() {
+        // const context = React.useContext(AppContext)
+        // const {onSelectCategories} = this.context
+        const{onSelectCategories, productCards, activeItem, categories, onSelectCurrencies,onOpenPopup,
+            currencies, totalCount, openPopup, activeCurrency, selectedCurrency, toggleModal, } = this.props
         // console.log(this.props.activeItem)
         // console.log(this.props.categories)
         return (
@@ -17,11 +22,11 @@ class Header extends React.Component {
                     <div className={styles.navigation}>
                         <Categories
                             onClick={(index) => {
-                                this.props.onClick(index)
+                                onSelectCategories(index)
                             }}
-                            productCards={this.props.productCards}
-                            activeItem={this.props.activeItem}
-                            categories={this.props.categories}
+                            productCards={productCards}
+                            activeItem={activeItem}
+                            categories={categories}
                         />
                     </div>
                 </Link>
@@ -30,17 +35,17 @@ class Header extends React.Component {
                 </div>
 
                     <Actions
-                             onSelectCurrencies={this.props.onSelectCurrencies}
-                             onOpenPopup={this.props.onOpenPopup}
-                             productCards={this.props.productCards}
-                             activeItem={this.props.activeItem}
-                             currencies={this.props.currencies}
-                             totalCount={this.props.totalCount}
-                             openPopup={this.props.openPopup}
-                             activeCurrency={this.props.activeCurrency}
-                             selectedCurrency={this.props.selectedCurrency}
-                             toggleModal={this.props.toggleModal}
-                             useClickOutside={this.props.useClickOutside}
+                             onSelectCurrencies={onSelectCurrencies}
+                             onOpenPopup={onOpenPopup}
+                             productCards={productCards}
+                             activeItem={activeItem}
+                             currencies={currencies}
+                             totalCount={totalCount}
+                             openPopup={openPopup}
+                             activeCurrency={activeCurrency}
+                             selectedCurrency={selectedCurrency}
+                             toggleModal={toggleModal}
+                             // useClickOutside={this.props.useClickOutside}
                     />
             </div>
         )

@@ -6,8 +6,6 @@ class GroupOrder extends React.Component {
     render() {
         const {totalCount, totalPrice, selectedCurrency, activeCurrency, cartList} = this.props
         const tax = (totalPrice * 21/100).toFixed(2)
-          console.log(selectedCurrency)
-
 
         return (
             <main className={styles.order}>

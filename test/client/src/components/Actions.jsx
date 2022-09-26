@@ -14,14 +14,10 @@ class Actions extends React.Component {
 
     handleClickOutside = ({target}) => {
                if(this.ref.current && !this.ref.current.contains(target)) {
-                   console.log("click outside")
                    this.props.onOpenPopup()
                    this.setState({
                        openPopup: false
                    })
-                   // console.log(this.state.openPopup)
-               } else {
-                   console.log("click inside")
                }
     }
 

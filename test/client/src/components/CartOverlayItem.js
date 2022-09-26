@@ -11,8 +11,8 @@ class CartOverlayItem extends React.Component {
         const{cartItem,  activeCurrency, countIncrease, countDecrease} = this.props
         let price = cartItem?.prices[activeCurrency].amount;
         let symbol = cartItem?.prices[activeCurrency].currency.symbol;
-        let img = cartItem.gallery
-        console.log(img)
+        // let img = cartItem.gallery
+        // console.log(img)
 
         return(
             <main className={styles.container}>
@@ -45,14 +45,6 @@ class CartOverlayItem extends React.Component {
                     alt={cartItem.name}
                     src={cartItem.gallery[0]}
                 />
-
-                    {/*<ImageSlider*/}
-                    {/*    slides={cartItem.gallery}*/}
-                    {/*    className={styles.slider}*/}
-                    {/*/>*/}
-
-
-                {/*<img className={styles.slider} src={cartItem.gallery[0]} alt=""/>*/}
             </main>
         )
     }

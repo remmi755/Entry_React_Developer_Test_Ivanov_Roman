@@ -100,8 +100,8 @@ class PDP extends React.Component {
 const{ onAddToCart} = this.props
 
         const{product, attributes, prices, symbol, currentImgId}= this.state
-console.log(product.gallery)
-        console.log(this.state.currentImgInd)
+// console.log(product.gallery)
+//         console.log(this.state.currentImgInd)
         const newProduct = {...product, count : 1}
         // console.log(newProduct)
 

@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 
 class Category extends React.Component {
     render() {
-        const {productCards, activeItem, activeCurrency, totalCount,isInCart,
+        const {productCards, activeItem, activeCurrency, totalCount,
             totalPrice, cartList, countIncrease, countDecrease,modalShow, onHidePopup, toggleModal}  = this.props
 
         return (

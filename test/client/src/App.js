@@ -15,8 +15,7 @@ import styles from "./App.css"
 //     }
 // }
 
-export const MyContext = React.createContext("");
-console.log(MyContext)
+// export const AppContext = React.createContext("");
 
 class App extends React.Component {
     constructor(props) {
@@ -118,21 +117,26 @@ class App extends React.Component {
 
     onAddToCart = (product) => {
         const {cartList} = this.state
-        const newProduct = {...product, count: 1};
+        let newProduct = {}
+
+        if (product.inStock) {
+            newProduct = {...product, count: 1}
+        }
+
         let isInCart = false;
 
         cartList.forEach((el) => {
             if (el.id === newProduct.id) {
                 isInCart = true;
-
                 this.setState({
                     count: ++el.count,
                 })
             }
         })
-        if (!isInCart)
+
+        if (!isInCart && product.inStock)
             this.setState({
-                cartList: [...cartList, newProduct]
+                cartList: [...cartList, newProduct],
             })
     }
 
@@ -161,12 +165,10 @@ class App extends React.Component {
     }
 
     toggleModal = () => {
-        console.log('toggle')
         this.setState({
             modalShow: !this.state.modalShow
         })
 }
-
 
     onHidePopup = () => {
         document.body.style.overflow = "";
@@ -174,8 +176,6 @@ class App extends React.Component {
             modalShow: false
         })
     }
-componentDidUpdate(prevProps, prevState, snapshot) {
-}
 
     render() {
         let totalPrice = (this.state.cartList.reduce((prev, curr) => {
@@ -191,70 +191,75 @@ componentDidUpdate(prevProps, prevState, snapshot) {
 
         // let newArr = this.state.productCards.slice()
         // console.log(newArr)
-        console.log(this.state.cartList)
+        // console.log(this.state.cartList)
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
         // console.log(this.props.match.params['cardId'].substring(1))
         // console.log(this.state.productCards[0].products[0])
         return (
-            <div>
-                <Header
-                    onClick={this.onSelectCategories}
-                    onOpenPopup={this.onOpenPopup}
-                    productCards={this.state.productCards}
-                    activeItem={this.state.activeItem}
-                    currencies={this.state.currencies}
-                    totalCount={totalCount}
-                    openPopup={this.state.openPopup}
-                    activeCurrency={this.state.activeCurrency}
-                    selectedCurrency={this.state.selectedCurrency}
-                    onSelectCurrencies={this.onSelectCurrencies}
-                    toggleModal={this.toggleModal}
-                    useClickOutside={this.useClickOutside}
-
-                />
-                <Routes>
-                    <Route path="/" element={<Category
+            // <AppContext.Provider
+            //     value={this.onSelectCategories}
+            // >
+                <div>
+                    <Header
+                        onSelectCategories={this.onSelectCategories}
+                        onOpenPopup={this.onOpenPopup}
                         productCards={this.state.productCards}
                         activeItem={this.state.activeItem}
-                        activeCurrency={this.state.activeCurrency}
+                        currencies={this.state.currencies}
                         totalCount={totalCount}
-                        totalPrice={totalPrice}
-                        cartList={this.state.cartList}
-                        countIncrease={this.countIncrease}
-                        countDecrease={this.countDecrease}
-                        modalShow={this.state.modalShow}
-                        onHidePopup={this.onHidePopup}
-                        toggleModal={this.toggleModal}
-                        isInCart={this.state.isInCart}
-                    />}
-                    />
-                    <Route path="/cart" element={<Cart
-                        productCards={this.state.productCards}
+                        openPopup={this.state.openPopup}
                         activeCurrency={this.state.activeCurrency}
-                        cartList={this.state.cartList}
-                        count={this.state.count}
-                        activeItem={this.state.activeItem}
-                        deleteCartItem={this.deleteCartItem}
                         selectedCurrency={this.state.selectedCurrency}
-                        total={this.state.total}
-                        countIncrease={this.countIncrease}
-                        countDecrease={this.countDecrease}
-                        totalCount={totalCount}
-                        totalPrice={totalPrice}
-                    />}
+                        onSelectCurrencies={this.onSelectCurrencies}
+                        toggleModal={this.toggleModal}
+                        useClickOutside={this.useClickOutside}
+
                     />
-                    <Route path="/:cardId" element={<PDP
-                        productCards={this.state.productCards}
-                        activeItem={this.state.activeItem}
-                        activeCurrency={this.state.activeCurrency}
-                        activeAttribute={this.state.activeAttribute}
-                        onAddToCart={this.onAddToCart}
-                        onSelectAttributes={this.onSelectAttributes}
-                    />}
-                    />
-                </Routes>
-            </div>
+                    <Routes>
+                        <Route path="/" element={<Category
+                            productCards={this.state.productCards}
+                            activeItem={this.state.activeItem}
+                            activeCurrency={this.state.activeCurrency}
+                            totalCount={totalCount}
+                            totalPrice={totalPrice}
+                            cartList={this.state.cartList}
+                            countIncrease={this.countIncrease}
+                            countDecrease={this.countDecrease}
+                            modalShow={this.state.modalShow}
+                            onHidePopup={this.onHidePopup}
+                            toggleModal={this.toggleModal}
+                            // isInCart={this.state.isInCart}
+                        />}
+                        />
+                        <Route path="/cart" element={<Cart
+                            productCards={this.state.productCards}
+                            activeCurrency={this.state.activeCurrency}
+                            cartList={this.state.cartList}
+                            count={this.state.count}
+                            activeItem={this.state.activeItem}
+                            deleteCartItem={this.deleteCartItem}
+                            selectedCurrency={this.state.selectedCurrency}
+                            total={this.state.total}
+                            countIncrease={this.countIncrease}
+                            countDecrease={this.countDecrease}
+                            totalCount={totalCount}
+                            totalPrice={totalPrice}
+                        />}
+                        />
+                        <Route path="/:cardId" element={<PDP
+                            productCards={this.state.productCards}
+                            activeItem={this.state.activeItem}
+                            activeCurrency={this.state.activeCurrency}
+                            activeAttribute={this.state.activeAttribute}
+                            onAddToCart={this.onAddToCart}
+                            onSelectAttributes={this.onSelectAttributes}
+                        />}
+                        />
+                    </Routes>
+                </div>
+            // </AppContext.Provider>
+
         );
     }
 }
