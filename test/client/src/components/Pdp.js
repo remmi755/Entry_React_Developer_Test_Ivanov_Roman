@@ -112,7 +112,6 @@ console.log(product.gallery)
                 <section className={styles.blockImg}>
                     {product.gallery &&
                         product.gallery.map((img, id) => (
-                            // <img key={id} className={styles.blockImgItem} src={img} alt="imgGallery"/>
                             <Image
                                 onClick={() => this.onChangeImage(id)}
                                 key={id}
@@ -125,7 +124,6 @@ console.log(product.gallery)
                     }
                 </section>
                 <section className={styles.blockGroup}>
-                    {/*<img className={styles.groupImg} src={product.gallery} alt="imgMain"/>*/}
                     {product.gallery && (
                         <Image
                             className={styles.groupImg}

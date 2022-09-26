@@ -16,6 +16,7 @@
 .blockImgItem {
     margin-bottom: 40px;
     object-fit: scale-down;
+    cursor: pointer;
 }
 
 .blockGroup {
@@ -26,6 +27,7 @@
 .groupImg {
     border: 1px solid yellowgreen;
     object-fit: contain;
+    cursor: pointer;
 }
 
 .groupChoice {
@@ -126,3 +128,4 @@
     /*align-items: center;*/
     /*justify-content: center;*/
 }
+

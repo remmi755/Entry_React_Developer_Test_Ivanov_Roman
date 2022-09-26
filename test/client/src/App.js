@@ -22,6 +22,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            isInCart: false,
             modalShow: false,
             count: 1,
             productCards: [this.renderCards],
@@ -103,7 +104,7 @@ class App extends React.Component {
 
     onSelectCurrencies = (index, e) => {
         const{currencies}= this.state
-        console.log(index)
+        // console.log(index)
         this.setState({
             activeCurrency: index,
             selectedCurrency: currencies[index].currency.symbol,
@@ -117,7 +118,7 @@ class App extends React.Component {
 
     onAddToCart = (product) => {
         const {cartList} = this.state
-        const newProduct = {...product, count: 1, inCart: true};
+        const newProduct = {...product, count: 1};
         let isInCart = false;
 
         cartList.forEach((el) => {
@@ -125,7 +126,7 @@ class App extends React.Component {
                 isInCart = true;
 
                 this.setState({
-                    count: ++el.count
+                    count: ++el.count,
                 })
             }
         })
@@ -173,6 +174,8 @@ class App extends React.Component {
             modalShow: false
         })
     }
+componentDidUpdate(prevProps, prevState, snapshot) {
+}
 
     render() {
         let totalPrice = (this.state.cartList.reduce((prev, curr) => {
@@ -183,8 +186,8 @@ class App extends React.Component {
             return prev + curr.count
         }, 0)
 
-        let inCart = this.state.cartList.inCart
-        console.log(inCart)
+        // let inCart = this.state.cartList.inCart
+        // console.log(inCart)
 
         // let newArr = this.state.productCards.slice()
         // console.log(newArr)
@@ -207,6 +210,8 @@ class App extends React.Component {
                     selectedCurrency={this.state.selectedCurrency}
                     onSelectCurrencies={this.onSelectCurrencies}
                     toggleModal={this.toggleModal}
+                    useClickOutside={this.useClickOutside}
+
                 />
                 <Routes>
                     <Route path="/" element={<Category
@@ -220,6 +225,8 @@ class App extends React.Component {
                         countDecrease={this.countDecrease}
                         modalShow={this.state.modalShow}
                         onHidePopup={this.onHidePopup}
+                        toggleModal={this.toggleModal}
+                        isInCart={this.state.isInCart}
                     />}
                     />
                     <Route path="/cart" element={<Cart

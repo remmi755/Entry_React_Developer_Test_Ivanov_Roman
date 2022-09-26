@@ -40,6 +40,7 @@ class Header extends React.Component {
                              activeCurrency={this.props.activeCurrency}
                              selectedCurrency={this.props.selectedCurrency}
                              toggleModal={this.props.toggleModal}
+                             useClickOutside={this.props.useClickOutside}
                     />
             </div>
         )

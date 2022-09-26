@@ -7,22 +7,14 @@ import Modal from "../components/Modal"
 import {Link} from "react-router-dom";
 
 class Category extends React.Component {
-
-    // openModal = () => {
-    //     this.state = {
-    //         activeCartOverlay: true
-    //     }
-    // }
     render() {
-        const {productCards, activeItem, activeCurrency, totalCount,
-            totalPrice, cartList, countIncrease, countDecrease,modalShow, onHidePopup}  = this.props
+        const {productCards, activeItem, activeCurrency, totalCount,isInCart,
+            totalPrice, cartList, countIncrease, countDecrease,modalShow, onHidePopup, toggleModal}  = this.props
 
         return (
             <div>
                 <div className={`${styles.container} 
-                 
                  `}>
-                    {/*<div className={modalShow? styles.modal: ""}></div>*/}
                     <Title className={styles.title}>{productCards[activeItem].name}</Title>
                     <section className={styles.productCards}>
                         <div className={styles.grid}>
@@ -33,6 +25,8 @@ class Category extends React.Component {
                                             key={product.id}
                                             product={product}
                                             activeCurrency={activeCurrency}
+                                            cartList={cartList}
+                                            isInCart={cartList.some(obj => obj.id === product.id)}
                                         />
                                     </Link>
                                 ))
@@ -41,13 +35,10 @@ class Category extends React.Component {
                     </section>
                     <div className={styles.containerCartOverlay}>
                         <Modal
-                            className={modalShow ? document.body.style.overflow = "hidden" : document.body.style.overflow = ""}
-                            show={modalShow}
-                            close={() => {
-                                this.setState({
-                                    modalShow: false
-                                })
-                            }}
+                            className={modalShow ? document.body.style.overflow = "hidden" :
+                                document.body.style.overflow = ""}
+                            close={toggleModal}
+                            shown={modalShow}
                         >
                             <CartOverlay totalCount={totalCount}
                                          totalPrice={totalPrice}

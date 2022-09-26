@@ -21,10 +21,17 @@
     /*height: 330px;*/
     /*object-fit: cover;*/
     background-size: 100% 100%;
+    position: relative;
 
 }
 .img:nth-child(2) {
     object-fit: fill;
+}
+
+.inCart {
+    position: absolute;
+    bottom: -42px;
+    right: 15px;
 }
 .stock {
     font-size: 24px;
@@ -53,3 +60,4 @@
     font-weight: 500;
     margin-top: 10px ;
 }
+

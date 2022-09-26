@@ -3,27 +3,25 @@ import styles from "./Modal.module.css"
 
 class Modal extends React.Component {
     render() {
-        const{children, show, close} = this.props
+        const {children, shown, close} = this.props
 
-        return  (
-            show ? (
+        return shown ? (
+            <div
+                className={styles.modalBackdrop}
+                onClick={() => {
+                    close()
+                }}
+            >
                 <div
-                    className={styles.modalBackdrop}
-                onClick={() => {close()}}
+                    className={styles.modalContent}
+                    onClick={e => {
+                        e.stopPropagation();
+                    }}
                 >
-                    <div
-                        className={styles.modalContent}
-                        onClick={e => {
-                            e.stopPropagation();
-                        }}
-                    >
-                        {/*<button onClick={close}>Close</button>*/}
-                        {children}
-                    </div>
+                    {children}
                 </div>
-                ) : null
-
-        )
+            </div>
+        ) : null
     }
 };
 
