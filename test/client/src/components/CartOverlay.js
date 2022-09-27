@@ -25,6 +25,9 @@ class CartOverlay extends React.Component {
                                                  activeCurrency={activeCurrency}
                                                  countIncrease={this.props.countIncrease}
                                                  countDecrease={this.props.countDecrease}
+                                                 onSelectAttribute={this.props.onSelectAttribute}
+                                                 activeAttribute={this.props.activeAttribute}
+                                                 activeAttributeInd={this.props.activeAttributeInd}
                                 />
                             ))
                         }

@@ -26,6 +26,9 @@ class CartItem extends React.Component {
                             attributeName={styles.attributeName}
                             attributeSize={styles.attributeSize}
                             attributeColor={styles.attributeColor}
+                            onSelectAttribute={this.props.onSelectAttribute}
+                            activeAttribute={this.props.activeAttribute}
+                            activeAttributeInd={this.props.activeAttributeInd}
                         />
                     </div>
                 </section>

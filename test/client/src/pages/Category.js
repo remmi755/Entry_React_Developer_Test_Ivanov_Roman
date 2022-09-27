@@ -47,6 +47,9 @@ class Category extends React.Component {
                                          countIncrease={countIncrease}
                                          countDecrease={countDecrease}
                                          onHidePopup={onHidePopup}
+                                         onSelectAttribute={this.props.onSelectAttribute}
+                                         activeAttribute={this.props.activeAttribute}
+                                         activeAttributeInd={this.props.activeAttributeInd}
                             />
                         </Modal>
                     </div>

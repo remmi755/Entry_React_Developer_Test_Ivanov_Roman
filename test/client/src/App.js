@@ -32,6 +32,7 @@ class App extends React.Component {
             selectedCurrency: '$',
             cartList: [],
             activeAttribute: 0,
+            activeAttributeInd: 0,
             total: {
                 totalPrice: 0,
                 totalCount: 0
@@ -116,6 +117,8 @@ class App extends React.Component {
     }
 
     onAddToCart = (product) => {
+        console.log(product.attributes[0].items)
+        console.log(this.state.activeAttribute)
         const {cartList} = this.state
         let newProduct = {}
 
@@ -177,6 +180,15 @@ class App extends React.Component {
         })
     }
 
+    onSelectAttribute = (attribute, id, index) => {
+        if(attribute.id === id ) {
+            this.setState({
+                activeAttributeInd: index,
+                activeAttribute: attribute,
+            })
+        }
+    }
+
     render() {
         let totalPrice = (this.state.cartList.reduce((prev, curr) => {
             return prev + curr.prices[this.state.activeCurrency].amount * curr.count
@@ -229,6 +241,9 @@ class App extends React.Component {
                             modalShow={this.state.modalShow}
                             onHidePopup={this.onHidePopup}
                             toggleModal={this.toggleModal}
+                            onSelectAttribute={this.onSelectAttribute}
+                            activeAttribute={this.state.activeAttribute}
+                            activeAttributeInd={this.state.activeAttributeInd}
                             // isInCart={this.state.isInCart}
                         />}
                         />
@@ -245,15 +260,19 @@ class App extends React.Component {
                             countDecrease={this.countDecrease}
                             totalCount={totalCount}
                             totalPrice={totalPrice}
+                            onSelectAttribute={this.onSelectAttribute}
+                            activeAttribute={this.state.activeAttribute}
+                            activeAttributeInd={this.state.activeAttributeInd}
                         />}
                         />
                         <Route path="/:cardId" element={<PDP
                             productCards={this.state.productCards}
                             activeItem={this.state.activeItem}
                             activeCurrency={this.state.activeCurrency}
-                            activeAttribute={this.state.activeAttribute}
                             onAddToCart={this.onAddToCart}
-                            onSelectAttributes={this.onSelectAttributes}
+                            onSelectAttribute={this.onSelectAttribute}
+                            activeAttribute={this.state.activeAttribute}
+                            activeAttributeInd={this.state.activeAttributeInd}
                         />}
                         />
                     </Routes>

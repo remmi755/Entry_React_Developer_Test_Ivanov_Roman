@@ -60,6 +60,9 @@ class Cart extends React.Component {
                                 countIncrease={countIncrease}
                                 countDecrease={countDecrease}
                                 activeCurrency={activeCurrency}
+                                onSelectAttribute={this.props.onSelectAttribute}
+                                activeAttribute={this.props.activeAttribute}
+                                activeAttributeInd={this.props.activeAttributeInd}
                             />
                         </section>
                     ))
