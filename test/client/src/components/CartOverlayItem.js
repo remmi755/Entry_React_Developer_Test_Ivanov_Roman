@@ -4,15 +4,14 @@ import Title from "./Title";
 import Count from "./Count"
 import Attributes from "./Attributes"
 import Image from "./Image"
-import ImageSlider from "./ImageSlider"
+import {AppContext} from "./AppContext"
 
 class CartOverlayItem extends React.Component {
     render() {
-        const{cartItem,  activeCurrency, countIncrease, countDecrease} = this.props
+        const {cartItem} = this.props
+        const{  activeCurrency, countIncrease, countDecrease} = this.context
         let price = cartItem?.prices[activeCurrency].amount;
         let symbol = cartItem?.prices[activeCurrency].currency.symbol;
-        // let img = cartItem.gallery
-        // console.log(img)
 
         return(
             <main className={styles.container}>
@@ -22,13 +21,9 @@ class CartOverlayItem extends React.Component {
                     <p className={styles.price}>{symbol}{price}</p>
                     <Attributes
                         attributes={cartItem.attributes}
-                        attributesId={cartItem.attributes.id}
                         attributeName={styles.attributeName}
                         attributeSize={styles.attributeSize}
                         attributeColor={styles.attributeColor}
-                        onSelectAttribute={this.props.onSelectAttribute}
-                        activeAttribute={this.props.activeAttribute}
-                        activeAttributeInd={this.props.activeAttributeInd}
                     />
                 </section>
                 <div className={styles.count}>
@@ -52,5 +47,7 @@ class CartOverlayItem extends React.Component {
         )
     }
 }
+
+CartOverlayItem.contextType = AppContext;
 
 export default CartOverlayItem

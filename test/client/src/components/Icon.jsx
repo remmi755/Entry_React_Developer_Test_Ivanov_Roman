@@ -20,7 +20,7 @@ class Icon extends React.Component {
 
 Icon.defaultProps = {
     className: '',
-    onclick: () => {},
+    onClick: () => {},
     size: null,
     children: ''
 }

@@ -5,11 +5,11 @@ import CartOverlay from "../components/CartOverlay"
 import Title from "../components/Title"
 import Modal from "../components/Modal"
 import {Link} from "react-router-dom";
+import {AppContext} from "../components/AppContext"
 
 class Category extends React.Component {
     render() {
-        const {productCards, activeItem, activeCurrency, totalCount,
-            totalPrice, cartList, countIncrease, countDecrease,modalShow, onHidePopup, toggleModal}  = this.props
+        const {productCards, activeItem, cartList, modalShow, toggleModal}  = this.context
 
         return (
             <div>
@@ -24,8 +24,6 @@ class Category extends React.Component {
                                         <ProductCard
                                             key={product.id}
                                             product={product}
-                                            activeCurrency={activeCurrency}
-                                            cartList={cartList}
                                             isInCart={cartList.some(obj => obj.id === product.id)}
                                         />
                                     </Link>
@@ -40,17 +38,7 @@ class Category extends React.Component {
                             close={toggleModal}
                             shown={modalShow}
                         >
-                            <CartOverlay totalCount={totalCount}
-                                         totalPrice={totalPrice}
-                                         cartList={cartList}
-                                         activeCurrency={activeCurrency}
-                                         countIncrease={countIncrease}
-                                         countDecrease={countDecrease}
-                                         onHidePopup={onHidePopup}
-                                         onSelectAttribute={this.props.onSelectAttribute}
-                                         activeAttribute={this.props.activeAttribute}
-                                         activeAttributeInd={this.props.activeAttributeInd}
-                            />
+                            <CartOverlay/>
                         </Modal>
                     </div>
                 </div>
@@ -58,6 +46,8 @@ class Category extends React.Component {
         )
     }
 }
+
+Category.contextType = AppContext;
 
 export default Category;
 

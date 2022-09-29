@@ -4,10 +4,11 @@ import styles from "./CartOverlay.module.css"
 import CartOverlayItem from "./CartOverlayItem";
 import Title from "./Title"
 import Button from "./Button"
+import {AppContext} from "./AppContext"
 
 class CartOverlay extends React.Component {
     render() {
-        const {totalCount, totalPrice, cartList, activeCurrency, onHidePopup} = this.props
+        const {totalCount, totalPrice, cartList, activeCurrency, onHidePopup} = this.context
         let symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
 
         return(
@@ -21,13 +22,8 @@ class CartOverlay extends React.Component {
                         {
                             cartList &&
                             cartList.map((cartItem, id) => (
-                                <CartOverlayItem cartItem={cartItem} key={id} id={id}
-                                                 activeCurrency={activeCurrency}
-                                                 countIncrease={this.props.countIncrease}
-                                                 countDecrease={this.props.countDecrease}
-                                                 onSelectAttribute={this.props.onSelectAttribute}
-                                                 activeAttribute={this.props.activeAttribute}
-                                                 activeAttributeInd={this.props.activeAttributeInd}
+                                <CartOverlayItem
+                                    cartItem={cartItem} key={id} id={id}
                                 />
                             ))
                         }
@@ -35,7 +31,6 @@ class CartOverlay extends React.Component {
                     <div className={styles.total}>
                         <span className={styles.totalItem}>Total</span>
                         <span className={styles.totalItem}>{symbol}{totalPrice}</span>
-                        {/*<span className={styles.totalItem}>{totalPrice}</span>*/}
                     </div>
                     <div className={styles.groupButton}>
                         <Link to="/cart">
@@ -45,9 +40,10 @@ class CartOverlay extends React.Component {
                     </div>
                 </main>
             </div>
-
         )
     }
 }
+
+CartOverlay.contextType = AppContext;
 
 export default CartOverlay

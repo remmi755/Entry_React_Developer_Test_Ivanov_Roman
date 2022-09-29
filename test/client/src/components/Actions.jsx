@@ -2,9 +2,9 @@ import React from "react";
 import {ReactComponent as VectorDown} from '../SVG/VectorCurrency.svg';
 import {ReactComponent as VectorUp} from "../SVG/VectorUp.svg"
 import {ReactComponent as CartQuantity} from "../SVG/cartQuantity.svg"
-import {Link} from "react-router-dom";
 import styles from "./Actions.module.css"
 import {ReactComponent as HeaderBasket} from "../SVG/headerBasket.svg";
+import {AppContext} from "./AppContext"
 
 class Actions extends React.Component {
     constructor(props) {
@@ -13,20 +13,20 @@ class Actions extends React.Component {
     }
 
     handleClickOutside = ({target}) => {
-               if(this.ref.current && !this.ref.current.contains(target)) {
-                   this.props.onOpenPopup()
-                   this.setState({
-                       openPopup: false
-                   })
-               }
+        if (this.ref.current && !this.ref.current.contains(target)) {
+            this.props.onOpenPopup()
+            this.setState({
+                openPopup: false
+            })
+        }
     }
 
     componentDidMount() {
-               document.addEventListener("mousedown", this.handleClickOutside)
+        document.addEventListener("mousedown", this.handleClickOutside)
     }
 
     componentWillUnmount() {
-               document.removeEventListener("mousedown", this.handleClickOutside)
+        document.removeEventListener("mousedown", this.handleClickOutside)
     }
 
     render() {
@@ -38,11 +38,7 @@ class Actions extends React.Component {
             onOpenPopup,
             toggleModal,
             totalCount
-        } = this.props
-        // const {activeCurrency, openPopup, selectedCurrency} = this.state
-        // console.log(currencies[activeCurrency].currency.label)
-        // console.log(this.props.useClickOutside)
-        // console.log(activeCurrency)
+        } = this.context
 
         return (
             <div className={styles.actions}>
@@ -51,7 +47,7 @@ class Actions extends React.Component {
                     {activeCurrency ? currencies[activeCurrency].currency.symbol : "$"}
                     <span>
                         {openPopup ? <VectorUp/> : <VectorDown/>}
-                        </span>
+                    </span>
                 </span>
                 <span className={styles.separator}></span>
                 {
@@ -76,8 +72,6 @@ class Actions extends React.Component {
                         </div>
                     )
                 }
-                {/*<Link to="/cart">*/}
-
                 <div className={styles.cart} onClick={toggleModal}>< HeaderBasket/></div>
                 {totalCount ? (<div className={styles.cartQuantity}><CartQuantity/></div>) : ""}
                 {totalCount ? (
@@ -86,11 +80,11 @@ class Actions extends React.Component {
                     >{totalCount}
                     </span>
                 ) : ""}
-
-                {/*</Link>*/}
             </div>
         )
     }
 }
+
+Actions.contextType = AppContext;
 
 export default Actions;

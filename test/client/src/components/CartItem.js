@@ -4,10 +4,12 @@ import Title from "./Title"
 import Count from "./Count"
 import Attributes from "./Attributes";
 import ImageSlider from "./ImageSlider"
+import {AppContext} from "./AppContext"
 
 class CartItem extends React.Component {
     render() {
-        const{orderItem, activeCurrency, countDecrease, id ,count, countIncrease} = this.props
+        const{orderItem, id} = this.props
+        const{ activeCurrency, countDecrease , countIncrease} = this.context
         let amount = orderItem.prices[activeCurrency].amount;
         let symbol = orderItem.prices[activeCurrency].currency.symbol
 
@@ -26,9 +28,6 @@ class CartItem extends React.Component {
                             attributeName={styles.attributeName}
                             attributeSize={styles.attributeSize}
                             attributeColor={styles.attributeColor}
-                            onSelectAttribute={this.props.onSelectAttribute}
-                            activeAttribute={this.props.activeAttribute}
-                            activeAttributeInd={this.props.activeAttributeInd}
                         />
                     </div>
                 </section>
@@ -52,5 +51,7 @@ class CartItem extends React.Component {
         )
     }
 };
+
+CartItem.contextType = AppContext;
 
 export default CartItem;

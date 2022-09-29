@@ -1,10 +1,42 @@
 import React from "react";
 import styles from "./GroupOrder.module.css";
 import Button from "./Button"
+import {AppContext} from "./AppContext"
 
 class GroupOrder extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            orderArr: [],
+            attribute: ""
+        }
+
+    }
+
+    doOrder = (arrOrders) => {
+        // newProduct = {...product, count: 1}
+        const {  activeAttribute, activeItem } = this.props
+        // this.setState({
+            let arr = arrOrders.map((order) => {
+                console.log(activeAttribute.id)
+              let attribute = order.id
+               order = {count: order.count, attributeName: activeAttribute.id, attribute: activeAttribute.items[activeItem].value, brand: order.brand, name: order.name}
+                // order.count = this.props.count
+                //     order.attribute = activeAttribute.items[activeItem].value
+                // order = {...order,
+                //     count: this.props.count,
+                //     attribute: activeAttribute.items[activeItem]
+                // }
+
+                return order
+            // })
+        })
+        console.log(arr)
+        // console.log(this.state.orderArr)
+    }
+
     render() {
-        const {totalCount, totalPrice, selectedCurrency, activeCurrency, cartList} = this.props
+        let {totalCount, totalPrice, selectedCurrency, cartList} = this.context
         const tax = (totalPrice * 21/100).toFixed(2)
 
         return (
@@ -29,12 +61,13 @@ class GroupOrder extends React.Component {
                         {totalPrice}
                     </span>
                 </div>
-                {/*<button onClick={this.increaseCount} className={styles.button}>ORDER</button>*/}
-                {/*<button className={styles.button}>ORDER</button>*/}
-                <Button className={styles.button}>ORDER</Button>
+                <Button className={styles.button} onClick={() => this.doOrder(cartList)}>ORDER</Button>
             </main>
         )
     }
 }
 
+GroupOrder.contextType = AppContext;
+
 export default GroupOrder;
+

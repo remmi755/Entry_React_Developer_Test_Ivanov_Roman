@@ -7,6 +7,7 @@ import Attributes from "./Attributes";
 import {apolloClient} from "../index";
 import {gql} from "@apollo/client"
 import {useParams} from "react-router-dom";
+import {AppContext} from "./AppContext"
 
 export function withRouter(Children) {
     return (props) => {
@@ -20,7 +21,7 @@ class PDP extends React.Component {
         super(props);
         this.state = {
             product: [this.renderPDP],
-            currentImgId: 0
+            currentImgId: 0,
         }
     }
 
@@ -63,8 +64,7 @@ class PDP extends React.Component {
             const product = result.data.product;
             const attributes = result.data.product.attributes
             const allAttributes = result.data.product.attributes
-            let prices = result.data.product.prices[this.props?.activeCurrency].amount
-            // let prices = result.data.product?.prices
+            let prices = result.data.product.prices[this.props.activeCurrency].amount
             let symbol = result.data.product.prices[this.props.activeCurrency].currency.symbol
 
             this.setState({
@@ -85,26 +85,14 @@ class PDP extends React.Component {
     }
 
     onChangeImage = (id) => {
-        console.log(id)
-        const{product} = this.state
         this.setState({
             currentImgId: id
         })
     }
 
     render() {
-        // console.log(this.onAddToCart(this.props.cart))
-        // console.log(this.props)
-        // console.log(this.props.orders)
-
-const{ onAddToCart} = this.props
-
+        const{ onAddToCart} = this.context
         const{product, attributes, prices, symbol, currentImgId}= this.state
-// console.log(product.gallery)
-//         console.log(this.state.currentImgInd)
-        const newProduct = {...product, count : 1}
-        // console.log(newProduct)
-
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
 
         return (
@@ -136,15 +124,11 @@ const{ onAddToCart} = this.props
                         <Title className={styles.titleBrand}>{product.brand}</Title>
                         <Title className={styles.titleName}>{product.name}</Title>
                         <div className={styles.attributes}>
-                            <Attributes product={product}
-                                        attributes={attributes}
-                                        activeAttribute={this.props.activeAttribute}
-                                        onSelectAttribute={this.props.onSelectAttribute}
-                                        activeAttribute={this.props.activeAttribute}
-                                        activeAttributeInd={this.props.activeAttributeInd}
-                                        attributeName={styles.attributeName}
-                                        attributeSize={styles.attributeSize}
-                                        attributeColor={styles.attributeColor}
+                            <Attributes
+                                attributes={attributes}
+                                attributeName={styles.attributeName}
+                                attributeSize={styles.attributeSize}
+                                attributeColor={styles.attributeColor}
                             />
                         </div>
                         <div className={styles.groupChoicePrice}>
@@ -163,5 +147,7 @@ const{ onAddToCart} = this.props
         )
     }
 }
+
+PDP.contextType = AppContext;
 
 export default withRouter(PDP)

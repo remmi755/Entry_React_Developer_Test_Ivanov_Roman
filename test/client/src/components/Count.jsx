@@ -3,10 +3,9 @@ import Button from "./Button"
 import styles from "./Count.module.css"
 
 class Count extends React.Component {
-    render() {
-        const{children, classSize, countIncrease, countDecrease,orderItem, id } = this.props
 
-        // console.log(orderItem.count)
+    render() {
+        const{children, classSize, countIncrease, countDecrease, orderItem, id} = this.props
 
         return (
             <>

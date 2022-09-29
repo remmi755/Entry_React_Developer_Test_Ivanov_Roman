@@ -3,7 +3,6 @@
     display: flex;
     width: 60px;
     height: 25px;
-    /*justify-content: space-between;*/
 }
 .separator {
     width: 22px;
@@ -60,5 +59,4 @@
     z-index: 3;
     position: absolute;
     top: -5px;
-    /*left: 58px;*/
 }
