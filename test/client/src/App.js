@@ -1,18 +1,13 @@
 import React from "react";
-import {Route, Routes, useParams} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {Category, Header} from "./components"
 import Cart from "./components/Cart";
 import {apolloClient} from "./index";
 import {gql} from "@apollo/client";
 import PDP from "./components/Pdp";
 import {AppContext} from "./components/AppContext"
-
-// export function withRouter(Children) {
-//     return (props) => {
-//         const match = {params: useParams()};
-//         return <Children {...props} match={match}/>
-//     }
-// }
+import Modal from "./components/Modal"
+import CartOverlay from "./components/CartOverlay"
 
 class App extends React.Component {
     constructor(props) {
@@ -90,7 +85,6 @@ class App extends React.Component {
 
     componentDidMount() {
         this.renderCards();
-        // window.scrollTo(0, 0);
     }
 
     onSelectCategories = index => {
@@ -101,7 +95,6 @@ class App extends React.Component {
 
     onSelectCurrencies = (index, e) => {
         const {currencies} = this.state
-        // console.log(index)
         this.setState({
             activeCurrency: index,
             selectedCurrency: currencies[index].currency.symbol,
@@ -114,8 +107,6 @@ class App extends React.Component {
     }
 
     onAddToCart = (product) => {
-        // console.log(product.attributes[0].items)
-        // console.log(this.state.activeAttribute)
         const {cartList} = this.state
         let newProduct = {}
 
@@ -242,16 +233,18 @@ class App extends React.Component {
                         />}
                         />
                         <Route path="/:cardId" element={<PDP
-                            // productCards={this.state.productCards}
-                            // activeItem={this.state.activeItem}
                             activeCurrency={this.state.activeCurrency}
-                            // onAddToCart={this.onAddToCart}
-                            // onSelectAttribute={this.onSelectAttribute}
-                            // activeAttribute={this.state.activeAttribute}
-                            // activeAttributeInd={this.state.activeAttributeInd}
                         />}
                         />
                     </Routes>
+                    <Modal
+                        className={modalShow ? document.body.style.overflow = "hidden" :
+                            document.body.style.overflow = ""}
+                        close={toggleModal}
+                        shown={modalShow}
+                    >
+                        <CartOverlay/>
+                    </Modal>
                 </div>
             </AppContext.Provider>
         );

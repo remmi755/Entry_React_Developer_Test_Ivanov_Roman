@@ -3,9 +3,6 @@ import React from "react";
 class Image extends React.Component {
     render() {
         let {src, alt, className, width, height, ...attrs} = this.props
-        if (!src) {
-            src = `https://via.placeholder.com/${width}*${height}`
-        }
         return (
             <img
                 src={src}

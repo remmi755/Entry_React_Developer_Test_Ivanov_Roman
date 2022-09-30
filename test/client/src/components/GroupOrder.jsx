@@ -32,7 +32,6 @@ class GroupOrder extends React.Component {
             // })
         })
         console.log(arr)
-        // console.log(this.state.orderArr)
     }
 
     render() {

@@ -6,6 +6,8 @@
     padding: 80px 220px 180px 100px;
     box-sizing: border-box;
     border: 1px solid red;
+    position: relative;
+    z-index: 2;
 }
 
 .blockImg {
@@ -41,10 +43,6 @@
     width: 292px;
 }
 
-.choiceColor {
-    margin-top: 24px;
-}
-
 .h5 {
     margin: 0;
     font-size: 18px;
@@ -74,15 +72,6 @@
     margin-top: 40px;
 }
 
-.sizeItem {
-    width: 65px;
-    height: 45px;
-    border: 1px solid rgba(29, 31, 34, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .titleBrand {
     font-size: 30px;
     font-weight: 600;
@@ -105,12 +94,6 @@
     width: 65px;
     height: 45px;
     font-size: 12px;
-
-    /*margin-right: 8px;*/
-    /*border: 1px solid rgba(29, 31, 34, 1);*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
 }
 
 .attributeSize:last-of-type {
@@ -121,11 +104,5 @@
     width: 36px;
     height: 36px;
     font-size: 8px;
-
-    /*margin-right: 8px;*/
-    /*border: 1px solid rgba(29, 31, 34, 1);*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
 }
 

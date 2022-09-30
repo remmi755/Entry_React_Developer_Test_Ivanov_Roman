@@ -3,7 +3,7 @@ import styles from "./ProductCard.module.css"
 import Title from "./Title"
 import Image from "./Image"
 import Icon from "./Icon"
-import {ReactComponent as InCart} from "../SVG/InCart.svg"
+import {ReactComponent as InCart} from "../assets/SVG/InCart.svg"
 import {AppContext} from "./AppContext"
 
 class ProductCard extends React.Component {

@@ -3,7 +3,6 @@ import React from "react";
 class Icon extends React.Component {
     render() {
         const {children, className, onClick, size, ...attrs} = this.props
-
         const elemSize = size ? {fontSize: `${size}px`} : null;
 
         return (

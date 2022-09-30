@@ -1,8 +1,8 @@
 import React from "react";
 import Icon from "./Icon"
 import styles from "./ImageSlider.module.css"
-import {ReactComponent as VectorLeft} from "../SVG/VectorLeft.svg"
-import {ReactComponent as VectorRight} from "../SVG/VectorRight.svg"
+import {ReactComponent as VectorLeft} from "../assets/SVG/VectorLeft.svg"
+import {ReactComponent as VectorRight} from "../assets/SVG/VectorRight.svg"
 
 class ImageSlider extends React.Component {
     constructor(props) {

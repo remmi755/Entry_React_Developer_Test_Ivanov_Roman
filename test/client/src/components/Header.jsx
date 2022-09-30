@@ -1,6 +1,5 @@
 import React from "react";
-import {ReactComponent as HeaderLogo} from '../SVG/headerLogo.svg';
-import {ReactComponent as HeaderBasket} from '../SVG/headerBasket.svg';
+import {ReactComponent as HeaderLogo} from '../assets/SVG/headerLogo.svg';
 import {Link} from "react-router-dom";
 import styles from "./Header.module.css"
 import Categories from "./Categories";

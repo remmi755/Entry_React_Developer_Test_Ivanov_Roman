@@ -4,9 +4,6 @@
 }
 
 .countItem {
-    /*width: 45px;*/
-    /*height: 45px;*/
-    /*font-size: 24px;*/
     display: flex;
     align-content: space-between;
     align-items: center;
