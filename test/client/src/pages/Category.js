@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Category.module.css"
+import styles from "../pages/Category.module.css"
 import ProductCard from "../components/ProductCard";
 import Title from "../components/Title"
 import {Link} from "react-router-dom";

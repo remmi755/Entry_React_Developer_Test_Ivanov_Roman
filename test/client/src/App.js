@@ -1,10 +1,11 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
-import {Category, Header} from "./components"
-import Cart from "./components/Cart";
+import Category from "./pages/Category"
+import Header from "./pages/Header"
+import Cart from "./pages/Cart";
 import {apolloClient} from "./index";
 import {gql} from "@apollo/client";
-import PDP from "./components/Pdp";
+import PDP from "./pages/Pdp";
 import {AppContext} from "./components/AppContext"
 import Modal from "./components/Modal"
 import CartOverlay from "./components/CartOverlay"
@@ -222,9 +223,7 @@ class App extends React.Component {
                 }}
             >
                 <div>
-                    <Header
-                        onOpenPopup={this.onOpenPopup}
-                    />
+                    <Header onOpenPopup={this.onOpenPopup}/>
                     <Routes>
                         <Route path="/" element={<Category/>}/>
                         <Route path="/cart" element={<Cart
