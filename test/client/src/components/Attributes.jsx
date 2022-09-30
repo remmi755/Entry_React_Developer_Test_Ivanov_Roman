@@ -4,8 +4,8 @@ import {AppContext} from "./AppContext"
 
 class Attributes extends React.Component {
     render() {
-        const {attributeName, attributeSize, attributeColor, attributes} = this.props
-        const { onSelectAttribute, activeAttribute, activeAttributeInd} = this.context
+        const {attributeName, attributeSize, attributeColor, attributes, onSelectAttribute} = this.props
+        const {  activeAttribute, activeAttributeInd} = this.context
 
         return (
             <>

@@ -34,6 +34,7 @@ class GroupOrder extends React.Component {
     }
 
     render() {
+
         let {totalCount, totalPrice, selectedCurrency, cartList} = this.context
         const tax = (totalPrice * 21/100).toFixed(2)
 
@@ -59,7 +60,7 @@ class GroupOrder extends React.Component {
                         {totalPrice}
                     </span>
                 </div>
-                <Button className={styles.button} onClick={() => this.doOrder(cartList)}>ORDER</Button>
+                <Button className={styles.button} >ORDER</Button>
             </main>
         )
     }

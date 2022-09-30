@@ -94,7 +94,7 @@ class App extends React.Component {
         })
     }
 
-    onSelectCurrencies = (index, e) => {
+    onSelectCurrencies = (index) => {
         const {currencies} = this.state
         this.setState({
             activeCurrency: index,
@@ -108,10 +108,11 @@ class App extends React.Component {
     }
 
     onAddToCart = (product) => {
-        const {cartList} = this.state
+        const {cartList, activeAttribute} = this.state
         let newProduct = {}
-
-        if (product.inStock) {
+// console.log(className= "")
+//         if (activeAttribute)
+        if (product.inStock ) {
             newProduct = {...product, count: 1}
         }
 
@@ -170,6 +171,9 @@ class App extends React.Component {
     }
 
     onSelectAttribute = (attribute, id, index) => {
+        console.log(attribute)
+        console.log(id)
+        console.log(index)
         if (attribute.id === id) {
             this.setState({
                 activeAttributeInd: index,
