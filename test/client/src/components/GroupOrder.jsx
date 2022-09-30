@@ -14,7 +14,6 @@ class GroupOrder extends React.Component {
     }
 
     doOrder = (arrOrders) => {
-        // newProduct = {...product, count: 1}
         const {  activeAttribute, activeItem } = this.props
         // this.setState({
             let arr = arrOrders.map((order) => {
