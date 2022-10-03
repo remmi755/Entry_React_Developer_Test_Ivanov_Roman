@@ -1,0 +1,13 @@
+.attribute {
+    cursor: pointer;
+    margin-right: 8px;
+    border: 1px solid rgba(29, 31, 34, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activeAttribute {
+    background-color: black;
+    color: white;
+}

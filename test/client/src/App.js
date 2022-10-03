@@ -25,7 +25,7 @@ class App extends React.Component {
             selectedCurrency: '$',
             cartList: [],
             activeAttribute: 0,
-            activeAttributeInd: 0,
+            activeAttributeInd: " ",
             total: {
                 totalPrice: 0,
                 totalCount: 0
@@ -170,16 +170,26 @@ class App extends React.Component {
         })
     }
 
-    onSelectAttribute = (attribute, id, index) => {
-        console.log(attribute)
-        console.log(id)
-        console.log(index)
-        if (attribute.id === id) {
+    // onSelectAttribute = ( attribute,  el, index, id, e) => {
+    onSelectAttribute = ( attribute, id,  el, index, e) => {
+        console.log("attribute:", attribute)// console.log("attribute.id:",attribute.id)
+
+        console.log("id:",id)
+        console.log(attribute.id === id)
+        console.log("index:",index)
+        console.log(attribute.items[index])
+        console.log("el:",el)
+// if( el === id[index]) {
+if( el === attribute.items[index] && attribute.id === id) {
+    // let newEl = {...el, activeAttr: true}
             this.setState({
                 activeAttributeInd: index,
-                activeAttribute: attribute,
-            })
-        }
+                activeAttribute:attribute.items[index]
+                // activeAttribute:el[index]
+        })
+    // console.log(attribute.id === el)
+    // console.log(attribute.id === el)
+}
     }
 
     render() {
