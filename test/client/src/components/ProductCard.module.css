@@ -3,14 +3,17 @@
     width: 386px;
     height: 444px;
     padding: 16px;
-    border: 2px solid yellowgreen;
     margin: 20px auto;
 }
+
+.shadow {
+    filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+}
+
 .blockImg {
     position: relative;
     width: 354px;
     height: 330px;
-    border: 2px solid yellowgreen;
 }
 .img {
     width: 100%;

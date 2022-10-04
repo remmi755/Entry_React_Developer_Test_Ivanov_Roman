@@ -25,7 +25,7 @@ class App extends React.Component {
             selectedCurrency: '$',
             cartList: [],
             activeAttribute: 0,
-            activeAttributeInd: " ",
+            activeAttributeInd: "",
             total: {
                 totalPrice: 0,
                 totalCount: 0
@@ -108,12 +108,14 @@ class App extends React.Component {
     }
 
     onAddToCart = (product) => {
-        const {cartList, activeAttribute} = this.state
+        const {cartList, activeAttribute} = this.state;
+        // let newAttribute= product.attributes[activeAttribute];
+        console.log(product.attributes)
+        // console.log(activeAttribute)
         let newProduct = {}
-// console.log(className= "")
-//         if (activeAttribute)
+
         if (product.inStock ) {
-            newProduct = {...product, count: 1}
+            newProduct = {...product, count: 1, }
         }
 
         let isInCart = false;
@@ -170,26 +172,21 @@ class App extends React.Component {
         })
     }
 
-    // onSelectAttribute = ( attribute,  el, index, id, e) => {
-    onSelectAttribute = ( attribute, id,  el, index, e) => {
-        console.log("attribute:", attribute)// console.log("attribute.id:",attribute.id)
+    onSelectAttribute = (attribute, id, el, index) => {
+        // const {attribute} = this.props
+        console.log(attribute)
+        console.log(id)
+        console.log(el)
+        console.log(index)
+        // console.log(attribute.items[index])
 
-        console.log("id:",id)
-        console.log(attribute.id === id)
-        console.log("index:",index)
-        console.log(attribute.items[index])
-        console.log("el:",el)
-// if( el === id[index]) {
-if( el === attribute.items[index] && attribute.id === id) {
-    // let newEl = {...el, activeAttr: true}
+
+        if (attribute.items[index] === el) {
             this.setState({
-                activeAttributeInd: index,
-                activeAttribute:attribute.items[index]
-                // activeAttribute:el[index]
-        })
-    // console.log(attribute.id === el)
-    // console.log(attribute.id === el)
-}
+                activeAttribute: attribute.items[index],
+                activeAttributeInd: index
+            })
+        }
     }
 
     render() {
@@ -207,7 +204,8 @@ if( el === attribute.items[index] && attribute.id === id) {
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
         // console.log(this.props.match.params['cardId'].substring(1))
-        // console.log(this.state.productCards[0].products[0])
+        console.log(this.state.activeAttribute)
+        console.log(this.state.activeAttributeInd)
 
         const {
             productCards,

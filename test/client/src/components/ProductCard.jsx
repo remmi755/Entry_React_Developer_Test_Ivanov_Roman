@@ -15,7 +15,7 @@ class ProductCard extends React.Component {
         let amount = prices[activeCurrency].amount
 
         return (
-            <div className={styles.container}>
+            <div className={`${styles.container} ${isInCart? styles.shadow : ""}`}>
                 <div className={styles.blockImg}>
                     <Image
                         className={styles.img}

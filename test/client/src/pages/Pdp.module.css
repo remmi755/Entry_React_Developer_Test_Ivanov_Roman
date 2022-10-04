@@ -5,7 +5,6 @@
     display: flex;
     padding: 80px 220px 180px 100px;
     box-sizing: border-box;
-    border: 1px solid red;
     position: relative;
     z-index: 2;
 }
@@ -27,7 +26,6 @@
 }
 
 .groupImg {
-    border: 1px solid yellowgreen;
     object-fit: contain;
     cursor: pointer;
 }
@@ -35,7 +33,6 @@
 .groupChoice {
     width: 292px;
     margin-left: 100px;
-    border: 1px solid yellowgreen;
 }
 
 .attributes {

@@ -1,10 +1,9 @@
 .container {
-    background-color: white;
+    background-color: #FFFFFF;
     width: 1440px;
     margin: 0 auto;
     box-sazing: border-box;
     pading: 80px 100px 190px 100px;
-    border: 1px solid red;
     position: relative;
     z-index: 1;
 }

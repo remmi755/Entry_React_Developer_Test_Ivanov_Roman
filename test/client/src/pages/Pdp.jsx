@@ -63,14 +63,12 @@ class PDP extends React.Component {
 
             const product = result.data.product;
             const attributes = result.data.product.attributes
-            const allAttributes = result.data.product.attributes
             let prices = result.data.product.prices[this.props.activeCurrency].amount
             let symbol = result.data.product.prices[this.props.activeCurrency].currency.symbol
 
             this.setState({
                 product: product,
                 attributes: attributes,
-                allAttributes: allAttributes,
                 prices: prices,
                 symbol: symbol
             });
@@ -91,7 +89,7 @@ class PDP extends React.Component {
     }
 
     render() {
-        const{ onAddToCart,  onSelectAttribute, activeAttribute} = this.context
+        const{ onAddToCart,  onSelectAttribute} = this.context
         const{product, attributes, prices, symbol, currentImgId}= this.state
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
 
