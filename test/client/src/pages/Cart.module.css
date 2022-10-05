@@ -14,6 +14,11 @@
 
 .content {
     padding: 0;
+    border-top: 1px solid #E5E5E5;
+}
+
+.content:last-of-type {
+    border-bottom: 1px solid #E5E5E5;
 }
 
 .groupOrder {

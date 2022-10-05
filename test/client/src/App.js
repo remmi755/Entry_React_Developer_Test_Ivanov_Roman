@@ -24,7 +24,8 @@ class App extends React.Component {
             activeCurrency: 0,
             selectedCurrency: '$',
             cartList: [],
-            activeAttribute: 0,
+            activeAttribute: "",
+            activeAttributeItem: 0,
             activeAttributeInd: "",
             total: {
                 totalPrice: 0,
@@ -108,15 +109,18 @@ class App extends React.Component {
     }
 
     onAddToCart = (product) => {
-        const {cartList, activeAttribute} = this.state;
-        // let newAttribute= product.attributes[activeAttribute];
-        console.log(product.attributes)
-        // console.log(activeAttribute)
+        const {cartList, activeAttributeItem, activeAttribute} = this.state;
+        let newAttribute= product.attributes[activeAttributeItem];
+
+        // console.log(product.attributes)
+        console.log(activeAttributeItem)
+        // console.log(newAttribute)
         let newProduct = {}
 
         if (product.inStock ) {
-            newProduct = {...product, count: 1, }
+            newProduct = {...product, count: 1, activeAttribute: activeAttribute, activeAttributeItem: activeAttributeItem }
         }
+        console.log(newProduct)
 
         let isInCart = false;
 
@@ -172,21 +176,24 @@ class App extends React.Component {
         })
     }
 
-    onSelectAttribute = (attribute, id, el, index) => {
-        // const {attribute} = this.props
+    onSelectAttribute = (attribute, el, index) => {
+        // const{cartList} = this.state
+        console.log(this.state.cartList)
         console.log(attribute)
-        console.log(id)
+        // console.log(id)
         console.log(el)
         console.log(index)
-        // console.log(attribute.items[index])
+        console.log(attribute.items[index])
 
 
         if (attribute.items[index] === el) {
             this.setState({
-                activeAttribute: attribute.items[index],
+                activeAttribute: attribute,
+                activeAttributeItem: attribute.items[index],
                 activeAttributeInd: index
             })
         }
+        // console.log(this.state.activeAttribute)
     }
 
     render() {
@@ -200,11 +207,11 @@ class App extends React.Component {
 
         // let newArr = this.state.productCards.slice()
         // console.log(newArr)
-        // console.log(this.state.cartList)
+        console.log(this.state.cartList)
         // let {activeItem}= this.state
         // console.log(this.state.productCards[activeItem].products)
         // console.log(this.props.match.params['cardId'].substring(1))
-        console.log(this.state.activeAttribute)
+        console.log(this.state.activeAttributeItem)
         console.log(this.state.activeAttributeInd)
 
         const {
@@ -218,7 +225,7 @@ class App extends React.Component {
             total,
             openPopup,
             modalShow,
-            activeAttribute,
+            activeAttributeItem,
             activeAttributeInd
         } = this.state
         const {deleteCartItem, countIncrease, countDecrease, onSelectAttribute, onHidePopup,
@@ -229,7 +236,7 @@ class App extends React.Component {
                 value={{
                     totalCount, modalShow,
                     totalPrice, productCards, activeCurrency, currencies, openPopup,
-                    cartList, count, activeItem, selectedCurrency, total, activeAttribute, activeAttributeInd,
+                    cartList, count, activeItem, selectedCurrency, total, activeAttributeItem, activeAttributeInd,
                     deleteCartItem, countIncrease, countDecrease, onSelectAttribute, onHidePopup,
                     onSelectCategories, onOpenPopup, onSelectCurrencies, toggleModal, onAddToCart
                 }}

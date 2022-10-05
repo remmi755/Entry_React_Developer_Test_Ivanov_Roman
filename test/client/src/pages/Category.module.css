@@ -2,8 +2,6 @@
     background-color: #FFFFFF;
     width: 1440px;
     margin: 0 auto;
-    box-sazing: border-box;
-    pading: 80px 100px 190px 100px;
     position: relative;
     z-index: 1;
 }
@@ -11,7 +9,7 @@
 .containerCartOverlay {
     background-color: white;
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 72px;
 }
 
@@ -20,10 +18,11 @@
     font-weight: 400;
     text-transform: uppercase;
     margin: 0;
+    padding: 50px 0 0 100px;
 }
 
 .productCards {
-    margin-top: 100px;
+    padding: 100px 100px 191px;
 }
 
 .grid {

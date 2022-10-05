@@ -37,6 +37,7 @@ class Attributes extends React.Component {
                                             id={attribute.id}
 
                                             // handleClick={this.handleClick}
+                                            onSelectAttribute={onSelectAttribute}
                                             attribute={attribute}
                                             attributeColor={attributeColor}
                                             attributeSize={attributeSize}
