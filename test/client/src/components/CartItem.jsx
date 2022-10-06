@@ -24,7 +24,6 @@ class CartItem extends React.Component {
                     <div className={styles.choiceSize}>
                         <Attributes
                             attributes={orderItem.attributes}
-                            attributesId={orderItem.attributes.id}
                             attributeName={styles.attributeName}
                             attributeSize={styles.attributeSize}
                             attributeColor={styles.attributeColor}

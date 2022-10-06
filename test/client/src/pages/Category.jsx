@@ -18,7 +18,7 @@ class Category extends React.Component {
                         <div className={styles.grid}>
                             {
                                 productCards[activeItem].products?.map((product) => (
-                                    <Link to={`/ ${product.id}`}>
+                                    <Link key={product.name} to={`/ ${product.id}`}>
                                         <ProductCard
                                             key={product.id}
                                             product={product}

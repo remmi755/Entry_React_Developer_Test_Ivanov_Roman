@@ -89,7 +89,7 @@ class PDP extends React.Component {
     }
 
     render() {
-        const{onAddToCart,  onSelectAttribute} = this.context
+        const{onAddToCart} = this.context
         const{product, attributes, prices, symbol, currentImgId}= this.state
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
 
@@ -123,7 +123,6 @@ class PDP extends React.Component {
                         <Title className={styles.titleName}>{product.name}</Title>
                         <div className={styles.attributes}>
                             <Attributes
-                                onSelectAttribute={onSelectAttribute}
                                 attributes={attributes}
                                 attributeName={styles.attributeName}
                                 attributeSize={styles.attributeSize}

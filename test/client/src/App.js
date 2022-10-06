@@ -24,9 +24,7 @@ class App extends React.Component {
             activeCurrency: 0,
             selectedCurrency: '$',
             cartList: [],
-            activeAttribute: "",
             activeAttributeItem: 0,
-            activeAttributeInd: "",
             total: {
                 totalPrice: 0,
                 totalCount: 0
@@ -109,18 +107,12 @@ class App extends React.Component {
     }
 
     onAddToCart = (product) => {
-        const {cartList, activeAttributeItem, activeAttribute} = this.state;
-        let newAttribute= product.attributes[activeAttributeItem];
-
-        // console.log(product.attributes)
-        console.log(activeAttributeItem)
-        // console.log(newAttribute)
+        const {cartList} = this.state;
         let newProduct = {}
 
         if (product.inStock ) {
-            newProduct = {...product, count: 1, activeAttribute: activeAttribute, activeAttributeItem: activeAttributeItem }
+            newProduct = {...product, count: 1}
         }
-        console.log(newProduct)
 
         let isInCart = false;
 
@@ -176,26 +168,6 @@ class App extends React.Component {
         })
     }
 
-    onSelectAttribute = (attribute, el, index) => {
-        // const{cartList} = this.state
-        console.log(this.state.cartList)
-        console.log(attribute)
-        // console.log(id)
-        console.log(el)
-        console.log(index)
-        console.log(attribute.items[index])
-
-
-        if (attribute.items[index] === el) {
-            this.setState({
-                activeAttribute: attribute,
-                activeAttributeItem: attribute.items[index],
-                activeAttributeInd: index
-            })
-        }
-        // console.log(this.state.activeAttribute)
-    }
-
     render() {
         let totalPrice = (this.state.cartList.reduce((prev, curr) => {
             return prev + curr.prices[this.state.activeCurrency].amount * curr.count
@@ -204,15 +176,6 @@ class App extends React.Component {
         let totalCount = this.state.cartList.reduce((prev, curr) => {
             return prev + curr.count
         }, 0)
-
-        // let newArr = this.state.productCards.slice()
-        // console.log(newArr)
-        console.log(this.state.cartList)
-        // let {activeItem}= this.state
-        // console.log(this.state.productCards[activeItem].products)
-        // console.log(this.props.match.params['cardId'].substring(1))
-        console.log(this.state.activeAttributeItem)
-        console.log(this.state.activeAttributeInd)
 
         const {
             productCards,
@@ -225,10 +188,9 @@ class App extends React.Component {
             total,
             openPopup,
             modalShow,
-            activeAttributeItem,
-            activeAttributeInd
+            activeAttributeItem
         } = this.state
-        const {deleteCartItem, countIncrease, countDecrease, onSelectAttribute, onHidePopup,
+        const {deleteCartItem, countIncrease, countDecrease, onHidePopup,
             onSelectCategories, onOpenPopup, onSelectCurrencies, toggleModal, onAddToCart} = this;
 
         return (
@@ -236,8 +198,8 @@ class App extends React.Component {
                 value={{
                     totalCount, modalShow,
                     totalPrice, productCards, activeCurrency, currencies, openPopup,
-                    cartList, count, activeItem, selectedCurrency, total, activeAttributeItem, activeAttributeInd,
-                    deleteCartItem, countIncrease, countDecrease, onSelectAttribute, onHidePopup,
+                    cartList, count, activeItem, selectedCurrency, total, activeAttributeItem,
+                    deleteCartItem, countIncrease, countDecrease, onHidePopup,
                     onSelectCategories, onOpenPopup, onSelectCurrencies, toggleModal, onAddToCart
                 }}
             >
