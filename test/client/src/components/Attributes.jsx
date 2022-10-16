@@ -4,22 +4,26 @@ import Attribute from "./Attribute"
 
 class Attributes extends React.Component {
     render() {
-        const {attributeName, attributeSize, attributeColor, attributes} = this.props
+        const {attributeName, attributeSize, attributeColor, attributes,  onSelectAttribute, activeAttributeItem, activeAttribute} = this.props
 
         return (
             <>
                 <ul className={styles.ul}>
                     {
                         attributes &&
-                        attributes.map((attribute) => (
+                        attributes.map((attribute, id) => (
                             <>
                                 <li className={attributeName}  key={`${attribute.id}_${attribute.name}`}>
                                     {attribute.name}</li>
-                                <li  key={attribute.items}  >
-                                    <ul key={attribute.name} className={styles.attributeGroup}
+                                <li  key={`${attribute.id}_${attribute.type}`}  >
+                                    <ul key={attribute} className={styles.attributeGroup}
                                     >
                                         <Attribute
-                                            key={`${attribute.items}_${attribute.id}`}
+                                            key={`${attribute.type}_${attribute.id}`}
+                                            id={attribute.id}
+                                            activeAttributeItem={activeAttributeItem}
+                                            activeAttribute={activeAttribute}
+                                            onSelectAttribute={ onSelectAttribute}
                                             attribute={attribute}
                                             attributeColor={attributeColor}
                                             attributeSize={attributeSize}

@@ -23,8 +23,9 @@ class App extends React.Component {
             openPopup: false,
             activeCurrency: 0,
             selectedCurrency: '$',
-            cartList: [],
+            cartList: this.getCartFromLS(),
             activeAttributeItem: 0,
+            activeAttribute: '',
             total: {
                 totalPrice: 0,
                 totalCount: 0
@@ -87,6 +88,17 @@ class App extends React.Component {
         this.renderCards();
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.count !== this.state.count) {
+            // console.log('Ok')
+        }
+    }
+
+    getCartFromLS = () => {
+        const data = localStorage.getItem('cart')
+        return data ? JSON.parse(data) : [];
+    }
+
     onSelectCategories = index => {
         this.setState({
             activeItem: index,
@@ -106,53 +118,119 @@ class App extends React.Component {
         this.setState({openPopup: !this.state.openPopup})
     }
 
+    // onSelectAttribute = (attribute, id,  el, index) => {
+    //     // const {attribute} = this.props
+    //
+    //     console.log(attribute)
+    //
+    //     console.log(id)
+    //
+    //     if (attribute.items[index] === el) {
+    //         this.setState({
+    //             activeAttributeItem: attribute.items[index],
+    //             activeAttribute: attribute
+    //         })
+    //     }
+    //
+    //
+    // }
+
     onAddToCart = (product) => {
-        const {cartList} = this.state;
-        let newProduct = {}
+        const {cartList, activeAttributes, activeAttributesItem} = this.state;
 
-        if (product.inStock ) {
-            newProduct = {...product, count: 1}
+        let newProduct;
+
+        if (product.inStock && !product.isInCart) {
+            newProduct = {
+                attributes: product.attributes,
+                brand: product.brand,
+                prices: product.prices,
+                gallery: product.gallery,
+                id: product.id,
+                inStock: product.inStock,
+                name: product.name,
+                count: 1,
+                isInCart: false
+            }
         }
-
-        let isInCart = false;
 
         cartList.forEach((el) => {
             if (el.id === newProduct.id) {
-                isInCart = true;
+                newProduct.isInCart = true
                 this.setState({
                     count: ++el.count,
                 })
             }
         })
 
-        if (!isInCart && product.inStock)
+        if (newProduct.isInCart && newProduct.inStock) {
+            console.log('IN')
             this.setState({
-                cartList: [...cartList, newProduct],
+                count: ++this.state.count,
             })
-    }
 
-    deleteCartItem = (id) => {
-        const {cartList} = this.state
+            let newProductChanged = {...newProduct, count: this.state.count}
 
-        this.setState({
-            cartList: cartList.filter(el => el.id !== id)
-        })
-    }
+            cartList.forEach((el) => {
+                if (el.id === newProduct.id) {
+                    newProduct = newProductChanged
+                }
+            })
 
-    countIncrease = (product, id) => {
-        if (product.id === id) {
+            localStorage.setItem('cart', JSON.stringify(cartList))
+        } else if (!newProduct.isInCart && newProduct.inStock) {
+            console.log('OUT')
+            newProduct.isInCart = true
+            localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
             this.setState({
-                count: ++product.count
+                cartList: JSON.parse(localStorage.getItem('cart')),
             })
         }
     }
 
+    deleteCartItem = (id) => {
+        const {cartList} = this.state
+        const index = cartList.findIndex(x => x.id === id);
+        cartList.splice(index,1)
+        localStorage.setItem('cart',JSON.stringify(cartList))
+    }
+
+    countIncrease = (product, id) => {
+        const {cartList} = this.state
+
+        if (product.id === id) {
+            this.setState({
+                count: ++product.count,
+            })
+        }
+
+        let newProductChanged = {...product, count: ++this.state.count}
+
+        cartList.forEach((el) => {
+            if (el.id === product.id) {
+                product = newProductChanged
+            }
+        })
+        localStorage.setItem('cart', JSON.stringify(cartList))
+    }
+
     countDecrease = (product, id) => {
+        const {cartList} = this.state
+
         if (product.id === id) {
             this.setState({
                 count: product.count - 1 > 0 ? --product.count : this.deleteCartItem(id),
             })
         }
+
+        let newProductChanged = {...product, count: --this.state.count}
+
+        cartList.forEach((el) => {
+            if (el.id === product.id) {
+                product = newProductChanged
+            }
+        })
+        localStorage.setItem('cart', JSON.stringify(cartList))
     }
 
     toggleModal = () => {
@@ -177,6 +255,9 @@ class App extends React.Component {
             return prev + curr.count
         }, 0)
 
+        console.log(this.state.cartList)
+        // console.log(this.state.activeAttribute)
+
         const {
             productCards,
             activeCurrency,
@@ -188,9 +269,10 @@ class App extends React.Component {
             total,
             openPopup,
             modalShow,
-            activeAttributeItem
+            activeAttributeItem,
+            activeAttribute
         } = this.state
-        const {deleteCartItem, countIncrease, countDecrease, onHidePopup,
+        const {deleteCartItem, countIncrease, countDecrease, onHidePopup, onSelectAttribute, getCartFromLS,
             onSelectCategories, onOpenPopup, onSelectCurrencies, toggleModal, onAddToCart} = this;
 
         return (
@@ -198,8 +280,8 @@ class App extends React.Component {
                 value={{
                     totalCount, modalShow,
                     totalPrice, productCards, activeCurrency, currencies, openPopup,
-                    cartList, count, activeItem, selectedCurrency, total, activeAttributeItem,
-                    deleteCartItem, countIncrease, countDecrease, onHidePopup,
+                    cartList, count, activeItem, selectedCurrency, total, activeAttributeItem,  activeAttribute,
+                    deleteCartItem, countIncrease, countDecrease, onHidePopup, onSelectAttribute, getCartFromLS,
                     onSelectCategories, onOpenPopup, onSelectCurrencies, toggleModal, onAddToCart
                 }}
             >

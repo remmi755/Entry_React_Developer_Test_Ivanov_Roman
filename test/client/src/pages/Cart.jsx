@@ -11,7 +11,9 @@ class Cart extends React.Component {
 
         return (
             <main className={styles.container}>
-                <Title className={styles.titleHeader}>Cart</Title>
+                <Title className={styles.titleHeader}>Cart
+                    {cartList.length === 0 ? ' Empty' : ''}
+                </Title>
                 {cartList &&
                     cartList.map((orderItem, id) => (
                         <section className={styles.content} key={id}>

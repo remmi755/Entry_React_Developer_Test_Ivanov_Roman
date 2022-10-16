@@ -88,7 +88,57 @@ class PDP extends React.Component {
         })
     }
 
+    // onSelectAttribute = (attribute, id,  el, index) => {
+    //     // const {attribute} = this.props
+    //
+    //     console.log(attribute)
+    //     console.log(el)
+    //     console.log(attribute.items[index])
+    //     console.log(index)
+    //
+    //     console.log(id)
+    //
+    //     if (attribute.items[index] === el && attribute.id === id) {
+    //         this.setState({
+    //             activeAttributeItem: attribute.items[index],
+    //             activeAttribute: attribute
+    //         })
+    //     }
+    //
+    //
+    // }
+
+//     onAddToCart = (product) => {
+//         const {cartList} = this.context;
+//         console.log(cartList)
+//         let newProduct = {}
+//
+//         if (product.inStock) {
+//             newProduct = {...product, count: 1}
+//         }
+// console.log(newProduct)
+//         let isInCart = false;
+//
+//         cartList.forEach((el) => {
+//             if (el.id === newProduct.id) {
+//                 isInCart = true;
+//                 this.setState({
+//                     count: ++el.count,
+//                 })
+//             }
+//         })
+//
+//         if (!isInCart && product.inStock) {
+//             this.setState({
+//                 cartList: [...cartList, newProduct],
+//             })
+//
+//         }
+// console.log(cartList)
+//     }
+
     render() {
+        // localStorage.setItem('cart', JSON.stringify(this.state.cartList) )
         const{onAddToCart} = this.context
         const{product, attributes, prices, symbol, currentImgId}= this.state
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
@@ -123,6 +173,9 @@ class PDP extends React.Component {
                         <Title className={styles.titleName}>{product.name}</Title>
                         <div className={styles.attributes}>
                             <Attributes
+                                activeAttributeItem={this.state.activeAttributeItem}
+                                activeAttribute={this.state.activeAttribute}
+                                onSelectAttribute={ this.onSelectAttribute}
                                 attributes={attributes}
                                 attributeName={styles.attributeName}
                                 attributeSize={styles.attributeSize}
