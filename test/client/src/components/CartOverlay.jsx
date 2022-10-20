@@ -48,7 +48,7 @@ class CartOverlay extends React.Component {
         // const{cartList} = this.state
         let symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
 
-        console.log(cartList.attributes)
+        console.log(cartList)
 
         return(
             <div>

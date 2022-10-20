@@ -8,13 +8,6 @@ li {
     list-style-type: none;
 }
 
-.attributeGroup {
-    margin-top: 8px;
-    padding: 0;
-    display: flex;
-    justify-content:flex-start;
-}
-
 .attribute {
     cursor: pointer;
     margin-right: 8px;

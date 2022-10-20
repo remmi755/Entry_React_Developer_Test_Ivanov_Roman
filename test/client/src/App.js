@@ -135,14 +135,67 @@ class App extends React.Component {
     //
     // }
 
+    onSelectAttribute = ( attribute, id, el, index) => {
+        // const {attribute, id} = this.props
+        // console.log(attribute)
+        // console.log(id)
+        console.log(el)
+        // console.log(index)
+        console.log(attribute.items[index])
+
+        // const {attribute, id,} = this.props
+        // console.log(el)
+
+        // if (attribute.items[index] === el) {
+        //     // e.preventDefault()
+        //     console.log(attribute.items[index])
+        //     this.setState({
+        //         activeAttributeItem: attribute.items[index],
+        //         activeAttribute: attribute
+        //     })
+        // }
+
+this.setState({
+    activeAttributeItem: attribute.items[index],
+    activeAttribute: attribute
+})
+
+        // if(attribute.id === id && attribute.items[index] === el) {
+        //     this.setState({
+        //         activeAttributeItem: attribute.items[index],
+        //         activeAttribute: attribute
+        //     })
+        // }
+
+        // if(attribute.id === id && attribute.items[index] === el) {
+        //     this.setState({
+        //                 activeAttributeItem: attribute.items[index],
+        //                 activeAttribute: attribute
+        //             })
+        // }
+
+        // if (attribute.items[index] === el && attribute.id === id) {
+        //     this.setState({
+        //         activeAttributeItem: attribute.items[index],
+        //         activeAttribute: attribute
+        //     })
+        // }
+    }
+
     onAddToCart = (product) => {
-        const {cartList, activeAttributes, activeAttributesItem} = this.state;
+        const {cartList, activeAttribute, activeAttributeItem} = this.state;
 
         let newProduct;
 
+        console.log(activeAttribute)
+        console.log(activeAttributeItem)
+
         if (product.inStock && !product.isInCart) {
             newProduct = {
+                // attribute: activeAttribute,
                 attributes: product.attributes,
+                activeAttribute: activeAttribute,
+                activeAttributeItem: activeAttributeItem,
                 brand: product.brand,
                 prices: product.prices,
                 gallery: product.gallery,
@@ -154,6 +207,8 @@ class App extends React.Component {
             }
         }
 
+        console.log(newProduct)
+
         cartList.forEach((el) => {
             if (el.id === newProduct.id) {
                 newProduct.isInCart = true
@@ -164,7 +219,6 @@ class App extends React.Component {
         })
 
         if (newProduct.isInCart && newProduct.inStock) {
-            console.log('IN')
             this.setState({
                 count: ++this.state.count,
             })
@@ -179,7 +233,6 @@ class App extends React.Component {
 
             localStorage.setItem('cart', JSON.stringify(cartList))
         } else if (!newProduct.isInCart && newProduct.inStock) {
-            console.log('OUT')
             newProduct.isInCart = true
             localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
             this.setState({
@@ -255,7 +308,7 @@ class App extends React.Component {
             return prev + curr.count
         }, 0)
 
-        console.log(this.state.cartList)
+        // console.log(this.state.cartList)
         // console.log(this.state.activeAttribute)
 
         const {
@@ -274,6 +327,9 @@ class App extends React.Component {
         } = this.state
         const {deleteCartItem, countIncrease, countDecrease, onHidePopup, onSelectAttribute, getCartFromLS,
             onSelectCategories, onOpenPopup, onSelectCurrencies, toggleModal, onAddToCart} = this;
+
+        // console.log(activeAttribute)
+        // console.log(activeAttributeItem)
 
         return (
             <AppContext.Provider

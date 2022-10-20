@@ -4,7 +4,18 @@ import Attribute from "./Attribute"
 
 class Attributes extends React.Component {
     render() {
-        const {attributeName, attributeSize, attributeColor, attributes,  onSelectAttribute, activeAttributeItem, activeAttribute} = this.props
+        const {
+            attributeName,
+            attributeSize,
+            attributeColor,
+            attributes,
+            onSelectAttribute,
+            activeAttributeItem,
+            activeAttribute,
+            cartItem
+        } = this.props
+
+        console.log(cartItem)
 
         return (
             <>
@@ -13,22 +24,20 @@ class Attributes extends React.Component {
                         attributes &&
                         attributes.map((attribute, id) => (
                             <>
-                                <li className={attributeName}  key={`${attribute.id}_${attribute.name}`}>
+                                <li className={attributeName} key={id}  >
                                     {attribute.name}</li>
-                                <li  key={`${attribute.id}_${attribute.type}`}  >
-                                    <ul key={attribute} className={styles.attributeGroup}
-                                    >
-                                        <Attribute
-                                            key={`${attribute.type}_${attribute.id}`}
-                                            id={attribute.id}
-                                            activeAttributeItem={activeAttributeItem}
-                                            activeAttribute={activeAttribute}
-                                            onSelectAttribute={ onSelectAttribute}
-                                            attribute={attribute}
-                                            attributeColor={attributeColor}
-                                            attributeSize={attributeSize}
-                                        />
-                                    </ul>
+                                <li key={`${attribute.id}_${id}`}>
+                                    <Attribute
+                                        cartItem={cartItem}
+                                        key={`${attribute.id}_${attribute.type}`}
+                                        id={attribute.id}
+                                        activeAttributeItem={activeAttributeItem}
+                                        activeAttribute={activeAttribute}
+                                        onSelectAttribute={onSelectAttribute}
+                                        attribute={attribute}
+                                        attributeColor={attributeColor}
+                                        attributeSize={attributeSize}
+                                    />
                                 </li>
                             </>
                         ))

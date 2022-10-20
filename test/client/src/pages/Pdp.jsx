@@ -108,41 +108,12 @@ class PDP extends React.Component {
     //
     // }
 
-//     onAddToCart = (product) => {
-//         const {cartList} = this.context;
-//         console.log(cartList)
-//         let newProduct = {}
-//
-//         if (product.inStock) {
-//             newProduct = {...product, count: 1}
-//         }
-// console.log(newProduct)
-//         let isInCart = false;
-//
-//         cartList.forEach((el) => {
-//             if (el.id === newProduct.id) {
-//                 isInCart = true;
-//                 this.setState({
-//                     count: ++el.count,
-//                 })
-//             }
-//         })
-//
-//         if (!isInCart && product.inStock) {
-//             this.setState({
-//                 cartList: [...cartList, newProduct],
-//             })
-//
-//         }
-// console.log(cartList)
-//     }
-
     render() {
         // localStorage.setItem('cart', JSON.stringify(this.state.cartList) )
-        const{onAddToCart} = this.context
+        const{onAddToCart, onSelectAttribute} = this.context
         const{product, attributes, prices, symbol, currentImgId}= this.state
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
-
+        console.log(attributes)
         return (
             <main className={styles.container}>
                 <section className={styles.blockImg}>
@@ -175,7 +146,7 @@ class PDP extends React.Component {
                             <Attributes
                                 activeAttributeItem={this.state.activeAttributeItem}
                                 activeAttribute={this.state.activeAttribute}
-                                onSelectAttribute={ this.onSelectAttribute}
+                                onSelectAttribute={onSelectAttribute}
                                 attributes={attributes}
                                 attributeName={styles.attributeName}
                                 attributeSize={styles.attributeSize}

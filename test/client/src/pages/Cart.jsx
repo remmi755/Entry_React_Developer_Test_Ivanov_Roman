@@ -12,7 +12,7 @@ class Cart extends React.Component {
         return (
             <main className={styles.container}>
                 <Title className={styles.titleHeader}>Cart
-                    {cartList.length === 0 ? ' Empty' : ''}
+                    {cartList.length === 0 ? ' is Empty' : ''}
                 </Title>
                 {cartList &&
                     cartList.map((orderItem, id) => (
