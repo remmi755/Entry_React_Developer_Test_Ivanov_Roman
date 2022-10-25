@@ -23,6 +23,7 @@ console.log(activeAttribute)
                     <p className={styles.price}>{symbol}{amount}</p>
                     <div className={styles.choiceSize}>
                         <Attributes
+                            cartItem={orderItem}
                             attributes={orderItem.attributes}
                             attributeName={styles.attributeName}
                             attributeSize={styles.attributeSize}

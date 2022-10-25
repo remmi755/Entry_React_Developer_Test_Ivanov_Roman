@@ -15,7 +15,7 @@ class Attributes extends React.Component {
             cartItem
         } = this.props
 
-        console.log(cartItem)
+        // console.log(cartItem)
 
         return (
             <>
@@ -30,7 +30,7 @@ class Attributes extends React.Component {
                                     <Attribute
                                         cartItem={cartItem}
                                         key={`${attribute.id}_${attribute.type}`}
-                                        id={attribute.id}
+                                        // id={cartItem.id}
                                         activeAttributeItem={activeAttributeItem}
                                         activeAttribute={activeAttribute}
                                         onSelectAttribute={onSelectAttribute}

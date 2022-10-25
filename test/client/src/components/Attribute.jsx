@@ -26,31 +26,30 @@ class Attribute extends React.Component {
 
 
     render() {
-        const { activeAttributeItem, activeAttribute, cartList} = this.context
+        const { activeAttributeItem, activeAttribute, activeAttributeIndex, cartList} = this.context
         // const {activeAttributeItem, activeAttribute} = this.state
         const {attribute, id, attributeColor, attributeSize, onSelectAttribute, cartItem} = this.props
         let name = attribute.name;
 // console.log(cartItem?.activeAttributeItem)
-console.log(activeAttributeItem)
 
-        console.log(cartItem?.attributes[0].items)
-        const result = cartItem?.attributes[0].items.find( x => x.value === activeAttributeItem.value)
-        console.log(result)
-        console.log(result?.value === activeAttributeItem.value)
-        console.log(result?.value)
-        console.log(activeAttributeItem.value)
+// console.log(activeAttribute === index && activeAttributeItem === el
+//     ||( result?.value === el.value))
+//         activeAttributeItem.value === el.value
 
+        // activeAttributeIndex === index && activeAttribute === attribute
+        // || cartItem?.activeAttributeItem=== el
+// console.log(cartItem)
         return (
             <ul className={styles.attributeGroup}>
                 {
                     attribute.items &&
                     attribute.items.map((el, index) => (
                         <li key={el.id}
-                            onClick={() => onSelectAttribute(attribute, id, el, index)}
                             // onClick={() => onSelectAttribute(attribute, id, el, index)}
-                            // onClick={() => this.onSelectAttribute(el, index)}
+                            onClick={() => onSelectAttribute(attribute, el, index)}
                             className={`${styles.attribute} ${name === 'Color' ? attributeColor : attributeSize}
-                                            ${activeAttribute === attribute && activeAttributeItem === el ||( result?.value === el.value) ? `${name === "Color" ?
+                                            ${ activeAttributeIndex === index && activeAttribute === attribute
+                            || cartItem?.activeAttributeIndex === index ? `${name === "Color" ?
                                 styles.activeAttributeColor : styles.activeAttribute}` : ''}`}
                             style={{backgroundColor: el.value}}
                         >{name === 'Color' ? '' : el.value}

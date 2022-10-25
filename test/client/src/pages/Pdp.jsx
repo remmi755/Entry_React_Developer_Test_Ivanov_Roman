@@ -113,7 +113,7 @@ class PDP extends React.Component {
         const{onAddToCart, onSelectAttribute} = this.context
         const{product, attributes, prices, symbol, currentImgId}= this.state
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
-        console.log(attributes)
+        // console.log(attributes)
         return (
             <main className={styles.container}>
                 <section className={styles.blockImg}>
@@ -144,6 +144,7 @@ class PDP extends React.Component {
                         <Title className={styles.titleName}>{product.name}</Title>
                         <div className={styles.attributes}>
                             <Attributes
+                                cartItem={product}
                                 activeAttributeItem={this.state.activeAttributeItem}
                                 activeAttribute={this.state.activeAttribute}
                                 onSelectAttribute={onSelectAttribute}

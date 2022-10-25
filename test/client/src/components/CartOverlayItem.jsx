@@ -12,7 +12,7 @@ class CartOverlayItem extends React.Component {
         const{  activeCurrency, countIncrease, countDecrease} = this.context
         let price = cartItem?.prices[activeCurrency].amount;
         let symbol = cartItem?.prices[activeCurrency].currency.symbol;
-        console.log(cartItem.attributes)
+        // console.log(cartItem.activeAttributeItem)
         return(
             <main className={styles.container}>
                 <section className={styles.content}>
