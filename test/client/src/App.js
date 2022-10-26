@@ -138,30 +138,28 @@ class App extends React.Component {
 
     onAddToCart = (product) => {
         const {cartList, activeAttribute, activeAttributeItem, activeAttributeIndex} = this.state;
-        // console.log(product)
+
         let newProduct;
-
-        // console.log(activeAttribute)
-        console.log(activeAttributeItem)
-
-        if (product.inStock && !product.isInCart) {
-            newProduct = {
-                attributes: product.attributes,
-                activeAttribute: activeAttribute,
-                activeAttributeItem: activeAttributeItem,
-                activeAttributeIndex: activeAttributeIndex,
-                brand: product.brand,
-                prices: product.prices,
-                gallery: product.gallery,
-                id: product.id,
-                inStock: product.inStock,
-                name: product.name,
-                count: 1,
-                isInCart: false
-            }
-
-        }
+        // console.log(activeAttributeItem)
+        console.log(cartList)
+        console.log(product)
         // console.log(newProduct)
+    if (!product.isInCart && product.inStock) {
+        newProduct = {
+            attributes: product.attributes,
+            activeAttribute: activeAttribute,
+            activeAttributeItem: activeAttributeItem,
+            activeAttributeIndex: activeAttributeIndex,
+            brand: product.brand,
+            prices: product.prices,
+            gallery: product.gallery,
+            id: product.id,
+            inStock: product.inStock,
+            name: product.name,
+            count: 1,
+            isInCart: false
+        }
+    }
 
         cartList.forEach((el) => {
             // if (el.id === newProduct.id ) {
@@ -172,15 +170,17 @@ class App extends React.Component {
                 // })
             }
         })
-        // console.log(newProduct)
-        // console.log(cartList)
-
-        if (newProduct.isInCart && newProduct.inStock) {
-            console.log("in")
-            // newProduct.isInCart = true;
-            cartList.forEach((el) => {
-                console.log(el)
-                if(el.activeAttributeItem.id !== newProduct.activeAttributeItem.id) {
+        if (!newProduct.isInCart && newProduct.inStock) {
+            console.log("out")
+            newProduct.isInCart = true
+            localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
+            this.setState({
+                cartList: JSON.parse(localStorage.getItem('cart')),
+            })
+        } else if (newProduct.isInCart) {
+            console.log("in");
+            cartList.every((el) => {
+                if (el.activeAttributeItem.id !== newProduct.activeAttributeItem.id) {
                     console.log("!==")
                     console.log(el.activeAttributeItem)
                     console.log(newProduct.activeAttributeItem)
@@ -193,63 +193,137 @@ class App extends React.Component {
                     this.setState({
                         cartList: JSON.parse(localStorage.getItem('cart')),
                     })
-                } else if(el.activeAttributeItem.id === newProduct.activeAttributeItem.id) {
-
+                } else if (el.activeAttributeItem.id === newProduct.activeAttributeItem.id) {
                     console.log("===")
                     console.log(el.activeAttributeItem)
                     console.log(newProduct.activeAttributeItem)
-                    //
-                    // this.setState({
-                    //     count: ++this.state.count,
-                    // })
 
                     this.setState({
                         count: ++newProduct.count,
+                        // cartList: JSON.parse(localStorage.getItem('cart')),
                     })
+                    console.log(el.count)
+                    console.log(newProduct.count)
+                    console.log(this.state.count)
                     newProduct = {...newProduct, count: ++el.count}
-                    // console.log(this.state.count)
-                    // localStorage.setItem('cart', JSON.stringify([...cartList,{...newProduct, count: ++el.count}]))
-                    localStorage.setItem('cart', JSON.stringify([...cartList,newProduct]))
-                    // this.setState({
-                    //     cartList: JSON.parse(localStorage.getItem('cart')),
-                    // })
-                    // this.setState({
-                    //     count: ++this.state.count,
-                    // })
-                    //
-                    // let newProductChanged = {...newProduct, count: this.state.count}
-                    //
-                    // cartList.forEach((el) => {
-                    //     if (el.id === newProduct.id) {
-                    //         newProduct = newProductChanged
-                    //     }
-                    // })
-
-                    // localStorage.setItem('cart', JSON.stringify(cartList))
+                    localStorage.setItem('cart', JSON.stringify(cartList))
+                    this.setState({
+                        cartList: JSON.parse(localStorage.getItem('cart')),
+                    })
+                  // arr.length = index + 1
+                    return false;
                 }
-            })
-            // this.setState({
-            //     count: ++this.state.count,
-            // })
-            //
-            // let newProductChanged = {...newProduct, count: this.state.count}
-            //
-            // cartList.forEach((el) => {
-            //     if (el.id === newProduct.id) {
-            //         newProduct = newProductChanged
-            //     }
-            // })
 
-            // localStorage.setItem('cart', JSON.stringify(cartList))
-
-        } else if (!newProduct.isInCart && newProduct.inStock) {
-            console.log("out")
-            newProduct.isInCart = true
-            localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
-            this.setState({
-                cartList: JSON.parse(localStorage.getItem('cart')),
             })
         }
+
+
+        // if (product.inStock && !product.isInCart) {
+        //     newProduct = {
+        //         attributes: product.attributes,
+        //         activeAttribute: activeAttribute,
+        //         activeAttributeItem: activeAttributeItem,
+        //         activeAttributeIndex: activeAttributeIndex,
+        //         brand: product.brand,
+        //         prices: product.prices,
+        //         gallery: product.gallery,
+        //         id: product.id,
+        //         inStock: product.inStock,
+        //         name: product.name,
+        //         count: 1,
+        //         isInCart: false
+        //     }
+        //
+        // }
+        // // console.log(newProduct)
+        //
+        // cartList.forEach((el) => {
+        //     // if (el.id === newProduct.id ) {
+        //     if (el.id === newProduct.id ) {
+        //         newProduct.isInCart = true;
+        //         // this.setState({
+        //         //     count: ++el.count,
+        //         // })
+        //     }
+        // })
+        // // console.log(newProduct)
+        // // console.log(cartList)
+        //
+        // if (newProduct.isInCart && newProduct.inStock) {
+        //     console.log("in")
+        //     // newProduct.isInCart = true;
+        //     cartList.forEach((el) => {
+        //         console.log(el)
+        //         if(el.activeAttributeItem.id !== newProduct.activeAttributeItem.id) {
+        //             console.log("!==")
+        //             console.log(el.activeAttributeItem)
+        //             console.log(newProduct.activeAttributeItem)
+        //
+        //             // this.setState({
+        //             //     count: ++el.count,
+        //             // })
+        //
+        //             localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
+        //             this.setState({
+        //                 cartList: JSON.parse(localStorage.getItem('cart')),
+        //             })
+        //         } else if(el.activeAttributeItem.id === newProduct.activeAttributeItem.id) {
+        //
+        //             console.log("===")
+        //             console.log(el.activeAttributeItem)
+        //             console.log(newProduct.activeAttributeItem)
+        //             //
+        //             // this.setState({
+        //             //     count: ++this.state.count,
+        //             // })
+        //
+        //             this.setState({
+        //                 count: ++newProduct.count,
+        //             })
+        //             newProduct = {...newProduct, count: ++el.count}
+        //             // console.log(this.state.count)
+        //             // localStorage.setItem('cart', JSON.stringify([...cartList,{...newProduct, count: ++el.count}]))
+        //             localStorage.setItem('cart', JSON.stringify([...cartList,newProduct]))
+        //             // this.setState({
+        //             //     cartList: JSON.parse(localStorage.getItem('cart')),
+        //             // })
+        //             // this.setState({
+        //             //     count: ++this.state.count,
+        //             // })
+        //             //
+        //             // let newProductChanged = {...newProduct, count: this.state.count}
+        //             //
+        //             // cartList.forEach((el) => {
+        //             //     if (el.id === newProduct.id) {
+        //             //         newProduct = newProductChanged
+        //             //     }
+        //             // })
+        //
+        //             // localStorage.setItem('cart', JSON.stringify(cartList))
+        //         }
+        //     })
+        //     // this.setState({
+        //     //     count: ++this.state.count,
+        //     // })
+        //     //
+        //     // let newProductChanged = {...newProduct, count: this.state.count}
+        //     //
+        //     // cartList.forEach((el) => {
+        //     //     if (el.id === newProduct.id) {
+        //     //         newProduct = newProductChanged
+        //     //     }
+        //     // })
+        //
+        //     // localStorage.setItem('cart', JSON.stringify(cartList))
+        //
+        // } else if (!newProduct.isInCart && newProduct.inStock) {
+        //     console.log("out")
+        //     newProduct.isInCart = true
+        //     localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
+        //     this.setState({
+        //         cartList: JSON.parse(localStorage.getItem('cart')),
+        //     })
+        // }
     }
 
     deleteCartItem = (id) => {
@@ -383,3 +457,109 @@ class App extends React.Component {
 
 export default App;
 
+// if (product.inStock && !product.isInCart) {
+//     newProduct = {
+//         attributes: product.attributes,
+//         activeAttribute: activeAttribute,
+//         activeAttributeItem: activeAttributeItem,
+//         activeAttributeIndex: activeAttributeIndex,
+//         brand: product.brand,
+//         prices: product.prices,
+//         gallery: product.gallery,
+//         id: product.id,
+//         inStock: product.inStock,
+//         name: product.name,
+//         count: 1,
+//         isInCart: false
+//     }
+//
+// }
+// // console.log(newProduct)
+//
+// cartList.forEach((el) => {
+//     // if (el.id === newProduct.id ) {
+//     if (el.id === newProduct.id ) {
+//         newProduct.isInCart = true;
+//         // this.setState({
+//         //     count: ++el.count,
+//         // })
+//     }
+// })
+// // console.log(newProduct)
+// // console.log(cartList)
+//
+// if (newProduct.isInCart && newProduct.inStock) {
+//     console.log("in")
+//     // newProduct.isInCart = true;
+//     cartList.forEach((el) => {
+//         console.log(el)
+//         if(el.activeAttributeItem.id !== newProduct.activeAttributeItem.id) {
+//             console.log("!==")
+//             console.log(el.activeAttributeItem)
+//             console.log(newProduct.activeAttributeItem)
+//
+//             // this.setState({
+//             //     count: ++el.count,
+//             // })
+//
+//             localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
+//             this.setState({
+//                 cartList: JSON.parse(localStorage.getItem('cart')),
+//             })
+//         } else if(el.activeAttributeItem.id === newProduct.activeAttributeItem.id) {
+//
+//             console.log("===")
+//             console.log(el.activeAttributeItem)
+//             console.log(newProduct.activeAttributeItem)
+//             //
+//             // this.setState({
+//             //     count: ++this.state.count,
+//             // })
+//
+//             this.setState({
+//                 count: ++newProduct.count,
+//             })
+//             newProduct = {...newProduct, count: ++el.count}
+//             // console.log(this.state.count)
+//             // localStorage.setItem('cart', JSON.stringify([...cartList,{...newProduct, count: ++el.count}]))
+//             localStorage.setItem('cart', JSON.stringify([...cartList,newProduct]))
+//             // this.setState({
+//             //     cartList: JSON.parse(localStorage.getItem('cart')),
+//             // })
+//             // this.setState({
+//             //     count: ++this.state.count,
+//             // })
+//             //
+//             // let newProductChanged = {...newProduct, count: this.state.count}
+//             //
+//             // cartList.forEach((el) => {
+//             //     if (el.id === newProduct.id) {
+//             //         newProduct = newProductChanged
+//             //     }
+//             // })
+//
+//             // localStorage.setItem('cart', JSON.stringify(cartList))
+//         }
+//     })
+//     // this.setState({
+//     //     count: ++this.state.count,
+//     // })
+//     //
+//     // let newProductChanged = {...newProduct, count: this.state.count}
+//     //
+//     // cartList.forEach((el) => {
+//     //     if (el.id === newProduct.id) {
+//     //         newProduct = newProductChanged
+//     //     }
+//     // })
+//
+//     // localStorage.setItem('cart', JSON.stringify(cartList))
+//
+// } else if (!newProduct.isInCart && newProduct.inStock) {
+//     console.log("out")
+//     newProduct.isInCart = true
+//     localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
+//     this.setState({
+//         cartList: JSON.parse(localStorage.getItem('cart')),
+//     })
+// }
