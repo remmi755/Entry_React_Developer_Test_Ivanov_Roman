@@ -18,7 +18,7 @@ class App extends React.Component {
             modalShow: false,
             count: 1,
             productCards: [this.renderCards],
-            activeItem: 0,
+            activeCategory: 0,
             products: [this.renderCards],
             openPopup: false,
             activeCurrency: 0,
@@ -73,7 +73,7 @@ class App extends React.Component {
                 `
             });
             const categories = result.data.categories;
-            const currenciesList = result.data.categories[this.state.activeItem].products[0].prices
+            const currenciesList = result.data.categories[this.state.activeCategory].products[0].prices
 
             this.setState({
                 productCards: categories,
@@ -102,7 +102,7 @@ class App extends React.Component {
 
     onSelectCategories = index => {
         this.setState({
-            activeItem: index,
+            activeCategory: index,
         })
     }
 
@@ -141,8 +141,8 @@ class App extends React.Component {
 
         let newProduct;
         // console.log(activeAttributeItem)
-        console.log(cartList)
-        console.log(product)
+        // console.log(cartList)
+        // console.log(product)
         // console.log(newProduct)
     if (!product.isInCart && product.inStock) {
         newProduct = {
@@ -171,19 +171,19 @@ class App extends React.Component {
             }
         })
         if (!newProduct.isInCart && newProduct.inStock) {
-            console.log("out")
+            // console.log("out")
             newProduct.isInCart = true
             localStorage.setItem('cart', JSON.stringify([...cartList, newProduct]))
             this.setState({
                 cartList: JSON.parse(localStorage.getItem('cart')),
             })
         } else if (newProduct.isInCart) {
-            console.log("in");
-            cartList.every((el) => {
+            // console.log("in");
+            cartList.forEach((el, index, arr) => {
                 if (el.activeAttributeItem.id !== newProduct.activeAttributeItem.id) {
-                    console.log("!==")
-                    console.log(el.activeAttributeItem)
-                    console.log(newProduct.activeAttributeItem)
+                    // console.log("!==")
+                    // console.log(el.activeAttributeItem)
+                    // console.log(newProduct.activeAttributeItem)
 
                     // this.setState({
                     //     count: ++el.count,
@@ -194,24 +194,24 @@ class App extends React.Component {
                         cartList: JSON.parse(localStorage.getItem('cart')),
                     })
                 } else if (el.activeAttributeItem.id === newProduct.activeAttributeItem.id) {
-                    console.log("===")
-                    console.log(el.activeAttributeItem)
-                    console.log(newProduct.activeAttributeItem)
+                    // console.log("===")
+                    // console.log(el.activeAttributeItem)
+                    // console.log(newProduct.activeAttributeItem)
 
                     this.setState({
                         count: ++newProduct.count,
                         // cartList: JSON.parse(localStorage.getItem('cart')),
                     })
-                    console.log(el.count)
-                    console.log(newProduct.count)
-                    console.log(this.state.count)
+                    // console.log(el.count)
+                    // console.log(newProduct.count)
+                    // console.log(this.state.count)
                     newProduct = {...newProduct, count: ++el.count}
                     localStorage.setItem('cart', JSON.stringify(cartList))
                     this.setState({
                         cartList: JSON.parse(localStorage.getItem('cart')),
                     })
-                  // arr.length = index + 1
-                    return false;
+                  arr.length = index + 1
+                    // return false;
                 }
 
             })
@@ -326,9 +326,10 @@ class App extends React.Component {
         // }
     }
 
-    deleteCartItem = (id) => {
+    deleteCartItem = (product, id) => {
         const {cartList} = this.state
-        const index = cartList.findIndex(x => x.id === id);
+        const index = cartList.findIndex(x => x.id === id
+            && x.activeAttributeItem.id === product.activeAttributeItem.id);
         cartList.splice(index,1)
         localStorage.setItem('cart',JSON.stringify(cartList))
     }
@@ -357,7 +358,7 @@ class App extends React.Component {
 
         if (product.id === id) {
             this.setState({
-                count: product.count - 1 > 0 ? --product.count : this.deleteCartItem(id),
+                count: product.count - 1 > 0 ? --product.count : this.deleteCartItem(product, id),
             })
         }
 
@@ -402,7 +403,7 @@ class App extends React.Component {
             cartList,
             count,
             currencies,
-            activeItem,
+            activeCategory,
             selectedCurrency,
             total,
             openPopup,
@@ -422,7 +423,7 @@ class App extends React.Component {
                 value={{
                     totalCount, modalShow,
                     totalPrice, productCards, activeCurrency, currencies, openPopup, activeAttributeIndex,
-                    cartList, count, activeItem, selectedCurrency, total, activeAttributeItem,  activeAttribute,
+                    cartList, count, activeCategory, selectedCurrency, total, activeAttributeItem,  activeAttribute,
                     deleteCartItem, countIncrease, countDecrease, onHidePopup, onSelectAttribute, getCartFromLS,
                     onSelectCategories, onOpenPopup, onSelectCurrencies, toggleModal, onAddToCart
                 }}

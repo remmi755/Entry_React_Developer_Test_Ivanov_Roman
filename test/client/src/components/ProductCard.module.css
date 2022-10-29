@@ -28,10 +28,11 @@
     object-fit: fill;
 }
 
-.inCart {
+.hover {
     position: absolute;
-    bottom: -42px;
+    bottom: 52px;
     right: 15px;
+    cursor: pointer;
 }
 
 .stock {

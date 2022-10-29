@@ -80,6 +80,31 @@ class PDP extends React.Component {
 
     componentDidMount() {
         this.renderPDP();
+        // console.log(this.state.product)
+
+        // this.setState({
+        //     attributes: this.state.attributes,
+        //     product:  this.state.product,
+        // })
+        // console.log(this.state.attributes)
+    }
+
+    componentDidUpdate(prevState, prevProps) {
+        if (prevState.product !== this.state.product &&
+        prevState.attributes !== this.state.attributes) {
+            console.log(prevState.product)
+            console.log(this.state.product)
+            // console.log(this.state.product)
+            // console.log(this.state.attributes[0].items[0])
+            console.log('changed')
+            // this.renderPDP();
+          // this.setState({
+          //    attributes: this.state.attributes,
+          //     product: this.state.product
+          //
+          // })
+            // this.renderPDP()
+        }
     }
 
     onChangeImage = (id) => {
@@ -109,11 +134,13 @@ class PDP extends React.Component {
     // }
 
     render() {
-        // localStorage.setItem('cart', JSON.stringify(this.state.cartList) )
         const{onAddToCart, onSelectAttribute} = this.context
         const{product, attributes, prices, symbol, currentImgId}= this.state
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
-        // console.log(attributes)
+
+        console.log(product)
+        console.log(attributes)
+
         return (
             <main className={styles.container}>
                 <section className={styles.blockImg}>

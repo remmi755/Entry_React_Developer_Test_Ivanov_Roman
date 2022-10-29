@@ -5,7 +5,7 @@ import {AppContext} from "./AppContext"
 class Categories extends React.Component {
     render() {
         const {onClick} = this.props
-        const {productCards, activeItem} = this.context
+        const {productCards, activeCategory} = this.context
 
         return (
             <div>
@@ -16,7 +16,7 @@ class Categories extends React.Component {
                             <li onClick={() => onClick(index)}
                                 key={`${category.name}_${index}`}
                                 className={`${styles.categoriesItem} 
-                                ${activeItem === index ? styles.active : ''}`}>
+                                ${activeCategory === index ? styles.active : ''}`}>
                                 {category.name}
                             </li>))
                     }

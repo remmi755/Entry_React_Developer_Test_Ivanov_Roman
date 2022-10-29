@@ -3,12 +3,22 @@ import styles from "./Attribute.module.css"
 import {AppContext} from "./AppContext"
 
 class Attribute extends React.Component {
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
     //     this.state={
     //         value: "",
     //     }
-    // }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.attribute !== this.props.attribute)
+            console.log("changed attributes")
+            // this.setState({
+            //     attributes: this.props.attributes
+            // })
+    }
+
+
 //
 //     onSelectAttribute = (el, index) => {
 //         const {attribute, id, } = this.props
@@ -30,7 +40,7 @@ class Attribute extends React.Component {
         // const {activeAttributeItem, activeAttribute} = this.state
         const {attribute, id, attributeColor, attributeSize, onSelectAttribute, cartItem} = this.props
         let name = attribute.name;
-// console.log(cartItem?.activeAttributeItem)
+console.log(attribute)
 
 // console.log(activeAttribute === index && activeAttributeItem === el
 //     ||( result?.value === el.value))
