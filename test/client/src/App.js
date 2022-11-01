@@ -14,7 +14,6 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isInCart: false,
             modalShow: false,
             count: 1,
             productCards: [this.renderCards],
