@@ -41,8 +41,6 @@ class ProductCard extends React.Component {
                         />
                         {inStock ? "" : (<Title className={styles.stock}>OUT OF STOCK</Title>)}
                     </div>
-                </Link>
-                <Link to={`/ ${product.id}`}>
                     <div className={styles.content}>
                         <Title className={styles.title}>{name}</Title>
                         <div className={styles.price}>Price: {symbol} {amount}</div>

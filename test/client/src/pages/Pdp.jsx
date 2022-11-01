@@ -94,16 +94,16 @@ class PDP extends React.Component {
         prevState.attributes !== this.state.attributes) {
             console.log(prevState.product)
             console.log(this.state.product)
-            // console.log(this.state.product)
-            // console.log(this.state.attributes[0].items[0])
-            console.log('changed')
+            console.log(this.state.attributes[0].items[0])
+            console.log('changed PDP')
             // this.renderPDP();
           // this.setState({
-          //    attributes: this.state.attributes,
-          //     product: this.state.product
-          //
+             // attributes: this.state.attributes,
+             //  product:this.state.product,
+
+
           // })
-            // this.renderPDP()
+          //   this.renderPDP()
         }
     }
 
@@ -138,8 +138,8 @@ class PDP extends React.Component {
         const{product, attributes, prices, symbol, currentImgId}= this.state
         let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
 
-        console.log(product)
-        console.log(attributes)
+        // console.log(product)
+        // console.log(attributes)
 
         return (
             <main className={styles.container}>

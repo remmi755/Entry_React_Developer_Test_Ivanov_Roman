@@ -9,14 +9,15 @@ class Attribute extends React.Component {
     //         value: "",
     //     }
     }
-
-    componentDidUpdate(prevProps, prevState) {
-        if(prevProps.attribute !== this.props.attribute)
-            console.log("changed attributes")
+    //
+    // componentDidUpdate(prevProps, prevState) {
+    //     if(prevProps.attribute.items !== this.props.attribute.items)
+    //         console.log(prevProps.attribute.items)
+    //         console.log("changed attribute")
             // this.setState({
             //     attributes: this.props.attributes
             // })
-    }
+    // }
 
 
 //
@@ -40,12 +41,11 @@ class Attribute extends React.Component {
         // const {activeAttributeItem, activeAttribute} = this.state
         const {attribute, id, attributeColor, attributeSize, onSelectAttribute, cartItem} = this.props
         let name = attribute.name;
-console.log(attribute)
+// console.log(attribute.items)
 
 // console.log(activeAttribute === index && activeAttributeItem === el
 //     ||( result?.value === el.value))
 //         activeAttributeItem.value === el.value
-
         // activeAttributeIndex === index && activeAttribute === attribute
         // || cartItem?.activeAttributeItem=== el
 // console.log(cartItem)
@@ -54,7 +54,7 @@ console.log(attribute)
                 {
                     attribute.items &&
                     attribute.items.map((el, index) => (
-                        <li key={el.id}
+                        <li key={el.value}
                             // onClick={() => onSelectAttribute(attribute, id, el, index)}
                             onClick={() => onSelectAttribute(attribute, el, index)}
                             className={`${styles.attribute} ${name === 'Color' ? attributeColor : attributeSize}

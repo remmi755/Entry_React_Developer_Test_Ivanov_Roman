@@ -11,11 +11,11 @@ class Attributes extends React.Component {
     }
 
     // componentDidUpdate(prevProps, prevState) {
-    //     if(prevProps.attributes !== this.state.attributes)
-    //         console.log("changed attributes")
-    //         this.setState({
-    //             attributes: this.props.attributes
-    //         })
+    //     if(prevProps.attributes !== this.props.attributes)
+    //         console.log("change")
+            // this.setState({
+            //     attributes: this.props.attributes
+            // })
     // }
 
     // componentDidUpdate(prevState, prevProps) {
@@ -40,40 +40,29 @@ class Attributes extends React.Component {
             attributeColor,
             attributes,
             onSelectAttribute,
-            activeAttributeItem,
-            activeAttribute,
             cartItem
         } = this.props
 
-        console.log(cartItem)
+        // console.log(cartItem)
 
         return (
-            <>
-                <ul className={styles.ul}>
-                    {
-                        attributes &&
-                        attributes.map((attribute, id) => (
-                            <>
-                                <li className={attributeName} key={id}  >
-                                    {attribute.name}</li>
-                                <li key={`${attribute.id}_${id}`}>
-                                    <Attribute
-                                        cartItem={cartItem}
-                                        key={`${attribute.id}_${attribute.type}`}
-                                        // id={cartItem.id}
-                                        activeAttributeItem={activeAttributeItem}
-                                        activeAttribute={activeAttribute}
-                                        onSelectAttribute={onSelectAttribute}
-                                        attribute={attribute}
-                                        attributeColor={attributeColor}
-                                        attributeSize={attributeSize}
-                                    />
-                                </li>
-                            </>
-                        ))
-                    }
-                </ul>
-            </>
+            <ul className={styles.ul}>
+                {
+                    attributes &&
+                    attributes.map((attribute, id) => (
+                        <li key={`${id}_${attribute.items}`}>
+                            <p className={attributeName}>{attribute.name}</p>
+                            <Attribute
+                                cartItem={cartItem}
+                                onSelectAttribute={onSelectAttribute}
+                                attribute={attribute}
+                                attributeColor={attributeColor}
+                                attributeSize={attributeSize}
+                            />
+                        </li>
+                    ))
+                }
+            </ul>
         )
     }
 }
