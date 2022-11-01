@@ -9,10 +9,10 @@ import {AppContext} from "./AppContext"
 class CartItem extends React.Component {
     render() {
         const{orderItem, id} = this.props
-        const{ activeCurrency, countDecrease , countIncrease, activeAttribute} = this.context
+        const{ activeCurrency, countDecrease , countIncrease} = this.context
         let amount = orderItem.prices[activeCurrency].amount;
         let symbol = orderItem.prices[activeCurrency].currency.symbol
-console.log(activeAttribute)
+
         return(
             <main className={styles.container}>
                 <section>

@@ -29,7 +29,7 @@ class ProductCard extends React.Component {
 
         return (
             <div className={`${styles.container} ${isHovered ? styles.shadow : ""}`}
-                 onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
+                 onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} >
                 <Link to={`/ ${product.id}`}>
                     <div className={styles.blockImg}>
                         <Image

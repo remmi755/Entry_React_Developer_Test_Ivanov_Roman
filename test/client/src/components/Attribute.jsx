@@ -4,8 +4,8 @@ import {AppContext} from "./AppContext"
 
 class Attribute extends React.Component {
     render() {
-        const { activeAttribute, activeAttributeIndex} = this.context
-        const {attribute, id, attributeColor, attributeSize, onSelectAttribute, cartItem} = this.props
+        const {activeAttribute, activeAttributeIndex} = this.context
+        const {attribute, attributeColor, attributeSize, onSelectAttribute, cartItem} = this.props
         let name = attribute.name;
 
         return (
@@ -16,7 +16,7 @@ class Attribute extends React.Component {
                         <li key={el.value}
                             onClick={() => onSelectAttribute(attribute, el, index)}
                             className={`${styles.attribute} ${name === 'Color' ? attributeColor : attributeSize}
-                                            ${ activeAttributeIndex === index && activeAttribute === attribute
+                                            ${activeAttributeIndex === index && activeAttribute === attribute
                             || cartItem?.activeAttributeIndex === index ? `${name === "Color" ?
                                 styles.activeAttributeColor : styles.activeAttribute}` : ''}`}
                             style={{backgroundColor: el.value}}

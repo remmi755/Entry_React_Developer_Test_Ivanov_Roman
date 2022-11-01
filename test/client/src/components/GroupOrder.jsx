@@ -4,10 +4,14 @@ import Button from "./Button"
 import {AppContext} from "./AppContext"
 
 class GroupOrder extends React.Component {
-    render() {
+    clearListOrder = () => {
+        localStorage.clear()
+        window.location.reload()
+    }
 
+    render() {
         const {totalCount, totalPrice, selectedCurrency} = this.context
-        const tax = (totalPrice * 21/100).toFixed(2)
+        const tax = (totalPrice * 21 / 100).toFixed(2)
 
         return (
             <main className={styles.order}>
@@ -31,7 +35,7 @@ class GroupOrder extends React.Component {
                         {totalPrice}
                     </span>
                 </div>
-                <Button className={styles.button} >ORDER</Button>
+                <Button className={styles.button} onClick={this.clearListOrder}>ORDER</Button>
             </main>
         )
     }

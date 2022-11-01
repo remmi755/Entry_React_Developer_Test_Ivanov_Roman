@@ -3,6 +3,18 @@ import styles from "./Attributes.module.css"
 import Attribute from "./Attribute"
 
 class Attributes extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    // }
+    // componentDidUpdate(prevState, prevProps) {
+    //     if (prevProps?.attributes[0].items !== this.props.attributes[0].items) {
+    //
+    //         console.log(this.props.attributes[0].items)
+    //         console.log('changed PDP')
+    //     }
+    // }
+
+
     render() {
         const {
             attributeName,

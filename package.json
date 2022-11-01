@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "@apollo/client": "^3.6.9",
+    "prettier": "2.7.1",
     "react-router-dom": "^6.3.0"
   }
 }

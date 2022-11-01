@@ -7,17 +7,9 @@ import Button from "./Button"
 import {AppContext} from "./AppContext"
 
 class CartOverlay extends React.Component {
-
-    clearListOrder = () => {
-        localStorage.clear()
-        window.location.reload()
-    }
-
     render() {
         const {totalCount, cartList, totalPrice, activeCurrency, onHidePopup} = this.context
         const symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
-
-        console.log(cartList)
 
         return(
             <div>
@@ -44,7 +36,7 @@ class CartOverlay extends React.Component {
                         <Link to="/cart">
                             <Button className={styles.buttonViewBag} onClick={onHidePopup} >VIEW BAG</Button>
                         </Link>
-                        <Button className={styles.buttonCheckOut} onClick={this.clearListOrder} >CHECK OUT</Button>
+                        <Button className={styles.buttonCheckOut}>CHECK OUT</Button>
                     </div>
                 </main>
             </div>

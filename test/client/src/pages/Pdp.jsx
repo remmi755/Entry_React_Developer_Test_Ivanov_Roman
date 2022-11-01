@@ -82,17 +82,6 @@ class PDP extends React.Component {
         this.renderPDP();
     }
 
-    componentDidUpdate(prevState, prevProps) {
-        if (prevState.product !== this.state.product &&
-        prevState.attributes !== this.state.attributes
-        ) {
-            // window.location.reload()
-            console.log(prevState.product)
-            console.log(this.state.product)
-            console.log('changed PDP')
-        }
-    }
-
     onChangeImage = (id) => {
         this.setState({
             currentImgId: id

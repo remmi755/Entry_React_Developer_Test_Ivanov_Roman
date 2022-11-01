@@ -6,7 +6,7 @@ import {AppContext} from "../components/AppContext"
 
 class Category extends React.Component {
     render() {
-        const {productCards, activeCategory, cartList}  = this.context
+        const {productCards, activeCategory}  = this.context
 
         return (
             <div>
@@ -17,10 +17,10 @@ class Category extends React.Component {
                         <div className={styles.grid}>
                             {
                                 productCards[activeCategory].products?.map((product) => (
-                                        <ProductCard
-                                            key={product.id}
-                                            product={product}
-                                        />
+                                    <ProductCard
+                                        key={product.id}
+                                        product={product}
+                                    />
                                 ))
                             }
                         </div>
