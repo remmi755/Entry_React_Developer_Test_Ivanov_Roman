@@ -24,8 +24,8 @@ class ProductCard extends React.Component {
         const {product} = this.props
         const {isHovered} = this.state
         const {name, gallery, prices, inStock} = product;
-        let symbol = prices[activeCurrency].currency.symbol
-        let amount = prices[activeCurrency].amount
+        const symbol = prices[activeCurrency].currency.symbol
+        const amount = prices[activeCurrency].amount
 
         return (
             <div className={`${styles.container} ${isHovered ? styles.shadow : ""}`}

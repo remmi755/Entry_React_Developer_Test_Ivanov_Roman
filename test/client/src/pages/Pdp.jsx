@@ -80,30 +80,16 @@ class PDP extends React.Component {
 
     componentDidMount() {
         this.renderPDP();
-        // console.log(this.state.product)
-
-        // this.setState({
-        //     attributes: this.state.attributes,
-        //     product:  this.state.product,
-        // })
-        // console.log(this.state.attributes)
     }
 
     componentDidUpdate(prevState, prevProps) {
         if (prevState.product !== this.state.product &&
-        prevState.attributes !== this.state.attributes) {
+        prevState.attributes !== this.state.attributes
+        ) {
+            // window.location.reload()
             console.log(prevState.product)
             console.log(this.state.product)
-            console.log(this.state.attributes[0].items[0])
             console.log('changed PDP')
-            // this.renderPDP();
-          // this.setState({
-             // attributes: this.state.attributes,
-             //  product:this.state.product,
-
-
-          // })
-          //   this.renderPDP()
         }
     }
 
@@ -113,33 +99,10 @@ class PDP extends React.Component {
         })
     }
 
-    // onSelectAttribute = (attribute, id,  el, index) => {
-    //     // const {attribute} = this.props
-    //
-    //     console.log(attribute)
-    //     console.log(el)
-    //     console.log(attribute.items[index])
-    //     console.log(index)
-    //
-    //     console.log(id)
-    //
-    //     if (attribute.items[index] === el && attribute.id === id) {
-    //         this.setState({
-    //             activeAttributeItem: attribute.items[index],
-    //             activeAttribute: attribute
-    //         })
-    //     }
-    //
-    //
-    // }
-
     render() {
         const{onAddToCart, onSelectAttribute} = this.context
         const{product, attributes, prices, symbol, currentImgId}= this.state
-        let description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
-
-        // console.log(product)
-        // console.log(attributes)
+        const description = `${product.description}`.replace(/(\<(\/?[^>]+)>)/g, '')
 
         return (
             <main className={styles.container}>
@@ -172,8 +135,6 @@ class PDP extends React.Component {
                         <div className={styles.attributes}>
                             <Attributes
                                 cartItem={product}
-                                activeAttributeItem={this.state.activeAttributeItem}
-                                activeAttribute={this.state.activeAttribute}
                                 onSelectAttribute={onSelectAttribute}
                                 attributes={attributes}
                                 attributeName={styles.attributeName}

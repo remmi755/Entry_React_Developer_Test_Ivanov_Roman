@@ -6,7 +6,7 @@ import {AppContext} from "./AppContext"
 class GroupOrder extends React.Component {
     render() {
 
-        let {totalCount, totalPrice, selectedCurrency} = this.context
+        const {totalCount, totalPrice, selectedCurrency} = this.context
         const tax = (totalPrice * 21/100).toFixed(2)
 
         return (

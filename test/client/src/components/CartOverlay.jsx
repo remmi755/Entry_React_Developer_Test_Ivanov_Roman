@@ -7,46 +7,15 @@ import Button from "./Button"
 import {AppContext} from "./AppContext"
 
 class CartOverlay extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         cartList : JSON.parse(localStorage.getItem("cart"))
-    //     }
-    // }
 
-    // componentDidMount() {
-    //     const {getCartFromLS } = this.context
-    //     // let cartList = JSON.parse(localStorage.getItem("cart"));
-    //     // this.setState({ cartList });
-    //     this.setState({ cartList: getCartFromLS() });
-    // }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     if(prevState.cartList !== this.state.cartList) {
-    //         console.log('OK')
-    //             // // let cartList = JSON.parse(localStorage.getItem("cart"));
-    //             //   this.setState({ cartList: this.getCartFromLS()
-    //             //   });
-    //         }
-    //     console.log(this.state.cartList)
-    // }
-
-    // getCartFromLS = () => {
-    //     const data = localStorage.getItem('cart')
-    //     return data ? JSON.parse(data) : [];
-    // }
     clearListOrder = () => {
         localStorage.clear()
         window.location.reload()
-        // this.setState({
-        //     cartList: localStorage.getItem('cart')
-        // })
     }
 
     render() {
         const {totalCount, cartList, totalPrice, activeCurrency, onHidePopup} = this.context
-        // const{cartList} = this.state
-        let symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
+        const symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
 
         console.log(cartList)
 
