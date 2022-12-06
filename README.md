@@ -31,3 +31,10 @@ See some more specific information on the main requirements below. Remember - if
 - Filtering products by category name for all of the categories from BE
 - The descriptions provided in HTML format should be parsed and presented as HTML, not as plain text
 - Ability to change the currency of the store to one of the available currencies
+
+How to start
+In order to start this endpoint, follow these steps
+
+1.Install dependencies
+2.Build the project - yarn build
+3.Start the project - yarn start

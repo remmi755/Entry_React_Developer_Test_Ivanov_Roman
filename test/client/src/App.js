@@ -22,7 +22,7 @@ class App extends React.Component {
             openPopup: false,
             activeCurrency: 0,
             selectedCurrency: '$',
-            cartList: this.getCartFromLS(),
+            cartList: this.getCartFromLSn(),
             activeAttributeItem: 0,
             activeAttributeIndex: 0,
             activeAttribute: '',
@@ -88,7 +88,7 @@ class App extends React.Component {
         this.renderCards();
     }
 
-    getCartFromLS = () => {
+    getCartFromLSn = () => {
         const data = localStorage.getItem('cart')
         return data ? JSON.parse(data) : [];
     }
@@ -235,6 +235,7 @@ class App extends React.Component {
     }
 
     render() {
+        console.log(this.state.cartList)
         const totalPrice = (this.state.cartList.reduce((prev, curr) => {
             return prev + curr.prices[this.state.activeCurrency].amount * curr.count
         }, 0)).toFixed(2)
