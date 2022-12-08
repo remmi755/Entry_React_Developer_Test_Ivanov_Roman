@@ -1,0 +1,25 @@
+.blockCurrencies{
+    background-color: white;
+    padding: 0;
+    position:absolute;
+    top: 15px;
+    left: 7px;
+    text-align: center;
+    z-index: 99;
+}
+
+.active {
+    color: rgba(29, 207, 101, 1);
+    background-color: #EEEEEE;
+}
+
+.currenciesItem {
+    width: 43px;
+    padding: 2px 10px;
+    list-style-type: none;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between ;
+
+}

@@ -4,6 +4,7 @@ import { ReactComponent as VectorUp } from "../../assets/SVG/VectorUp.svg";
 import { ReactComponent as CartQuantity } from "../../assets/SVG/cartQuantity.svg";
 import styles from "./Actions.module.css";
 import { ReactComponent as HeaderBasket } from "../../assets/SVG/headerBasket.svg";
+import Currencies from "../Currencies";
 import { AppContext } from "../AppContext";
 
 class Actions extends React.PureComponent {
@@ -34,7 +35,6 @@ class Actions extends React.PureComponent {
       currencies,
       activeCurrency,
       openPopup,
-      onSelectCurrencies,
       onOpenPopup,
       toggleModal,
       totalCount
@@ -47,27 +47,7 @@ class Actions extends React.PureComponent {
           <span>{openPopup ? <VectorUp /> : <VectorDown />}</span>
         </span>
         <span className={styles.separator}></span>
-        {openPopup && (
-          <div>
-            <ul className={styles.blockCurrencies} ref={this.ref}>
-              {currencies?.map((item, index) => (
-                <li
-                  key={`${item} ${index}`}
-                  onClick={(e) => onSelectCurrencies(index, e)}
-                  className={`${styles.actionsItem}  
-                                            ${
-                    activeCurrency === index
-                      ? styles.active
-                      : ""
-                  }`}
-                >
-                  <div>{item.currency.symbol}</div>
-                  <div>{item.currency.label}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {openPopup && <Currencies />}
         <div className={styles.cart} onClick={toggleModal}>
           <HeaderBasket />
         </div>

@@ -7,37 +7,12 @@
 .separator {
     width: 22px;
 }
-.blockCurrencies{
-    background-color: white;
-    padding: 0;
-    position:absolute;
-    top: 15px;
-    left: 7px;
-    text-align: center;
-    z-index: 99;
-}
-
-.actionsItem {
-    width: 43px;
-    padding: 2px 10px;
-    list-style-type: none;
-    text-decoration: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between ;
-
-}
 
 .popupClosed {
     font-size: 18px;
     width: 65px;
     text-align: center;
     cursor: pointer;
-}
-
-.active {
-    color: rgba(29, 207, 101, 1);
-    background-color: #EEEEEE;
 }
 
 .cart {
