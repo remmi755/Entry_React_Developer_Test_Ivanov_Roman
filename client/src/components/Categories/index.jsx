@@ -2,7 +2,7 @@ import React from "react";
 import styles from './Categories.module.css'
 import {AppContext} from "../AppContext"
 
-class Categories extends React.Component {
+class Categories extends React.PureComponent {
     render() {
         const {onClick} = this.props
         const {productCards, activeCategory} = this.context

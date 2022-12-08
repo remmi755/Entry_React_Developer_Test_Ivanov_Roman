@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button"
 import styles from "./Count.module.css"
 
-class Count extends React.Component {
+class Count extends React.PureComponent {
 
     render() {
         const{children, classSize, countIncrease, countDecrease, orderItem, id} = this.props

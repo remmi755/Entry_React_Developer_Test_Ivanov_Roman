@@ -6,7 +6,7 @@ import styles from "./Actions.module.css";
 import { ReactComponent as HeaderBasket } from "../../assets/SVG/headerBasket.svg";
 import { AppContext } from "../AppContext";
 
-class Actions extends React.Component {
+class Actions extends React.PureComponent {
   constructor(props) {
     super(props);
     this.ref = React.createRef(null);

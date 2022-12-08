@@ -4,7 +4,7 @@ import ProductCard from "../../components/ProductCard";
 import Title from "../../components/Title"
 import {AppContext} from "../../components/AppContext"
 
-class Category extends React.Component {
+class Category extends React.PureComponent {
     render() {
         const {productCards, activeCategory}  = this.context
 

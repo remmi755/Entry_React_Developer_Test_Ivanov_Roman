@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./Attribute.module.css"
 import {AppContext} from "../AppContext"
 
-class Attribute extends React.Component {
+class Attribute extends React.PureComponent {
     render() {
         const {activeAttribute, activeAttributeIndex} = this.context
         const {attribute, attributeColor, attributeSize, onSelectAttribute, cartItem} = this.props

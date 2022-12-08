@@ -1,6 +1,6 @@
 import React from "react";
 
-class Image extends React.Component {
+class Image extends React.PureComponent {
     render() {
         let {src, alt, className, width, height, ...attrs} = this.props
         return (

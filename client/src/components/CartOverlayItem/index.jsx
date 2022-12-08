@@ -6,7 +6,7 @@ import Attributes from "../Attributes"
 import Image from "../Image"
 import {AppContext} from "../AppContext"
 
-class CartOverlayItem extends React.Component {
+class CartOverlayItem extends React.PureComponent {
     render() {
         const {cartItem} = this.props
         const{  activeCurrency, countIncrease, countDecrease} = this.context

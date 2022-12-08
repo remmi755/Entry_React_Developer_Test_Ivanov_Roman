@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-class Button extends React.Component {
+class Button extends React.PureComponent {
   render() {
     const { children, className, onClick, ...attrs } = this.props;
 

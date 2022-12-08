@@ -6,7 +6,7 @@ import Title from "../Title"
 import Button from "../Button"
 import {AppContext} from "../AppContext"
 
-class CartOverlay extends React.Component {
+class CartOverlay extends React.PureComponent {
     render() {
         const {totalCount, cartList, totalPrice, activeCurrency, onHidePopup} = this.context
         const symbol = cartList[0]?.prices[activeCurrency].currency.symbol;

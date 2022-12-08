@@ -3,7 +3,7 @@ import styles from "./GroupOrder.module.css";
 import Button from "../Button"
 import {AppContext} from "../AppContext"
 
-class GroupOrder extends React.Component {
+class GroupOrder extends React.PureComponent {
     clearListOrder = () => {
         localStorage.clear()
         window.location.reload()

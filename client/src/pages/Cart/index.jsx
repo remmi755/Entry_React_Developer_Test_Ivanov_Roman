@@ -5,7 +5,7 @@ import Title from "../../components/Title"
 import CartItem from "../../components/CartItem"
 import {AppContext} from "../../components/AppContext"
 
-class Cart extends React.Component {
+class Cart extends React.PureComponent {
     render() {
         const {cartList} = this.context
 

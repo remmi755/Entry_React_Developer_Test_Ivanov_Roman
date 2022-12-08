@@ -1,18 +1,18 @@
 import React from "react";
 
-class Icon extends React.Component {
+class Icon extends React.PureComponent {
     render() {
         const {children, className, onClick, size, ...attrs} = this.props
         const elemSize = size ? {fontSize: `${size}px`} : null;
 
         return (
-            <i
+            <div
                 className={className}
                 onClick={onClick}
                 style={elemSize}
                 {...attrs}>
                 {children}
-            </i>
+            </div>
         )
     }
 };

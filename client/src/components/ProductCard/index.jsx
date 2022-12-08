@@ -7,7 +7,7 @@ import Icon from "../Icon"
 import {ReactComponent as InCart} from "../../assets/SVG/InCart.svg"
 import {AppContext} from "../AppContext"
 
-class ProductCard extends React.Component {
+class ProductCard extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {

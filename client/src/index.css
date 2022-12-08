@@ -2,7 +2,7 @@ html {margin-right: calc(-1 * (100vw - 100%));}
 
 body {
   margin: 0;
-  background-color: #E5E5E5;
+  background-color: white;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

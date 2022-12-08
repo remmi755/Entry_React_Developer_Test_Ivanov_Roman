@@ -4,7 +4,7 @@ import styles from "./ImageSlider.module.css"
 import {ReactComponent as VectorLeft} from "../../assets/SVG/VectorLeft.svg"
 import {ReactComponent as VectorRight} from "../../assets/SVG/VectorRight.svg"
 
-class ImageSlider extends React.Component {
+class ImageSlider extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {

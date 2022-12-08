@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
-import {ApolloClient, InMemoryCache, ApolloProvider, gql, defaultDataIdFromObject} from '@apollo/client';
+import {ApolloClient, InMemoryCache, ApolloProvider, defaultDataIdFromObject} from '@apollo/client';
 import App from './App';
 
 

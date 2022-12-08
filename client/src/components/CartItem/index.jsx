@@ -6,7 +6,7 @@ import Attributes from "../Attributes";
 import ImageSlider from "../ImageSlider"
 import {AppContext} from "../AppContext"
 
-class CartItem extends React.Component {
+class CartItem extends React.PureComponent {
     render() {
         const{orderItem, id} = this.props
         const{ activeCurrency, countDecrease , countIncrease} = this.context
