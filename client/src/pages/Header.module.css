@@ -1,0 +1,24 @@
+.container {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 1440px;
+    max-height: 80px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 24px 100px 0 100px;
+}
+
+.navigation {
+    display: flex;
+    width: 234px;
+    height: 56px;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.logo {
+    justify-content: center;
+}
+
+

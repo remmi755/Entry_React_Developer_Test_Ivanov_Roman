@@ -1,0 +1,71 @@
+.container {
+     width: 293px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.container:not(:first-child) {
+    margin-top: 40px;
+}
+
+.content {
+    width: 136px;
+    box-sizing: border-box;
+}
+
+.price {
+    font-weight: 500;
+    margin: 8px 0 0 0;
+}
+
+.count {
+    width: 24px;
+    display: flex;
+    margin: 0 8px 0 4px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.countSize {
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+}
+
+.img {
+object-fit: contain;
+}
+
+.titleCartOverlay {
+    font-weight: 300;
+    margin: 0;
+}
+
+.attributeName {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 8px 0 0;
+    list-style-type: none;
+}
+
+.attributeSize {
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    font-size: 8px;
+}
+
+.attributeSize:last-of-type {
+    margin-right: 0;
+}
+
+.attributeColor {
+    width: 24px;
+    height: 24px;
+    font-size: 8px;
+}
+
+.attributeColor:last-of-type {
+    margin-right: 0;
+}

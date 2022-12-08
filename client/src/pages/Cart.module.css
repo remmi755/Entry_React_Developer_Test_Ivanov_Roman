@@ -1,0 +1,26 @@
+.container {
+    background-color: white;
+    width: 1440px;
+    box-sizing: border-box;
+    padding: 80px 100px 274px 100px;
+    margin: 0 auto;
+}
+
+.titleHeader {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 55px 0;
+}
+
+.content {
+    padding: 0;
+    border-top: 1px solid #E5E5E5;
+}
+
+.content:last-of-type {
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.groupOrder {
+    margin-top: 32px;
+}

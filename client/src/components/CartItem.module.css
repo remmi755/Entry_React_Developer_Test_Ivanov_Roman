@@ -1,0 +1,75 @@
+.container {
+    width: 1240px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0 30px;
+}
+
+.titleBrand {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.titleName {
+    font-size: 30px;
+    margin: 0;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0 0 0;
+}
+
+.choiceSize {
+    margin-top: 20px;
+}
+
+.count {
+    width: 45px;
+    display: flex;
+    margin-right: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.countSize {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+}
+
+.groupImg{
+    display: flex;
+}
+
+.attributeName {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 8px 0 0;
+    list-style-type: none;
+}
+
+.attributeSize {
+    width: 63px;
+    height: 45px;
+    font-size: 12px;
+}
+
+.attributeSize:last-of-type {
+    margin-right: 0;
+}
+
+.attributeColor {
+    width: 36px;
+    height: 36px;
+    font-size: 8px;
+}
+
+.slider {
+    width: 200px;
+    height: 288px;
+    object-fit: contain;
+}

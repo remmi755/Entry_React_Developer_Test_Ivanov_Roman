@@ -1,0 +1,12 @@
+.borderNone {
+    border: none;
+    text-align: center;
+}
+
+.countItem {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(29, 31, 34, 1);
+}

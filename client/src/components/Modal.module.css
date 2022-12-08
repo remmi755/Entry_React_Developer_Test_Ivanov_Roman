@@ -1,0 +1,20 @@
+.modalBackdrop {
+    width: 1440px;
+    margin: 0 auto;
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.22);
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+    overflow: scroll;
+    z-index: 2;
+}
+
+.modalContent {
+    background-color: white;
+    margin: -15px 72px 0 0;
+}
