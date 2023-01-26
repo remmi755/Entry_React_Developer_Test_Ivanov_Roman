@@ -4,35 +4,27 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import Categories from "../../components/Categories";
 import Actions from "../../components/Actions";
-import { AppContext } from "../../components/AppContext";
-
 
 class Header extends React.PureComponent {
   render() {
-    const { onSelectCategories, onOpenPopup } = this.context;
-
     return (
       <div className={styles.container}>
-        <Link to="/">
-          <div className={styles.navigation}>
-            <Categories
-              onClick={(index) => {
-                onSelectCategories(index);
-              }}
-            />
-          </div>
-        </Link>
-        <div className={styles.logo}>
-          <HeaderLogo />
+        <div className={styles.navigation}>
+          <Link to="/">
+          <Categories />
+          </Link>
         </div>
-        <Actions
-          onOpenPopup={onOpenPopup}
-        />
+        <div className={styles.logo}>
+          <Link to="/">
+            <HeaderLogo />
+          </Link>
+        </div>
+        <Actions />
       </div>
     );
   }
 }
 
-Header.contextType = AppContext;
-
 export default Header;
+
+

@@ -1,11 +1,12 @@
 import React from "react";
 import styles from './Categories.module.css'
-import {AppContext} from "../AppContext"
+
+import {connect} from "react-redux";
+import { onSelectCategories } from "../../redux/categories/slice";
 
 class Categories extends React.PureComponent {
     render() {
-        const {onClick} = this.props
-        const {productCards, activeCategory} = this.context
+        const {onSelectCategories, productCards, activeCategory} = this.props
 
         return (
             <div>
@@ -13,7 +14,7 @@ class Categories extends React.PureComponent {
                     {
                         productCards &&
                         productCards.map((category, index) => (
-                            <li onClick={() => onClick(index)}
+                            <li onClick={() => onSelectCategories(index)}
                                 key={`${category.name}_${index}`}
                                 className={`${styles.categoriesItem} 
                                 ${activeCategory === index ? styles.active : ''}`}>
@@ -26,6 +27,11 @@ class Categories extends React.PureComponent {
     }
 }
 
-Categories.contextType = AppContext;
+const mapStateToProps = (state) => ({
+  productCards: state.categories.productCards,
+  activeCategory: state.categories.activeCategory,
+});
 
-export default Categories
+const mapDispatchToProps = { onSelectCategories };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);

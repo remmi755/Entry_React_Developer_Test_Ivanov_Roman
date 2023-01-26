@@ -5,7 +5,13 @@ import { ReactComponent as CartQuantity } from "../../assets/SVG/cartQuantity.sv
 import styles from "./Actions.module.css";
 import { ReactComponent as HeaderBasket } from "../../assets/SVG/headerBasket.svg";
 import Currencies from "../Currencies";
+
 import { AppContext } from "../AppContext";
+import {connect} from "react-redux";
+import { onOpenPopup, onClosePopup, setCurrencies } from "../../redux/currencies/slice";
+import { toggleModal } from "../../redux/modal/slice";
+
+
 
 class Actions extends React.PureComponent {
   constructor(props) {
@@ -16,9 +22,10 @@ class Actions extends React.PureComponent {
   handleClickOutside = ({ target }) => {
     if (this.ref.current && !this.ref.current.contains(target)) {
       this.props.onOpenPopup();
-      this.setState({
-        openPopup: false
-      });
+      // this.props.onClosePopup(false);
+      // this.setState({
+      //   openPopup: false
+      // });
     }
   };
 
@@ -31,20 +38,15 @@ class Actions extends React.PureComponent {
   }
 
   render() {
-    const {
-      currencies,
-      activeCurrency,
-      openPopup,
-      onOpenPopup,
-      toggleModal,
-      totalCount
-    } = this.context;
+    const { totalCount } = this.context;
+
+    const {currencies, activeCurrency, openPopup,  toggleModal, onOpenPopup} = this.props
 
     return (
       <div className={styles.actions}>
         <span className={styles.popupClosed} onClick={onOpenPopup}>
           {activeCurrency ? currencies[activeCurrency].currency.symbol : "$"}
-          <span>{openPopup ? <VectorUp /> : <VectorDown />}</span>
+          <span className={styles.vector}>{openPopup ? <VectorUp /> : <VectorDown />}</span>
         </span>
         <span className={styles.separator}></span>
         {openPopup && <Currencies />}
@@ -61,7 +63,7 @@ class Actions extends React.PureComponent {
         {totalCount ? (
           <span
             className={styles.quantity}
-            style={totalCount > 9 ? { left: 54.5 } : { left: 59 }}
+            style={totalCount > 9 ? { left: 65 } : { left: 69 }}
           >
             {totalCount}
           </span>
@@ -75,4 +77,12 @@ class Actions extends React.PureComponent {
 
 Actions.contextType = AppContext;
 
-export default Actions;
+const mapStateToProps = (state) => ({
+  currencies: state.currencies.currencies,
+  activeCurrency: state.currencies.activeCurrency,
+  openPopup: state.currencies.openPopup,
+});
+
+const mapDispatchToProps = { onOpenPopup, onClosePopup, toggleModal };
+
+export default connect(mapStateToProps, mapDispatchToProps )(Actions);

@@ -1,33 +1,26 @@
-import React from 'react';
-import './index.css';
-import * as ReactDOM from 'react-dom/client';
+import React from "react";
+import "./index.css";
+import App from "./App";
+import * as ReactDOM from "react-dom/client";
+
+import { ApolloClient } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
+
+import { store } from "./redux/store/store";
+import { Provider } from "react-redux";
+
 import { BrowserRouter } from "react-router-dom";
-import {ApolloClient, InMemoryCache, ApolloProvider, defaultDataIdFromObject} from '@apollo/client';
-import App from './App';
 
-
-const apolloClient = new ApolloClient({
-    uri: 'http://localhost:4000',
-    cache: new InMemoryCache({
-        dataIdFromObject: object => {
-            switch (object.__typename) {
-                case 'CategoryAll':
-                    return Math.random()
-                default:
-                    return defaultDataIdFromObject(object)
-            }
-        }
-    }),
-});
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-    <ApolloProvider client={apolloClient}>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
-    </ApolloProvider>,
+  <ApolloProvider client={ApolloClient}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </ApolloProvider>
 );
 
-export  {apolloClient}
+

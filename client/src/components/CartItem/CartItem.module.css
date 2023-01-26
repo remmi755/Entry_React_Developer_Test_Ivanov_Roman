@@ -14,6 +14,7 @@
 
 .titleName {
     font-size: 30px;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -47,6 +48,7 @@
 
 .attributeName {
     font-size: 18px;
+    font-family:'Roboto Condensed', sans-serif;
     font-weight: 700;
     margin: 8px 0 0;
     list-style-type: none;
@@ -55,7 +57,9 @@
 .attributeSize {
     width: 63px;
     height: 45px;
-    font-size: 12px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
 }
 
 .attributeSize:last-of-type {

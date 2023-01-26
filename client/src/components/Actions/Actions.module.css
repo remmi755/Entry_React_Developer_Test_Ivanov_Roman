@@ -1,7 +1,7 @@
 .actions {
     position: relative;
     display: flex;
-    width: 60px;
+    width: 70px;
     height: 25px;
 }
 .separator {
@@ -10,9 +10,15 @@
 
 .popupClosed {
     font-size: 18px;
-    width: 65px;
+    font-weight: 500;
+    line-height: 160%;
+    width: 67px;
     text-align: center;
     cursor: pointer;
+}
+
+.vector {
+    margin: 3px;
 }
 
 .cart {
@@ -23,8 +29,8 @@
 
 .cartQuantity {
     position: absolute;
-    top: -5px;
-    left: 53px;
+    top: -6px;
+    left: 63px;
     z-index: 2;
 }
 

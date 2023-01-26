@@ -6,11 +6,13 @@ import Title from "../Title"
 import Button from "../Button"
 import {AppContext} from "../AppContext"
 
+import {connect} from "react-redux";
+
 class CartOverlay extends React.PureComponent {
     render() {
-        const {totalCount, cartList, totalPrice, activeCurrency, onHidePopup} = this.context
+        const {totalCount, totalPrice, onHidePopup} = this.context
+        const { activeCurrency, cartList} = this.props
         const symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
-
         return(
             <div>
                 <main className={styles.container}>
@@ -29,8 +31,8 @@ class CartOverlay extends React.PureComponent {
                         }
                     </div>
                     <div className={styles.total}>
-                        <span className={styles.totalItem}>Total</span>
-                        <span className={styles.totalItem}>{symbol}{totalPrice}</span>
+                        <span className={styles.totalName}>Total</span>
+                        <span className={styles.totalPrice}>{symbol}{totalPrice}</span>
                     </div>
                     <div className={styles.groupButton}>
                         <Link to="/cart">
@@ -46,4 +48,11 @@ class CartOverlay extends React.PureComponent {
 
 CartOverlay.contextType = AppContext;
 
-export default CartOverlay
+// export default CartOverlay
+
+const mapStateToProps = (state) => ({
+    activeCurrency: state.currencies.activeCurrency,
+    cartList:state.cartList.cartList
+});
+
+export default connect(mapStateToProps)(CartOverlay);

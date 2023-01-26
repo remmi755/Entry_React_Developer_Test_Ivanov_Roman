@@ -28,8 +28,13 @@
     justify-content: space-between;
 }
 
-.totalItem {
+.totalName {
+    font-family: 'Roboto';
     font-weight: 500;
+}
+
+.totalPrice {
+    font-weight: 700;
 }
 
 .groupButton {
@@ -40,11 +45,15 @@
 }
 
 .buttonViewBag {
+    font-weight: 600;
+    font-size: 14px;
     width: 140px;
     height: 43px;
 }
 
 .buttonCheckOut {
+    font-weight: 600;
+    font-size: 14px;
     width: 140px;
     color: white;
     background-color: #5ECE7B;

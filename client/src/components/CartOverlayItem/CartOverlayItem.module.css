@@ -1,5 +1,5 @@
 .container {
-     width: 293px;
+    width: 293px;
     display: flex;
     box-sizing: border-box;
 }
@@ -53,7 +53,8 @@ object-fit: contain;
     box-sizing: border-box;
     width: 24px;
     height: 24px;
-    font-size: 8px;
+    font-size: 14px;
+    font-family:'Source Sans Pro', sans-serif;
 }
 
 .attributeSize:last-of-type {

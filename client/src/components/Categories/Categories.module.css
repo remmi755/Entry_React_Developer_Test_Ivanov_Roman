@@ -10,15 +10,17 @@
 }
 
 .categoriesItem {
+    color: #1D1F22;
     padding: 0 16px;
     font-weight: 600;
     list-style-type: none;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .active {
-    color: rgba(29, 207, 101, 1);
-    border-bottom: 2px solid rgba(29, 207, 101, 1);
+    color:  #5ECE7B;
+    border-bottom: 2px solid  #5ECE7B;
 }
 
 a{

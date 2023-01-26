@@ -4,10 +4,19 @@ import Title from "../../components/Title";
 import Button from "../../components/Button";
 import Image from "../../components/Image";
 import Attributes from "../../components/Attributes";
-import { apolloClient } from "../../index";
-import { gql } from "@apollo/client";
+
 import { useParams } from "react-router-dom";
 import { AppContext } from "../../components/AppContext";
+
+import { connect } from "react-redux";
+import { fetchProduct, onChangeImage, setProduct } from "../../redux/pdp/slice";
+import {
+  fetchAttributes,
+  setActiveAttribute,
+  setActiveAttributeIndex,
+  setActiveAttributeItem,
+  setAttributes,
+} from "../../redux/attributes/slice";
 
 export function withRouter(Children) {
   return (props) => {
@@ -19,80 +28,57 @@ export function withRouter(Children) {
 class PDP extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      product: [this.renderPDP],
-      currentImgId: 0,
-    };
+    this.cardId = this.props.match.params["cardId"].substring(1);
   }
+
+  componentDidMount = async () => {
+    await this.renderPDP();
+    await this.getAttributes();
+    console.log(this.props.product)
+  };
 
   renderPDP = async () => {
-    try {
-      const result = await apolloClient.query({
-        query: gql`
-          query Product($productId: String!) {
-            product(id: $productId) {
-              id
-              name
-              inStock
-              gallery
-              description
-              category
-              prices {
-                amount
-                currency {
-                  symbol
-                  label
-                }
-              }
-              brand
-              attributes {
-                id
-                name
-                type
-                items {
-                  id
-                  value
-                  displayValue
-                }
-              }
-            }
-          }
-        `,
-        variables: {
-          productId: this.props.match.params["cardId"].substring(1),
-        },
-      });
-
-      const product = result.data.product;
-      const attributes = result.data.product.attributes;
-      let prices = result.data.product.prices[this.props.activeCurrency].amount;
-      let symbol =
-        result.data.product.prices[this.props.activeCurrency].currency.symbol;
-
-      this.setState({
-        product: product,
-        attributes: attributes,
-        prices: prices,
-        symbol: symbol,
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    const { fetchProduct } = this.props;
+    await fetchProduct(this.cardId);
   };
 
-  componentDidMount() {
-    this.renderPDP();
+  getAttributes = async () => {
+    const { fetchAttributes } = this.props;
+   const fetchA = await fetchAttributes(this.cardId);
+   console.log(fetchA)
+  };
+
+  componentDidUpdate = (prevProps) => {
+    // if (prevProps.product !== this.props.product) {
+    if (prevProps.product.attributes !== this.props.product.attributes) {
+      console.log(prevProps.product)
+      console.log(this.props.product)
+      console.log("change attributes")
+      this.props.setActiveAttributeItem("");
+      this.props.setActiveAttributeIndex("");
+      this.props.setAttributes(this.props.product.attributes);
+      // await this.renderPDP();
+      // await this.getAttributes();
+      // console.log(this.props.product.attributes[0].items[0])
+    }
   }
 
-  onChangeImage = (id) => {
-    this.setState({
-      currentImgId: id,
-    });
-  };
+  componentWillUnmount() {
+    this.props.setActiveAttributeItem("");
+    this.props.setActiveAttributeIndex("");
+    this.props.setActiveAttribute("");
+  }
 
   render() {
+    // console.log(this.props.activeAttribute)
+    const { currentImgId, onChangeImage, product, activeCurrency, attributes } = this.props;
     const { onAddToCart, onSelectAttribute } = this.context;
-    const { product, attributes, prices, symbol, currentImgId } = this.state;
+    const amount =
+      product && product.prices && product.prices[activeCurrency].amount;
+    const symbol =
+      product &&
+      product.prices &&
+      product.prices[activeCurrency].currency.symbol;
     const description = `${product.description}`.replace(
       /(\<(\/?[^>]+)>)/g,
       ""
@@ -104,7 +90,7 @@ class PDP extends React.PureComponent {
           {product.gallery &&
             product.gallery.map((img, id) => (
               <Image
-                onClick={() => this.onChangeImage(id)}
+                onClick={() => onChangeImage(id)}
                 key={id}
                 className={styles.blockImgItem}
                 width={79}
@@ -129,8 +115,8 @@ class PDP extends React.PureComponent {
             <div className={styles.attributes}>
               <Attributes
                 cartItem={product}
+                // attributes={attributes}
                 onSelectAttribute={onSelectAttribute}
-                attributes={attributes}
                 attributeName={styles.attributeName}
                 attributeSize={styles.attributeSize}
                 attributeColor={styles.attributeColor}
@@ -140,7 +126,7 @@ class PDP extends React.PureComponent {
               <h5 className={styles.h5}>PRICE:</h5>
               <div className={styles.price}>
                 {symbol}
-                {prices}
+                {amount}
               </div>
             </div>
             <Button
@@ -159,4 +145,24 @@ class PDP extends React.PureComponent {
 
 PDP.contextType = AppContext;
 
-export default withRouter(PDP);
+const mapStateToProps = (state) => ({
+  activeCurrency: state.currencies.activeCurrency,
+  currentImgId: state.pdp.currentImgId,
+  product: state.pdp.product,
+  activeAttributeIndex: state.attributes.activeAttributeIndex,
+  activeAttributeItem: state.attributes.activeAttributeItem,
+  activeAttribute: state.attributes.activeAttribute,
+  attributes: state.attributes.attributes
+});
+
+const mapDispatchToProps = {
+  onChangeImage,
+  fetchProduct,
+  fetchAttributes,
+  setActiveAttribute,
+  setActiveAttributeIndex,
+  setActiveAttributeItem,
+  setAttributes,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PDP));

@@ -3,11 +3,13 @@
 }
 
 .tax {
+    display: flex;
     font-size: 24px;
     font-weight: 400;
     margin-right: 10px;
 }
 .taxValue {
+    display: flex;
     font-size: 24px;
     font-weight: 700;
 }
@@ -30,6 +32,7 @@
 }
 
 .totalValue {
+    display: flex;
     font-size: 24px;
     font-weight: 700;
 }

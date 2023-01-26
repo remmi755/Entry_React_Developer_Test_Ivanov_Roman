@@ -7,6 +7,7 @@
     margin: 0 auto;
     box-sizing: border-box;
     padding: 24px 100px 0 100px;
+    position: relative;
 }
 
 .navigation {
@@ -18,7 +19,9 @@
 }
 
 .logo {
-    justify-content: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
 }
 
 
