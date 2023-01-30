@@ -7,50 +7,35 @@ import { ReactComponent as HeaderBasket } from "../../assets/SVG/headerBasket.sv
 import Currencies from "../Currencies";
 
 import { AppContext } from "../AppContext";
-import {connect} from "react-redux";
-import { onOpenPopup, onClosePopup, setCurrencies } from "../../redux/currencies/slice";
+import { connect } from "react-redux";
+import { onOpenPopup } from "../../redux/currencies/slice";
 import { toggleModal } from "../../redux/modal/slice";
 
-
+export const actionsRef = React.createRef();
+export const separatorRef = React.createRef();
+export const basketRef = React.createRef();
 
 class Actions extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.ref = React.createRef(null);
-  }
-
-  handleClickOutside = ({ target }) => {
-    if (this.ref.current && !this.ref.current.contains(target)) {
-      this.props.onOpenPopup();
-      // this.props.onClosePopup(false);
-      // this.setState({
-      //   openPopup: false
-      // });
-    }
-  };
-
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
-  }
-
   render() {
     const { totalCount } = this.context;
-
-    const {currencies, activeCurrency, openPopup,  toggleModal, onOpenPopup} = this.props
+    const { currencies, activeCurrency, openPopup, toggleModal, onOpenPopup } =
+      this.props;
 
     return (
       <div className={styles.actions}>
-        <span className={styles.popupClosed} onClick={onOpenPopup}>
+        <span
+          ref={actionsRef}
+          className={styles.popupClosed}
+          onClick={onOpenPopup}
+        >
           {activeCurrency ? currencies[activeCurrency].currency.symbol : "$"}
-          <span className={styles.vector}>{openPopup ? <VectorUp /> : <VectorDown />}</span>
+          <span className={styles.vector}>
+            {openPopup ? <VectorUp /> : <VectorDown />}
+          </span>
         </span>
-        <span className={styles.separator}></span>
+        <span ref={separatorRef} className={styles.separator}></span>
         {openPopup && <Currencies />}
-        <div className={styles.cart} onClick={toggleModal}>
+        <div className={styles.cart} onClick={toggleModal} ref={basketRef}>
           <HeaderBasket />
         </div>
         {totalCount ? (
@@ -83,6 +68,6 @@ const mapStateToProps = (state) => ({
   openPopup: state.currencies.openPopup,
 });
 
-const mapDispatchToProps = { onOpenPopup, onClosePopup, toggleModal };
+const mapDispatchToProps = { onOpenPopup, toggleModal };
 
-export default connect(mapStateToProps, mapDispatchToProps )(Actions);
+export default connect(mapStateToProps, mapDispatchToProps)(Actions);

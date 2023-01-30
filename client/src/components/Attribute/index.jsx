@@ -22,7 +22,7 @@ class Attribute extends React.PureComponent {
 
     // console.log(cartItem.attributes)
     // console.log(activeAttributeItem)
-    console.log(attribute.items)
+    // console.log(attribute.items)
 
     return (
       <ul className={styles.attributeGroup}>
