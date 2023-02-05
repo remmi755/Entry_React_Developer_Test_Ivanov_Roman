@@ -22,10 +22,6 @@ import {
 } from "./redux/attributes/slice";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount = async () => {
     await this.renderProductCards();
     await this.getCurrencies();

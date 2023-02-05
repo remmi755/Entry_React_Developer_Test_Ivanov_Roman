@@ -6,23 +6,10 @@ import Attributes from "../Attributes";
 import Image from "../Image";
 
 import { connect } from "react-redux";
-import { fetchCategories } from "../../redux/fetchCategories";
-import { onOpenPopup, setCurrencies } from "../../redux/currencies/slice";
-import {
-  fetchProductCards,
-  setProductCards,
-} from "../../redux/categories/slice";
 import {
   countDecrease,
   countIncrease,
-  setCartList,
 } from "../../redux/cartList/slice";
-import { setModalShow, toggleModal } from "../../redux/modal/slice";
-import {
-  setActiveAttribute,
-  setActiveAttributeIndex,
-  setActiveAttributeItem,
-} from "../../redux/attributes/slice";
 
 class CartOverlayItem extends React.PureComponent {
   render() {
@@ -30,8 +17,7 @@ class CartOverlayItem extends React.PureComponent {
       this.props;
     const price = cartItem?.prices[activeCurrency].amount;
     const symbol = cartItem?.prices[activeCurrency].currency.symbol;
-    // console.log(cartItem.activeAttribute.items);
-    // console.log(cartItem.attributes);
+
     return (
       <main className={styles.container}>
         <section className={styles.content}>

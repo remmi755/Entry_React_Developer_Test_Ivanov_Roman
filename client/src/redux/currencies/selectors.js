@@ -1,1 +1,1 @@
-export const selectCart = (state) => state.currencies;
+// export const selectCart = (state) => state.currencies;

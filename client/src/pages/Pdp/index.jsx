@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import { AppContext } from "../../components/AppContext";
 
 import { connect } from "react-redux";
-import { fetchProduct, onChangeImage, setProduct } from "../../redux/pdp/slice";
+import { fetchProduct, onChangeImage } from "../../redux/pdp/slice";
 import {
   fetchAttributes,
   setActiveAttribute,
@@ -34,7 +34,6 @@ class PDP extends React.PureComponent {
   componentDidMount = async () => {
     await this.renderPDP();
     await this.getAttributes();
-    console.log(this.props.product)
   };
 
   renderPDP = async () => {
@@ -44,22 +43,14 @@ class PDP extends React.PureComponent {
 
   getAttributes = async () => {
     const { fetchAttributes } = this.props;
-   const fetchA = await fetchAttributes(this.cardId);
-   console.log(fetchA)
+    await fetchAttributes(this.cardId);
   };
 
   componentDidUpdate = (prevProps) => {
-    // if (prevProps.product !== this.props.product) {
     if (prevProps.product.attributes !== this.props.product.attributes) {
-      console.log(prevProps.product)
-      console.log(this.props.product)
-      console.log("change attributes")
       this.props.setActiveAttributeItem("");
       this.props.setActiveAttributeIndex("");
       this.props.setAttributes(this.props.product.attributes);
-      // await this.renderPDP();
-      // await this.getAttributes();
-      // console.log(this.props.product.attributes[0].items[0])
     }
   }
 
@@ -70,8 +61,7 @@ class PDP extends React.PureComponent {
   }
 
   render() {
-    // console.log(this.props.activeAttribute)
-    const { currentImgId, onChangeImage, product, activeCurrency, attributes } = this.props;
+    const { currentImgId, onChangeImage, product, activeCurrency } = this.props;
     const { onAddToCart, onSelectAttribute } = this.context;
     const amount =
       product && product.prices && product.prices[activeCurrency].amount;
@@ -115,7 +105,6 @@ class PDP extends React.PureComponent {
             <div className={styles.attributes}>
               <Attributes
                 cartItem={product}
-                // attributes={attributes}
                 onSelectAttribute={onSelectAttribute}
                 attributeName={styles.attributeName}
                 attributeSize={styles.attributeSize}
@@ -152,7 +141,6 @@ const mapStateToProps = (state) => ({
   activeAttributeIndex: state.attributes.activeAttributeIndex,
   activeAttributeItem: state.attributes.activeAttributeItem,
   activeAttribute: state.attributes.activeAttribute,
-  attributes: state.attributes.attributes
 });
 
 const mapDispatchToProps = {

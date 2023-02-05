@@ -6,7 +6,8 @@ class Modal extends React.PureComponent {
     const { children, shown, close } = this.props;
 
     return shown ? (
-      <div className={styles.modalBackdrop}
+      <div
+        className={styles.modalBackdrop}
         onClick={() => {
           close();
         }}

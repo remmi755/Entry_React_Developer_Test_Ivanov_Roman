@@ -35,8 +35,8 @@ class Attributes extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  attributes: state.attributes.attributes,
-  cartList: state.cartList.cartList
+  // attributes: state.attributes.attributes,
+  // cartList: state.cartList.cartList
 });
 
 export default connect(mapStateToProps )(Attributes);

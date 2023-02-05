@@ -14,15 +14,9 @@ class Attribute extends React.PureComponent {
       cartItem,
       activeAttribute,
       activeAttributeIndex,
-      activeAttributeItem,
-      items
     } = this.props;
 
     const name = attribute.name;
-
-    // console.log(cartItem.attributes)
-    // console.log(activeAttributeItem)
-    // console.log(attribute.items)
 
     return (
       <ul className={styles.attributeGroup}>
@@ -63,7 +57,6 @@ Attribute.contextType = AppContext;
 const mapStateToProps = (state) => ({
   activeAttributeIndex: state.attributes.activeAttributeIndex,
   activeAttribute: state.attributes.activeAttribute,
-  activeAttributeItem: state.attributes.activeAttributeItem,
 });
 
 export default connect(mapStateToProps)(Attribute);

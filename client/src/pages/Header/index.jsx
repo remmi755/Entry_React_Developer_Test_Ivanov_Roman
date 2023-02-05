@@ -11,7 +11,7 @@ class Header extends React.PureComponent {
       <div className={styles.container}>
         <div className={styles.navigation}>
           <Link to="/">
-          <Categories />
+            <Categories />
           </Link>
         </div>
         <div className={styles.logo}>
@@ -26,5 +26,3 @@ class Header extends React.PureComponent {
 }
 
 export default Header;
-
-
