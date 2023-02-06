@@ -53,7 +53,7 @@ class CartOverlay extends React.PureComponent {
     const symbol = cartList[0]?.prices[activeCurrency].currency.symbol;
     return (
       <div ref={this.modalRef}>
-        <main className={styles.container}>
+        <main  className={ styles.container }>
           <header className={styles.header}>
             <Title className={styles.title}>My Bag,</Title>
             <span className={styles.totalCount}>{totalCount} items</span>

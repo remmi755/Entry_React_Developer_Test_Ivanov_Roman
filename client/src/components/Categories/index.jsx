@@ -17,9 +17,9 @@ class Categories extends React.PureComponent {
                 onClick={() => onSelectCategories(index)}
                 key={`${category.name}_${index}`}
                 className={`${styles.categoriesItem} 
-                                ${
-                                  activeCategory === index ? styles.active : ""
-                                }`}
+                ${
+                  activeCategory === index ? styles.active : ""
+                }`}
               >
                 {category.name}
               </li>
