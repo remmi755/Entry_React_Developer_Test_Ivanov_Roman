@@ -1,12 +1,15 @@
 import React from "react";
+import styles from "./Actions.module.css";
+
 import { ReactComponent as VectorDown } from "../../assets/SVG/VectorCurrency.svg";
 import { ReactComponent as VectorUp } from "../../assets/SVG/VectorUp.svg";
 import { ReactComponent as CartQuantity } from "../../assets/SVG/cartQuantity.svg";
-import styles from "./Actions.module.css";
 import { ReactComponent as HeaderBasket } from "../../assets/SVG/headerBasket.svg";
+
 import Currencies from "../Currencies";
 
 import { AppContext } from "../AppContext";
+
 import { connect } from "react-redux";
 import { onOpenPopup } from "../../redux/currencies/slice";
 import { toggleModal } from "../../redux/modal/slice";
