@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Entry_React_Developer_Test_Ivanov_Roman/static/css/main.9e7250ce.css",
+    "main.js": "/Entry_React_Developer_Test_Ivanov_Roman/static/js/main.087a2b4e.js",
+    "static/media/InCart.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/InCart.e228404ffd7c5320ec30c394d2db7a54.svg",
+    "static/media/headerLogo.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/headerLogo.70d7f9e5edaf987e506ff32784cf5cf3.svg",
+    "static/media/headerBasket.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/headerBasket.d19953670255792370f9fd25fc20f2ce.svg",
+    "index.html": "/Entry_React_Developer_Test_Ivanov_Roman/index.html",
+    "static/media/VectorRight.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/VectorRight.2b3df7fa4b2ee46ffc88f1ffd4c5477d.svg",
+    "static/media/VectorLeft.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/VectorLeft.094650e36d34652232c9374dc5998a78.svg",
+    "static/media/VectorCurrency.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/VectorCurrency.766d7b11f183f77a1e40c47ea18dd7ee.svg",
+    "static/media/VectorUp.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/VectorUp.f50a5cf5cf8bfef55adfa0e02aae74ee.svg",
+    "static/media/cartQuantity.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/cartQuantity.fa2e3788a643ba103ca9e45df2560e33.svg",
+    "main.9e7250ce.css.map": "/Entry_React_Developer_Test_Ivanov_Roman/static/css/main.9e7250ce.css.map",
+    "main.087a2b4e.js.map": "/Entry_React_Developer_Test_Ivanov_Roman/static/js/main.087a2b4e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e7250ce.css",
+    "static/js/main.087a2b4e.js"
+  ]
+}
