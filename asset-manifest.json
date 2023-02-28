@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Entry_React_Developer_Test_Ivanov_Roman/static/css/main.9e7250ce.css",
-    "main.js": "/Entry_React_Developer_Test_Ivanov_Roman/static/js/main.087a2b4e.js",
+    "main.js": "/Entry_React_Developer_Test_Ivanov_Roman/static/js/main.7845e10b.js",
     "static/media/InCart.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/InCart.e228404ffd7c5320ec30c394d2db7a54.svg",
     "static/media/headerLogo.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/headerLogo.70d7f9e5edaf987e506ff32784cf5cf3.svg",
     "static/media/headerBasket.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/headerBasket.d19953670255792370f9fd25fc20f2ce.svg",
@@ -12,10 +12,10 @@
     "static/media/VectorUp.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/VectorUp.f50a5cf5cf8bfef55adfa0e02aae74ee.svg",
     "static/media/cartQuantity.svg": "/Entry_React_Developer_Test_Ivanov_Roman/static/media/cartQuantity.fa2e3788a643ba103ca9e45df2560e33.svg",
     "main.9e7250ce.css.map": "/Entry_React_Developer_Test_Ivanov_Roman/static/css/main.9e7250ce.css.map",
-    "main.087a2b4e.js.map": "/Entry_React_Developer_Test_Ivanov_Roman/static/js/main.087a2b4e.js.map"
+    "main.7845e10b.js.map": "/Entry_React_Developer_Test_Ivanov_Roman/static/js/main.7845e10b.js.map"
   },
   "entrypoints": [
     "static/css/main.9e7250ce.css",
-    "static/js/main.087a2b4e.js"
+    "static/js/main.7845e10b.js"
   ]
 }
