@@ -2,7 +2,7 @@
 
 ![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_14.jpg)
 ![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_11.jpg)
-![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
+![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_12.jpg)
 ![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
 
 ## Required:
