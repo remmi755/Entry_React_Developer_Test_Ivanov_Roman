@@ -1,3 +1,10 @@
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=40&duration=4000&pause=1000&width=435&height=76&lines=Online+store)](https://git.io/typing-svg)
+
+![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
+![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
+![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
+![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
+
 ## Required:
 
 - React. Anything not written in React will be rejected automatically. This is a React position, we expect a React solution.
