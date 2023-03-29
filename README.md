@@ -1,6 +1,6 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=40&duration=4000&pause=1000&width=435&height=76&lines=Online+store)](https://git.io/typing-svg)
 
-![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
+![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_14.jpg)
 ![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
 ![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
 ![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
