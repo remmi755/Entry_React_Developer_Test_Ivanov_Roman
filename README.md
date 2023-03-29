@@ -1,9 +1,20 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=40&duration=4000&pause=1000&width=435&height=76&lines=Online+store)](https://git.io/typing-svg)
 
+<h2>Main page</h2>
+
 ![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_14.jpg)
+
+<h2>Product page</h2>
+
 ![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_11.jpg)
+
+<h2>CartOverlay/h2>
+
 ![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_12.jpg)
-![](https://github.com/Opzalas/CMPG-323-Overview---33448809/blob/main/branching.png)
+
+<h2>Cart</h2>
+
+![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_13.jpg)
 
 ## Required:
 
