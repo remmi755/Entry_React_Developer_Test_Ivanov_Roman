@@ -8,7 +8,7 @@
 
 ![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_11.jpg)
 
-<h2>CartOverlay/h2>
+<h2>CartOverlay</h2>
 
 ![](https://github.com/remmi755/Entry_React_Developer_Test_Ivanov_Roman/blob/master/Screenshot_12.jpg)
 
